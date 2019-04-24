@@ -1,0 +1,4 @@
+﻿  源.cpp
+c:\users\雅典娜的天罚\desktop\offer\mianshi40\mianshi40\源.cpp(78): warning C4244: “参数”: 从“time_t”转换到“unsigned int”，可能丢失数据
+c:\users\雅典娜的天罚\desktop\offer\mianshi40\mianshi40\源.cpp(94): warning C4018: “<”: 有符号/无符号不匹配
+  mianshi40.vcxproj -> C:\Users\雅典娜的天罚\Desktop\offer\mianshi40\Debug\mianshi40.exe

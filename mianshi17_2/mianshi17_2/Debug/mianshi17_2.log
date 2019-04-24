@@ -1,0 +1,5 @@
+﻿  源.cpp
+c:\users\雅典娜的天罚\desktop\offer\mianshi17_2\mianshi17_2\源.cpp(15): warning C4554: “&”: 检查运算符优先级是否存在的可能的错误；使用括号阐明优先级
+c:\users\雅典娜的天罚\desktop\offer\mianshi17_2\mianshi17_2\源.cpp(65): warning C4244: “=”: 从“unsigned long”转换到“char”，可能丢失数据
+c:\users\雅典娜的天罚\desktop\offer\mianshi17_2\mianshi17_2\源.cpp(89): warning C4244: “=”: 从“unsigned long”转换到“char”，可能丢失数据
+  mianshi17_2.vcxproj -> C:\Users\雅典娜的天罚\Desktop\offer\mianshi17_2\Debug\mianshi17_2.exe

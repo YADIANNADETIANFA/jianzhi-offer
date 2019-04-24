@@ -1,0 +1,6 @@
+﻿  源.cpp
+c:\users\雅典娜的天罚\desktop\offer\mianshi15\mianshi15\源.cpp(87): warning C4477: “printf”: 格式字符串“%p”需要类型“void *”的参数，但可变参数 1 拥有了类型“int”
+c:\users\雅典娜的天罚\desktop\offer\mianshi15\mianshi15\源.cpp(89): warning C4477: “printf”: 格式字符串“%p”需要类型“void *”的参数，但可变参数 1 拥有了类型“int”
+c:\users\雅典娜的天罚\desktop\offer\mianshi15\mianshi15\源.cpp(93): warning C4477: “printf”: 格式字符串“%p”需要类型“void *”的参数，但可变参数 1 拥有了类型“int”
+c:\users\雅典娜的天罚\desktop\offer\mianshi15\mianshi15\源.cpp(95): warning C4477: “printf”: 格式字符串“%p”需要类型“void *”的参数，但可变参数 1 拥有了类型“int”
+  mianshi15.vcxproj -> C:\Users\雅典娜的天罚\Desktop\offer\mianshi15\Debug\mianshi15.exe

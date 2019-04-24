@@ -1,0 +1,13 @@
+﻿  源.cpp
+c:\users\雅典娜的天罚\desktop\offer\mianshi28\mianshi28\源.cpp(99): warning C4244: “参数”: 从“double”转换到“const _Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+c:\users\雅典娜的天罚\desktop\offer\mianshi28\mianshi28\源.cpp(117): warning C4244: “参数”: 从“double”转换到“const _Ty”，可能丢失数据
+          with
+          [
+              _Ty=int
+          ]
+c:\users\雅典娜的天罚\desktop\offer\mianshi28\mianshi28\源.cpp(158): warning C4018: “<”: 有符号/无符号不匹配
+  mianshi28.vcxproj -> C:\Users\雅典娜的天罚\Desktop\offer\mianshi28\Debug\mianshi28.exe

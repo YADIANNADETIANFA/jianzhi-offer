@@ -1,0 +1,4 @@
+﻿  源.cpp
+c:\users\雅典娜的天罚\desktop\训练逻辑思考能力_offer\mianshi56_1\mianshi56_1\源.cpp(34): warning C4554: “&”: 检查运算符优先级是否存在的可能的错误；使用括号阐明优先级
+c:\users\雅典娜的天罚\desktop\训练逻辑思考能力_offer\mianshi56_1\mianshi56_1\源.cpp(53): warning C4101: “e”: 未引用的局部变量
+  mianshi56_1.vcxproj -> C:\Users\雅典娜的天罚\Desktop\训练逻辑思考能力_offer\mianshi56_1\Debug\mianshi56_1.exe
