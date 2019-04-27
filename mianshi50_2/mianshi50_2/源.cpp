@@ -1,3 +1,7 @@
+// é¢è¯•é¢˜50ï¼ˆäºŒï¼‰ï¼šå­—ç¬¦æµä¸­ç¬¬ä¸€ä¸ªåªå‡ºç°ä¸€æ¬¡çš„å­—ç¬¦
+// é¢˜ç›®ï¼šè¯·å®ç°ä¸€ä¸ªå‡½æ•°ç”¨æ¥æ‰¾å‡ºå­—ç¬¦æµä¸­ç¬¬ä¸€ä¸ªåªå‡ºç°ä¸€æ¬¡çš„å­—ç¬¦ã€‚ä¾‹å¦‚ï¼Œå½“ä»
+// å­—ç¬¦æµä¸­åªè¯»å‡ºå‰ä¸¤ä¸ªå­—ç¬¦"go"æ—¶ï¼Œç¬¬ä¸€ä¸ªåªå‡ºç°ä¸€æ¬¡çš„å­—ç¬¦æ˜¯'g'ã€‚å½“ä»è¯¥å­—
+// ç¬¦æµä¸­è¯»å‡ºå‰å…­ä¸ªå­—ç¬¦"google"æ—¶ï¼Œç¬¬ä¸€ä¸ªåªå‡ºç°ä¸€æ¬¡çš„å­—ç¬¦æ˜¯'l'ã€‚
 #include<cstdio>
 #include<limits>
 
@@ -25,10 +29,10 @@ public:
 	char FindFirstShow()
 	{
 		char ch = '\0';
-		int minIndex = numeric_limits<int>::max();//ĞèÒªlimitsµÄÍ·£» 
-		                                          //numeric_limits<double>::max () ÊÇº¯Êı£¬·µ»Ø±àÒëÆ÷ÔÊĞíµÄ double ĞÍÊı ×î´óÖµ¡£
-			                                      //ÀàËÆµÄ numeric_limits<int>::max()  ·µ»Ø ±àÒëÆ÷ÔÊĞíµÄ int ĞÍÊı ×î´óÖµ¡£
-			                                      //Ğè°üº¬Í·ÎÄ¼ş  #include <limits>
+		int minIndex = numeric_limits<int>::max();//éœ€è¦limitsçš„å¤´ï¼› 
+		                                          //numeric_limits<double>::max () æ˜¯å‡½æ•°ï¼Œè¿”å›ç¼–è¯‘å™¨å…è®¸çš„ double å‹æ•° æœ€å¤§å€¼ã€‚
+			                                      //ç±»ä¼¼çš„ numeric_limits<int>::max()  è¿”å› ç¼–è¯‘å™¨å…è®¸çš„ int å‹æ•° æœ€å¤§å€¼ã€‚
+			                                      //éœ€åŒ…å«å¤´æ–‡ä»¶  #include <limits>
 		for (int i = 0; i < 256; ++i)
 		{
 			if (charIndex[i] >= 0 && charIndex[i] <= minIndex)
@@ -95,7 +99,7 @@ int main()
 		printf("Fail\n");
 }
 
-int main()//ÔÚTestÀïÃæÊµÏÖInsert£¬Æä²åÈëµÄ¶ÔÏóÊÇCharstreamµÄ¿½±´£¬³öÁËTestº¯Êıºó¸Ã¿½±´ÏûÊ§£¬Ô­Charstream²¢Î´·¢Éú¸Ä±ä£¬ËùÒÔÀïÃæÓÀÔ¶Ö»»áÓĞÒ»¸ö×Ö·û£¡
+int main()//åœ¨Testé‡Œé¢å®ç°Insertï¼Œå…¶æ’å…¥çš„å¯¹è±¡æ˜¯Charstreamçš„æ‹·è´ï¼Œå‡ºäº†Testå‡½æ•°åè¯¥æ‹·è´æ¶ˆå¤±ï¼ŒåŸCharstreamå¹¶æœªå‘ç”Ÿæ”¹å˜ï¼Œæ‰€ä»¥é‡Œé¢æ°¸è¿œåªä¼šæœ‰ä¸€ä¸ªå­—ç¬¦ï¼
 {
 	CharOperation Charstream;
 
