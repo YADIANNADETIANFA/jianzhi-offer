@@ -1,3 +1,7 @@
+// 面试题45：把数组排成最小的数
+// 题目：输入一个正整数数组，把数组里所有数字拼接起来排成一个数，打印能拼
+// 接出的所有数字中最小的一个。例如输入数组{3, 32, 321}，则打印出这3个数
+// 字能排成的最小数字321323。
 #include<cstdio>
 #include<cstdlib>
 #include<cstring>
@@ -14,7 +18,7 @@ void PrintMinNumber(int* number, int length)
 	if (number == nullptr || length <= 0)
 		return;
 
-	char** strNumber = new char*[length];//��ά��
+	char** strNumber = new char*[length];//二维的
 
 	for (int i = 0; i < length; ++i)
 	{
@@ -22,25 +26,25 @@ void PrintMinNumber(int* number, int length)
 		sprintf_s(strNumber[i], g_MaxNumLength + 1, "%u", number[i]);
 	}
 
-	qsort(strNumber, length, sizeof(strNumber[0]), compare);//��sort���ܲ�࣬Ҫ����
+	qsort(strNumber, length, sizeof(strNumber[0]), compare);//和sort功能差不多，要记着
 
 	for (int j = 0; j < length; ++j)
 		printf("%s", strNumber[j]);
 	printf("\n");
 
-	for (int i = 0; i < length; ++i)//��������һ�£�Ҫ�ֱ����delete��������
+	for (int i = 0; i < length; ++i)//这里留意一下，要分别进行delete！！！！
 		delete[] strNumber[i];
 	delete[] strNumber;
 }
 
 int compare(const void* strNumber1, const void* strNumber2)
 {
-	strcpy_s(g_strCombine1, g_MaxNumLength * 2 + 1, *(const char**)strNumber1);//ǿ��ת��
+	strcpy_s(g_strCombine1, g_MaxNumLength * 2 + 1, *(const char**)strNumber1);//强制转换
 	strcat_s(g_strCombine1, g_MaxNumLength * 2 + 1, *(const char**)strNumber2);
 
 	strcpy_s(g_strCombine2, g_MaxNumLength * 2 + 1, *(const char**)strNumber2);
 	strcat_s(g_strCombine2, g_MaxNumLength * 2 + 1, *(const char**)strNumber1);
-	/*strcpy_s(g_strCombine1, g_MaxNumLength * 2 + 1, (const char*)strNumber1);//��֪��Ϊʲô��������ǲ���ʹ���ȼ��ŵ���
+	/*strcpy_s(g_strCombine1, g_MaxNumLength * 2 + 1, (const char*)strNumber1);//不知道为什么，这个就是不好使，先记着得了
 	strcat_s(g_strCombine1, g_MaxNumLength * 2 + 1, (const char*)strNumber2);
 
 	strcpy_s(g_strCombine2, g_MaxNumLength * 2 + 1, (const char*)strNumber2);
