@@ -1,9 +1,12 @@
-//Î»ÔËËã
+// é¢è¯•é¢˜65ï¼šä¸ç”¨åŠ å‡ä¹˜é™¤åšåŠ æ³•
+// é¢˜ç›®ï¼šå†™ä¸€ä¸ªå‡½æ•°ï¼Œæ±‚ä¸¤ä¸ªæ•´æ•°ä¹‹å’Œï¼Œè¦æ±‚åœ¨å‡½æ•°ä½“å†…ä¸å¾—ä½¿ç”¨ï¼‹ã€ï¼ã€Ã—ã€Ã·
+// å››åˆ™è¿ç®—ç¬¦å·ã€‚
+//ä½è¿ç®—
 #include<cstdio>
 #include<iostream>
 using namespace std;
 
-int GetSum(int num1, int num2)//ÕıÊı£¬¸ºÊı£¬0¾ù¿ÉÒÔ
+int GetSum(int num1, int num2)//æ­£æ•°ï¼Œè´Ÿæ•°ï¼Œ0å‡å¯ä»¥
 {
 	int sum_without_jinwei = 0;
 	int jinwei = 0;
@@ -13,7 +16,7 @@ int GetSum(int num1, int num2)//ÕıÊı£¬¸ºÊı£¬0¾ù¿ÉÒÔ
 		jinwei = (num1&num2) << 1;
 		num1 = sum_without_jinwei;
 		num2 = jinwei;
-	} while (num2 != 0);//ÓĞ·ÖºÅ
+	} while (num2 != 0);//æœ‰åˆ†å·
 
 	return sum_without_jinwei;
 }
