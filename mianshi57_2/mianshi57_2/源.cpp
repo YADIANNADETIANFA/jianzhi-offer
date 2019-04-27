@@ -1,3 +1,6 @@
+// 面试题57（一）：和为s的两个数字
+// 题目：输入一个递增排序的数组和一个数字s，在数组中查找两个数，使得它们
+// 的和正好是s。如果有多对数字的和等于s，输出任意一对即可。
 #include<cstdio>
 #include<exception>
 
@@ -33,14 +36,14 @@ void PrintAllSequence(int s)
 			if (start >= 1 && sum == s)
 				Print(start, end);
 		}
-		else if (sum > s && start != end - 1)//��2
+		else if (sum > s && start != end - 1)//´ó2
 		{
 			sum = sum - end; 
 			end -= 1;
 			if (sum == s)
 				Print(start, end);
 		}
-		else//��1
+		else//´ó1
 		{
 			sum = sum + start - 1 - end;
 			start -= 1;
