@@ -1,8 +1,11 @@
+// 面试题21：调整数组顺序使奇数位于偶数前面
+// 题目：输入一个整数数组，实现一个函数来调整该数组中数字的顺序，使得所有
+// 奇数位于数组的前半部分，所有偶数位于数组的后半部分。
 #include<iostream>
 #include<cstdio>
 using namespace std;
 
-void Reorder(int* pData, bool(*func)(int), unsigned int length)//����ָ��
+void Reorder(int* pData, bool(*func)(int), unsigned int length)//函数指针
 {
 	if (pData == nullptr || length == 0)
 		return;
@@ -11,7 +14,7 @@ void Reorder(int* pData, bool(*func)(int), unsigned int length)//����ָ��
 	int* pend = pData + length - 1;
 	while (pfront < pend)
 	{
-		while (pfront < pend && !func(*pfront))//����ָ��
+		while (pfront < pend && !func(*pfront))//函数指针
 			++pfront;
 		while (pfront < pend && func(*pend))
 			--pend;
@@ -32,7 +35,7 @@ bool isEven(int n)
 
 void ReorderOddEven(int* pData, unsigned int length)
 {
-	Reorder(pData, isEven, length);//����ָ��
+	Reorder(pData, isEven, length);//函数指针
 }
 
 void Print(int* pData,unsigned int length)
