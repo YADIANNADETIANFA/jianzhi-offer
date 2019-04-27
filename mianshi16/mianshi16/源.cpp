@@ -1,13 +1,16 @@
+// é¢è¯•é¢˜16ï¼šæ•°å€¼çš„æ•´æ•°æ¬¡æ–¹
+// é¢˜ç›®ï¼šå®ç°å‡½æ•°double Power(double base, int exponent)ï¼Œæ±‚baseçš„exponent
+// æ¬¡æ–¹ã€‚ä¸å¾—ä½¿ç”¨åº“å‡½æ•°ï¼ŒåŒæ—¶ä¸éœ€è¦è€ƒè™‘å¤§æ•°é—®é¢˜ã€‚
 #include<cmath>
 #include<iostream>
 using namespace std;
 
 double Power_Of_Unsigned_exponent(double, unsigned);
 bool equal(double, double);
-bool InvalidInput = false;//È«¾Ö±äÁ¿£¬Ã¿¸öº¯Êı¶¼µ÷ÓÃµÃµ½
+bool InvalidInput = false;//å…¨å±€å˜é‡ï¼Œæ¯ä¸ªå‡½æ•°éƒ½è°ƒç”¨å¾—åˆ°
 double Power(double base, int exponent)
 {
-	InvalidInput = false;//Ã¿´Îµ÷ÓÃPower¶¼ÖØÖÃÒ»±éInvalidInput£¬Ê¡×Åtest6¿ªÊ¼µÄÊ±ºò£¬InvalidInputÓÃµÄ»¹ÊÇtest5µÄtrue£¡£¡£¡
+	InvalidInput = false;//æ¯æ¬¡è°ƒç”¨Poweréƒ½é‡ç½®ä¸€éInvalidInputï¼Œçœç€test6å¼€å§‹çš„æ—¶å€™ï¼ŒInvalidInputç”¨çš„è¿˜æ˜¯test5çš„trueï¼ï¼ï¼
 	if (equal(base, 0.0) && exponent <= 0.0)
 	{
 		InvalidInput = true;
@@ -36,7 +39,7 @@ double Power_Of_Unsigned_exponent(double base, unsigned exponent)
 
 	if (exponent & 1 == 1)
 	{
-		double result = Power_Of_Unsigned_exponent(base, exponent >> 1);//exponent >> 1Óëexponent=exponent >> 1ÊÇÁ½ÖÖ²»Í¬µÄ¶«Î÷
+		double result = Power_Of_Unsigned_exponent(base, exponent >> 1);//exponent >> 1ä¸exponent=exponent >> 1æ˜¯ä¸¤ç§ä¸åŒçš„ä¸œè¥¿
 			result = result * result*base;
 			return result;
 	}
