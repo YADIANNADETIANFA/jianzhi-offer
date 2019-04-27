@@ -1,3 +1,6 @@
+// é¢è¯•é¢˜24ï¼šåè½¬é“¾è¡¨
+// é¢˜ç›®ï¼šå®šä¹‰ä¸€ä¸ªå‡½æ•°ï¼Œè¾“å…¥ä¸€ä¸ªé“¾è¡¨çš„å¤´ç»“ç‚¹ï¼Œåè½¬è¯¥é“¾è¡¨å¹¶è¾“å‡ºåè½¬åé“¾è¡¨çš„
+// å¤´ç»“ç‚¹ã€‚
 #include"ListNode.h"
 #include<cstdio>
 #include<iostream>
@@ -54,8 +57,8 @@ void DestroyList(ListNode* pHead)
 	}
 }
 
-ListNode* ReverseList(ListNode* pHead)//Ô­Á´±í·¢ÉúÁË¸Ä±ä£¬ÒòÆä¾ÍÊÇ¶ÔÔ­Á´±íÉíÉÏ½øĞĞµÄ²Ù×÷£»Òª±£³ÖÔ­Á´±í²»±ä£¬³ı·ÇĞÂ½¨Ò»Á´±í£¬°ÑÔ­Á´±íÄÚÈİÖğÒ»¸´ÖÆ¹ıÈ¥£¬ÓèÒÔ±£Áô
-{                                      //×¢Òâ£¬Ö»¸´ÖÆÖµ£¬²»¸´ÖÆÖ¸ÕëµØÖ·£¬²»È»±äÒ»¸öÁíÒ»¸öÒ²»á¸ú×Å±ä£¡£¡
+ListNode* ReverseList(ListNode* pHead)//åŸé“¾è¡¨å‘ç”Ÿäº†æ”¹å˜ï¼Œå› å…¶å°±æ˜¯å¯¹åŸé“¾è¡¨èº«ä¸Šè¿›è¡Œçš„æ“ä½œï¼›è¦ä¿æŒåŸé“¾è¡¨ä¸å˜ï¼Œé™¤éæ–°å»ºä¸€é“¾è¡¨ï¼ŒæŠŠåŸé“¾è¡¨å†…å®¹é€ä¸€å¤åˆ¶è¿‡å»ï¼Œäºˆä»¥ä¿ç•™
+{                                      //æ³¨æ„ï¼Œåªå¤åˆ¶å€¼ï¼Œä¸å¤åˆ¶æŒ‡é’ˆåœ°å€ï¼Œä¸ç„¶å˜ä¸€ä¸ªå¦ä¸€ä¸ªä¹Ÿä¼šè·Ÿç€å˜ï¼ï¼
 	if (pHead == nullptr)
 		return nullptr;
 	if (pHead->m_pNext == nullptr)
@@ -212,13 +215,13 @@ ListNode* ReverseList(ListNode* pHead)
 	ListNode* pPrev = nullptr;
 	while (pNode != nullptr)
 	{
-		//pNode->m_pNext = pPrev;//ListNode* pNext = pNode->m_pNext;ÊÜÓ°Ïì
+		//pNode->m_pNext = pPrev;//ListNode* pNext = pNode->m_pNext;å—å½±å“
 		ListNode* pNext = pNode->m_pNext;
 
 		if (pNext == nullptr)
 			pReversedHead = pNode;
 
-		pNode->m_pNext = pPrev;//ListNode* pNext = pNode->m_pNext;²»ÊÜÓ°Ïì//ÄÇÁ´±í¸Ä±äÊÇÔõÃ´ÊµÏÖÁª¶¯µÄ£¿£¿
+		pNode->m_pNext = pPrev;//ListNode* pNext = pNode->m_pNext;ä¸å—å½±å“//é‚£é“¾è¡¨æ”¹å˜æ˜¯æ€ä¹ˆå®ç°è”åŠ¨çš„ï¼Ÿï¼Ÿ
 
 		pPrev = pNode;
 		pNode = pNext;
@@ -227,7 +230,7 @@ ListNode* ReverseList(ListNode* pHead)
 	return pReversedHead;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 ListNode* Test(ListNode* pHead)
 {
 	printf("The original list is: \n");
@@ -241,7 +244,7 @@ ListNode* Test(ListNode* pHead)
 	return pReversedHead;
 }
 
-// ÊäÈëµÄÁ´±íÓĞ¶à¸ö½áµã
+// è¾“å…¥çš„é“¾è¡¨æœ‰å¤šä¸ªç»“ç‚¹
 void Test1()
 {
 	ListNode* pNode1 = CreateListNode(1);
@@ -260,7 +263,7 @@ void Test1()
 	DestroyList(pReversedHead);
 }
 
-// ÊäÈëµÄÁ´±íÖ»ÓĞÒ»¸ö½áµã
+// è¾“å…¥çš„é“¾è¡¨åªæœ‰ä¸€ä¸ªç»“ç‚¹
 void Test2()
 {
 	ListNode* pNode1 = CreateListNode(1);
@@ -270,7 +273,7 @@ void Test2()
 	DestroyList(pReversedHead);
 }
 
-// ÊäÈë¿ÕÁ´±í
+// è¾“å…¥ç©ºé“¾è¡¨
 void Test3()
 {
 	Test(nullptr);
