@@ -1,37 +1,42 @@
+// é¢è¯•é¢˜46ï¼šæŠŠæ•°å­—ç¿»è¯‘æˆå­—ç¬¦ä¸²
+// é¢˜ç›®ï¼šç»™å®šä¸€ä¸ªæ•°å­—ï¼Œæˆ‘ä»¬æŒ‰ç…§å¦‚ä¸‹è§„åˆ™æŠŠå®ƒç¿»è¯‘ä¸ºå­—ç¬¦ä¸²ï¼š0ç¿»è¯‘æˆ"a"ï¼Œ1ç¿»
+// è¯‘æˆ"b"ï¼Œâ€¦â€¦ï¼Œ11ç¿»è¯‘æˆ"l"ï¼Œâ€¦â€¦ï¼Œ25ç¿»è¯‘æˆ"z"ã€‚ä¸€ä¸ªæ•°å­—å¯èƒ½æœ‰å¤šä¸ªç¿»è¯‘ã€‚ä¾‹
+// å¦‚12258æœ‰5ç§ä¸åŒçš„ç¿»è¯‘ï¼Œå®ƒä»¬åˆ†åˆ«æ˜¯"bccfi"ã€"bwfi"ã€"bczi"ã€"mcfi"å’Œ
+// "mzi"ã€‚è¯·ç¼–ç¨‹å®ç°ä¸€ä¸ªå‡½æ•°ç”¨æ¥è®¡ç®—ä¸€ä¸ªæ•°å­—æœ‰å¤šå°‘ç§ä¸åŒçš„ç¿»è¯‘æ–¹æ³•ã€‚
 #include<cstdio>
 #include<string>
 
 using namespace std;
 
-void NumOfTranslation(string& numTostr, string::iterator Begin, string::iterator End, int& count);//stringÒ²ÊÇÒ»ÖÖÈİÆ÷£¬¶øÇÒÕâÀï×îºÃ¼ÓÉÏÒıÓÃ
+void NumOfTranslation(string& numTostr, string::iterator Begin, string::iterator End, int& count);//stringä¹Ÿæ˜¯ä¸€ç§å®¹å™¨ï¼Œè€Œä¸”è¿™é‡Œæœ€å¥½åŠ ä¸Šå¼•ç”¨
 
 int GetTrans(int number)
 {
 	if (number < 0)
 		return 0;
-	string numTostr = to_string(number);//stringÊ¹ÓÃstd£¬to_stringº¯Êı¿ÉÓÃ
+	string numTostr = to_string(number);//stringä½¿ç”¨stdï¼Œto_stringå‡½æ•°å¯ç”¨
 	int count = 0;
 	NumOfTranslation(numTostr, numTostr.begin(), numTostr.end(), count);
 	return count;
 }
 
-void NumOfTranslation(string& numTostr, string::iterator Begin, string::iterator End, int& count)//µİ¹éÇó½â
+void NumOfTranslation(string& numTostr, string::iterator Begin, string::iterator End, int& count)//é€’å½’æ±‚è§£
 {
 	if (Begin == End)
 		return ;
 	else if ((Begin + 1) == End)
 	{
-		++count;//Ê²Ã´Ê±ºò·­Òëµ½ÁË×îºÃ£¬¼´·­ÒëÍê³ÉÁË£¬count²Å+1
+		++count;//ä»€ä¹ˆæ—¶å€™ç¿»è¯‘åˆ°äº†æœ€å¥½ï¼Œå³ç¿»è¯‘å®Œæˆäº†ï¼Œcountæ‰+1
 		return;
 	}
 	else if ((Begin + 2) == End)
 	{
 		NumOfTranslation(numTostr, Begin + 1, End, count);
-		if (((*Begin - '0') * 10 + *(Begin + 1) - '0') <= 25 && (*Begin-'0') != 0)//Ô¼ÊøÌõ¼şÓĞÁ½¸ö£¬Ò»¸öÊÇ²»³¬25£¬ÁíÒ»¸öÊÇ²»ÄÜ·­Òë 00 01 ÕâÑùµÄÁ½Î»×Ö·û
-			++count;//Í¬ÉÏ£¬Ê²Ã´Ê±ºò·­Òëµ½ÁË×îºÃ£¬¼´·­ÒëÍê³ÉÁË£¬count²Å+1
+		if (((*Begin - '0') * 10 + *(Begin + 1) - '0') <= 25 && (*Begin-'0') != 0)//çº¦æŸæ¡ä»¶æœ‰ä¸¤ä¸ªï¼Œä¸€ä¸ªæ˜¯ä¸è¶…25ï¼Œå¦ä¸€ä¸ªæ˜¯ä¸èƒ½ç¿»è¯‘ 00 01 è¿™æ ·çš„ä¸¤ä½å­—ç¬¦
+			++count;//åŒä¸Šï¼Œä»€ä¹ˆæ—¶å€™ç¿»è¯‘åˆ°äº†æœ€å¥½ï¼Œå³ç¿»è¯‘å®Œæˆäº†ï¼Œcountæ‰+1
 		return;
 	}
-	else//((Begin + 2) < End)£¬Ò²¼´ºóÃæ»¹ÓĞÁ½Î»ÒÔÉÏµÄ×Ö·û
+	else//((Begin + 2) < End)ï¼Œä¹Ÿå³åé¢è¿˜æœ‰ä¸¤ä½ä»¥ä¸Šçš„å­—ç¬¦
 	{
 		NumOfTranslation(numTostr, Begin + 1, End, count);
 		if (((*Begin - '0') * 10 + *(Begin + 1) - '0') <= 25 && (*Begin - '0') != 0)
