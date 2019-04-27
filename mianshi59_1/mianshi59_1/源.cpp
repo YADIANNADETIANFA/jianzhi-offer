@@ -1,12 +1,16 @@
+// 面试题59（一）：滑动窗口的最大值
+// 题目：给定一个数组和滑动窗口的大小，请找出所有滑动窗口里的最大值。例如，
+// 如果输入数组{2, 3, 4, 2, 6, 2, 5, 1}及滑动窗口的大小3，那么一共存在6个
+// 滑动窗口，它们的最大值分别为{4, 4, 6, 6, 6, 5}，
 #include<cstdio>
 #include<vector>
 #include<deque>
 
 using namespace std;
 
-vector<int> maxInWindows(const vector<int>num, unsigned int size)//�����Է���vector<int>��ѧ�ŵ㣡
+vector<int> maxInWindows(const vector<int>num, unsigned int size)//还可以返回vector<int>，学着点！
 {
-	vector<int> maxInWindows;//��ʼĬ��Ϊ��
+	vector<int> maxInWindows;//初始默认为空
 
 	if (num.size() >= size && size > 0)
 	{
@@ -66,7 +70,7 @@ void Test(const char* testname, vector<int>& num, vector<int>& expected, unsigne
 	vector<int>::const_iterator iterResult = result.begin();
 	vector<int>::const_iterator iterExpected = expected.begin();
 
-	while (iterResult != result.end() && iterExpected != expected.end())//�õ��������ж�
+	while (iterResult != result.end() && iterExpected != expected.end())//用迭代器来判断
 	{
 		if (*iterResult != *iterExpected)
 		{
