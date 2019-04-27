@@ -1,9 +1,12 @@
+// 面试题40：最小的k个数
+// 题目：输入n个整数，找出其中最小的k个数。例如输入4、5、1、6、2、7、3、8
+// 这8个数字，则最小的4个数字是1、2、3、4。
 #include<cstdio>
 #include<vector>
-#include<set>//multisetͷ
-#include<functional>//greaterͷ
-#include<cstdlib>//rand,srandͷ
-#include<ctime>//timeͷ
+#include<set>//multiset头
+#include<functional>//greater头
+#include<cstdlib>//rand,srand头
+#include<ctime>//time头
 
 using namespace std;
 
@@ -110,7 +113,7 @@ void Test(const char* testname, int* numbers, int length, int k,bool HasResult)
 	if (testname != nullptr)
 		printf("%s begin:\n", testname);
 
-	vector<int> numbers2;//����2��ԭʼ����
+	vector<int> numbers2;//方法2的原始容器
 	if (numbers != nullptr)
 	{
 		for (int i = 0; i < length; ++i)
