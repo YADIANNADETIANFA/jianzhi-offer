@@ -1,3 +1,8 @@
+// 面试题31：栈的压入、弹出序列
+// 题目：输入两个整数序列，第一个序列表示栈的压入顺序，请判断第二个序列是
+// 否为该栈的弹出顺序。假设压入栈的所有数字均不相等。例如序列1、2、3、4、
+// 5是某栈的压栈序列，序列4、5、3、2、1是该压栈序列对应的一个弹出序列，但
+// 4、3、5、1、2就不可能是该压栈序列的弹出序列。
 #include<vector>
 #include<cstdio>
 using namespace std;
@@ -8,30 +13,30 @@ bool IsPopOrder(vector<int> pInput, vector<int> pOutput, int length)
 		return false;
 
 	int num = length - 1;
-	while (pInput[num] != pOutput[0])//����ջ�ĸо����Ӻ���ǰ����ƥ��Ļ��һ���
-	{                                 //�ҵ���һ����ȵ�ֵ
+	while (pInput[num] != pOutput[0])//根据栈的感觉，从后往前可能匹配的会快一点儿
+	{                                 //找到第一个相等的值
 		num -= 1;
 		if (num < 0)
 			return false;
 	}
 
-	int num_left = num;//��Ӧ�õ�һ����ȵ�ֵ�󣬽������ڶ���output��ֵֻ�ܵ��ڵ�һ��input��ֵ�����һ��ֵ���ұ�һ��ֵ
+	int num_left = num;//对应好第一个相等的值后，接下来第二个output的值只能等于第一个input的值的左边一个值或右边一个值
 	int num_right = num;
-	int now_left = pOutput[0];//���ò��ظ��ԣ�����һ�ζ�Ӧ�ɹ���ֵ��Ϊ�����Ĳ�����ȡ���ĵ�
+	int now_left = pOutput[0];//利用不重复性，将第一次对应成功的值作为后续的不可能取到的点
 	int now_right = pOutput[0];
 
 	if (num_left > 0)
 	{
-		num_left -= 1;//input��ֵ����
+		num_left -= 1;//input左值左移
 		now_left = pInput[num_left];
 	}
 	if (num_right < length - 1)
 	{
-		num_right += 1;//��ֵ����
+		num_right += 1;//右值右移
 		now_right = pInput[num_right];
 	}
 
-	for (int i = 1; i <= length - 1; ++i)//��ʼ��Ӧ�����ļ���ֵ
+	for (int i = 1; i <= length - 1; ++i)//开始对应后续的几个值
 	{
 		if (pOutput[i] != now_left && pOutput[i] != now_right)
 			return false;
@@ -39,7 +44,7 @@ bool IsPopOrder(vector<int> pInput, vector<int> pOutput, int length)
 
 		if (pOutput[i] == now_left)
 		{
-			if (i == length - 1)//output�ߵ�ͷ�ˣ�����Ӧ����
+			if (i == length - 1)//output走到头了，即对应完了
 				return true;
 			if (num_left > 0)
 			{
@@ -52,7 +57,7 @@ bool IsPopOrder(vector<int> pInput, vector<int> pOutput, int length)
 
 		if (pOutput[i] == now_right)
 		{
-			if (i == length - 1)//ͬ��
+			if (i == length - 1)//同上
 				return true;
 			if (num_right < length - 1)
 			{
