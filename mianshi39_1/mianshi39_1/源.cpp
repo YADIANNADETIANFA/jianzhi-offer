@@ -1,4 +1,8 @@
-//����1��ȱ����Ҫ�ı�ԭ����
+// 面试题39：数组中出现次数超过一半的数字
+// 题目：数组中有一个数字出现的次数超过数组长度的一半，请找出这个数字。例
+// 如输入一个长度为9的数组{1, 2, 3, 2, 2, 2, 5, 4, 2}。由于数字2在数组中
+// 出现了5次，超过数组长度的一半，因此输出2。
+//方法1，缺点是要改变原数组
 #include<cstdio>
 #include<exception>
 #include<cstdlib>
@@ -72,7 +76,7 @@ int Partition(int* number, int length, int start, int end)
 
 	int index = RandomInRange(start, end);
 	Swap(&number[index], &number[end]);
-	int small = start-1;//small��start-1!!!!!����-1!!!!!!
+	int small = start-1;//small是start-1!!!!!不是-1!!!!!!
 	for (index = start; index < end; ++index)
 	{
 		if (number[index] < number[end])
@@ -110,7 +114,7 @@ void Test(const char*testname, int* number,int length, int ExcepNum)
 	if (testname != nullptr)
 		printf("%s begin:\n", testname);
 
-	try//try�оֲ�������try���޷�ʹ�ã�������������κκ����ڲ���ʹ���κ��쳣���������ڵ��ô������쳣����
+	try//try中局部变量在try外无法使用，解决方法：在任何函数内部不使用任何异常处理，而在调用处进行异常处理
 	{
 		int result = MoreThanHalfNum(number, length);
 		if (result == ExcepNum)
