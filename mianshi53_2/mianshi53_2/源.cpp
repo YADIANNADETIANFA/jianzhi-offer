@@ -1,15 +1,19 @@
+// é¢è¯•é¢˜53ï¼ˆäºŒï¼‰ï¼š0åˆ°n-1ä¸­ç¼ºå¤±çš„æ•°å­—
+// é¢˜ç›®ï¼šä¸€ä¸ªé•¿åº¦ä¸ºn-1çš„é€’å¢æ’åºæ•°ç»„ä¸­çš„æ‰€æœ‰æ•°å­—éƒ½æ˜¯å”¯ä¸€çš„ï¼Œå¹¶ä¸”æ¯ä¸ªæ•°å­—
+// éƒ½åœ¨èŒƒå›´0åˆ°n-1ä¹‹å†…ã€‚åœ¨èŒƒå›´0åˆ°n-1çš„nä¸ªæ•°å­—ä¸­æœ‰ä¸”åªæœ‰ä¸€ä¸ªæ•°å­—ä¸åœ¨è¯¥æ•°ç»„
+// ä¸­ï¼Œè¯·æ‰¾å‡ºè¿™ä¸ªæ•°å­—ã€‚
 #include<cstdio>
 
 using namespace std;
 
 int theLostNumCore(int*, int, int, int);
 
-int theLostNum(int* data, int length)//lengthÎªnµÄÖµ£»   n¸öÊı×Ö£¬·¶Î§0~n-1£¬Êı×é³¤¶Èn-1£¬ÕâÈı¸ö¹ØÏµ²»ÀíÇåºóÃæ»áÂÒµÄ
+int theLostNum(int* data, int length)//lengthä¸ºnçš„å€¼ï¼›   nä¸ªæ•°å­—ï¼ŒèŒƒå›´0~n-1ï¼Œæ•°ç»„é•¿åº¦n-1ï¼Œè¿™ä¸‰ä¸ªå…³ç³»ä¸ç†æ¸…åé¢ä¼šä¹±çš„
 {
 	if (data == nullptr || length <= 1)
 		return -1;
 
-	//if (length == 1)//Ã»°ì·¨±íÊ¾intĞÍµÄ¿ÕÊı×é¡£¡£¡£
+	//if (length == 1)//æ²¡åŠæ³•è¡¨ç¤ºintå‹çš„ç©ºæ•°ç»„ã€‚ã€‚ã€‚
 	//	return 0;
 
 	int start = 0;
@@ -23,7 +27,7 @@ int theLostNumCore(int* data, int length, int start, int end)
 	{
 		if (data[start] == start + 1)
 			return start;
-		else if (start == length - 2)//{0 1 2 3 4}ÕâÑùÇé¿ö£¬×îÖÕ»á¼¯ÖĞµ½4ÕâÒ»µã£¬²»ÄÜÒòÎª²»Âú×ãdata[start] == start + 1¾Íreturn -1.ÒòÎªÕâÊ±ÊÇ×îºóÒ»µã£¬Òª·µ»ØÏÂÒ»¸öÎ´³öÏÖµÄµã×÷Îª½á¹û
+		else if (start == length - 2)//{0 1 2 3 4}è¿™æ ·æƒ…å†µï¼Œæœ€ç»ˆä¼šé›†ä¸­åˆ°4è¿™ä¸€ç‚¹ï¼Œä¸èƒ½å› ä¸ºä¸æ»¡è¶³data[start] == start + 1å°±return -1.å› ä¸ºè¿™æ—¶æ˜¯æœ€åä¸€ç‚¹ï¼Œè¦è¿”å›ä¸‹ä¸€ä¸ªæœªå‡ºç°çš„ç‚¹ä½œä¸ºç»“æœ
 			return start + 1;
 		else
 			return -1;
@@ -92,7 +96,7 @@ void test6()
 
 /*void test7()
 {
-	int data[] = {};//±íÊ¾³ö´í£¬Ã»°ì·¨±íÊ¾¿ÕµÄintÊı×é
+	int data[] = {};//è¡¨ç¤ºå‡ºé”™ï¼Œæ²¡åŠæ³•è¡¨ç¤ºç©ºçš„intæ•°ç»„
 	Test("test7", data, sizeof(data) / sizeof(int) + 1, 0);
 }*/
 
