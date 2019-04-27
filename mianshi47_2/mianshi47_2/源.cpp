@@ -1,4 +1,9 @@
-//���ظ�����ĵ�������
+// 面试题47：礼物的最大价值
+// 题目：在一个m×n的棋盘的每一格都放有一个礼物，每个礼物都有一定的价值
+// （价值大于0）。你可以从棋盘的左上角开始拿格子里的礼物，并每次向左或
+// 者向下移动一格直到到达棋盘的右下角。给定一个棋盘及其上面的礼物，请计
+// 算你最多能拿到多少价值的礼物？
+//无重复运算的迭代方法
 #include<cstdio>
 #include<algorithm>
 
@@ -9,7 +14,7 @@ int getMaxValue1(const int* value, int rows, int cols)
 	if (value == nullptr || rows <= 0 || cols <= 0)
 		return 0;
 
-	int** maxValue = new int*[rows];//��ά������
+	int** maxValue = new int*[rows];//二维创建！
 	for (int i = 0; i < rows; ++i)
 		maxValue[i] = new int[cols];
 
@@ -31,14 +36,14 @@ int getMaxValue1(const int* value, int rows, int cols)
 
 	int maxGet = maxValue[rows - 1][cols - 1];
 
-	for (int i = 0; i < rows; ++i)//�ͷŶ�ά��
+	for (int i = 0; i < rows; ++i)//释放二维！
 		delete[] maxValue[i];
 	delete[] maxValue;
 
 	return maxGet;
 }
 
-//�Ż���ռ�ø��ٵĸ����ռ䣬��Ҫ˼·��ֻ����һ�е���ֵ���������䲻�Ͻ��и���
+//优化，占用更少的辅助空间，主要思路：只保留一行的最值表，并对其不断进行更新
 int getMaxValue2(const int* value, int rows, int cols)
 {
 	if (value == nullptr || rows <= 0 || cols <= 0)
