@@ -1,6 +1,8 @@
-#include<cstdio>//printfͷ�ļ�
+// 面试题10：斐波那契数列
+// 题目：写一个函数，输入n，求斐波那契（Fibonacci）数列的第n项。
+#include<cstdio>//printf头文件
 
-long long Fibonacci_Solution1(unsigned n)//long longΪ������64λ��unsigned int����дΪunsigned
+long long Fibonacci_Solution1(unsigned n)//long long为长整型64位；unsigned int可缩写为unsigned
 {
 	if (n <= 0)
 	{
