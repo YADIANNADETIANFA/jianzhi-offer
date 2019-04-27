@@ -1,25 +1,30 @@
+// 面试题3（二）：不修改数组找出重复的数字
+// 题目：在一个长度为n+1的数组里的所有数字都在1到n的范围内，所以数组中至
+// 少有一个数字是重复的。请找出数组中任意一个重复的数字，但不能修改输入的
+// 数组。例如，如果输入长度为8的数组{2, 3, 5, 4, 3, 2, 6, 7}，那么对应的
+// 输出是重复的数字2或者3。
 #include<iostream>
 
-int CountNum(const int& start, const int& end, const int* a, const int& length);//����������Ȼ����֡�CountNum�Ҳ�����ʶ�����ı���
+int CountNum(const int& start, const int& end, const int* a, const int& length);//先声明，不然会出现“CountNum找不到标识符”的报错
 int getDuplication(const int *a, int length)
 {
 	if(a==nullptr || length<2)
 	{
 		return -1;
 	}
-	for (int i = 0; i < length; ++i)//ǿ��ʹ��û���ظ����Ļ���ֱ�ӷ���-1
+	for (int i = 0; i < length; ++i)//强制使得没有重复数的话，直接返回-1
 	{
 		if (a[i] >= length || a[i] < 1)
 		{
 			return -1;
 		}
 	}
-	//int middle = (length - 1) / 2;  //��������
+	//int middle = (length - 1) / 2;  //除法很慢
 	int start = 1;
 	int end = length - 1;
-	while (end >= start)//>=����>?
+	while (end >= start)//>=还是>?
 	{
-		int middle = ((end - start) >> 1 )+ start;//���ԣ�������������������λ�����ʲô��,Ӧ����ȡ��ֵ
+		int middle = ((end - start) >> 1 )+ start;//测试，如果结果不是整数，移位结果是什么？,应该是取整值
 		int num = CountNum(start, middle, a, length);
 		if (middle - start + 1 < num)
 		{
