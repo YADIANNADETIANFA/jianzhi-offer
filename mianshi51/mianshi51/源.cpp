@@ -1,3 +1,6 @@
+// é¢è¯•é¢˜51ï¼šæ•°ç»„ä¸­çš„é€†åºå¯¹
+// é¢˜ç›®ï¼šåœ¨æ•°ç»„ä¸­çš„ä¸¤ä¸ªæ•°å­—å¦‚æœå‰é¢ä¸€ä¸ªæ•°å­—å¤§äºåé¢çš„æ•°å­—ï¼Œåˆ™è¿™ä¸¤ä¸ªæ•°å­—ç»„
+// æˆä¸€ä¸ªé€†åºå¯¹ã€‚è¾“å…¥ä¸€ä¸ªæ•°ç»„ï¼Œæ±‚å‡ºè¿™ä¸ªæ•°ç»„ä¸­çš„é€†åºå¯¹çš„æ€»æ•°ã€‚
 #include<cstdio>
 
 int NumOfInverseCore(int*, int*, int, int);
@@ -7,7 +10,7 @@ int NumOfInverse(int*data, int length)
 	if (data == nullptr || length <= 0)
 		return 0;
 
-	int* copy = new int[length];//Ä¬ÈÏ³õÊ¼»¯Îª0£¿,ÊÇÂÒÂë,Òª¶ÔÆä½øĞĞ³õÊ¼»¯£»ÁíÍâ¹é²¢Ëã·¨Ò²ĞèÒª¶ÔÆä½øĞĞ¸³³õÖµ
+	int* copy = new int[length];//é»˜è®¤åˆå§‹åŒ–ä¸º0ï¼Ÿ,æ˜¯ä¹±ç ,è¦å¯¹å…¶è¿›è¡Œåˆå§‹åŒ–ï¼›å¦å¤–å½’å¹¶ç®—æ³•ä¹Ÿéœ€è¦å¯¹å…¶è¿›è¡Œèµ‹åˆå€¼
 	for (int i = 0; i < length; ++i)
 		copy[i] = data[i];
 
@@ -15,7 +18,7 @@ int NumOfInverse(int*data, int length)
 	int end = length - 1;
 
 	int count = NumOfInverseCore(data, copy, start, end);
-	delete[] copy;//ÃæÊÔµÄÊ±ºò±ğÍüÁË£¬²»È»Õ¨ÁË
+	delete[] copy;//é¢è¯•çš„æ—¶å€™åˆ«å¿˜äº†ï¼Œä¸ç„¶ç‚¸äº†
 	return count;
 }
 
@@ -29,14 +32,14 @@ int NumOfInverseCore(int* data, int* copy, int start, int end)
 	}
 
 	int length = (end - start) / 2;
-	int left = NumOfInverseCore(copy, data, start, start + length);//¹é²¢Ëã·¨£¬Á½¸öÈİÆ÷Ïà»¥½»Ìæ×Å¹é²¢£¬¼ûÊı¾İ½á¹¹455
+	int left = NumOfInverseCore(copy, data, start, start + length);//å½’å¹¶ç®—æ³•ï¼Œä¸¤ä¸ªå®¹å™¨ç›¸äº’äº¤æ›¿ç€å½’å¹¶ï¼Œè§æ•°æ®ç»“æ„455
 	int right = NumOfInverseCore(copy, data, start + length + 1, end);
 
 	int i = start + length;
 	int j = end;
 	int count = 0;
 	int copyIndex = end;
-	while (i >= start && j >= start + length + 1)//ÕâÀïÉè¼ÆµÄºÜ¾«Ãî£¬Ñ§Ï°Ò»ÏÂ
+	while (i >= start && j >= start + length + 1)//è¿™é‡Œè®¾è®¡çš„å¾ˆç²¾å¦™ï¼Œå­¦ä¹ ä¸€ä¸‹
 	{
 		if (data[i] > data[j])
 		{
@@ -49,7 +52,7 @@ int NumOfInverseCore(int* data, int* copy, int start, int end)
 		}
 	}
 
-	if (i < start)//ºÜÃ÷ÏÔ£¬ÓëforµÄÌõ¼şÏàÖØ¸´£¬¿ÉÒÔÊ¡ÂÔ£»¶øÇÒÕâÁ½¸öforÑ­»·Ö»ÓĞÒ»¸ö»á±»Ö´ĞĞ£¬ÒòÎªÌø³öÉÏÃæwhileÑ­»·Ö»»áÓĞi¡¢jÆäÖĞÒ»¸ö²»·ûºÏÑ­»·
+	if (i < start)//å¾ˆæ˜æ˜¾ï¼Œä¸forçš„æ¡ä»¶ç›¸é‡å¤ï¼Œå¯ä»¥çœç•¥ï¼›è€Œä¸”è¿™ä¸¤ä¸ªforå¾ªç¯åªæœ‰ä¸€ä¸ªä¼šè¢«æ‰§è¡Œï¼Œå› ä¸ºè·³å‡ºä¸Šé¢whileå¾ªç¯åªä¼šæœ‰iã€jå…¶ä¸­ä¸€ä¸ªä¸ç¬¦åˆå¾ªç¯
 	{
 		for (; j >= start + length + 1; --j)
 			copy[copyIndex--] = data[j];
@@ -83,7 +86,7 @@ void Test1()
 	Test("Test1", data, sizeof(data) / sizeof(int), expected);
 }
 
-// µİ¼õÅÅĞòÊı×é
+// é€’å‡æ’åºæ•°ç»„
 void Test2()
 {
 	int data[] = { 6, 5, 4, 3, 2, 1 };
@@ -92,7 +95,7 @@ void Test2()
 	Test("Test2", data, sizeof(data) / sizeof(int), expected);
 }
 
-// µİÔöÅÅĞòÊı×é
+// é€’å¢æ’åºæ•°ç»„
 void Test3()
 {
 	int data[] = { 1, 2, 3, 4, 5, 6 };
@@ -101,7 +104,7 @@ void Test3()
 	Test("Test3", data, sizeof(data) / sizeof(int), expected);
 }
 
-// Êı×éÖĞÖ»ÓĞÒ»¸öÊı×Ö
+// æ•°ç»„ä¸­åªæœ‰ä¸€ä¸ªæ•°å­—
 void Test4()
 {
 	int data[] = { 1 };
@@ -111,7 +114,7 @@ void Test4()
 }
 
 
-// Êı×éÖĞÖ»ÓĞÁ½¸öÊı×Ö£¬µİÔöÅÅĞò
+// æ•°ç»„ä¸­åªæœ‰ä¸¤ä¸ªæ•°å­—ï¼Œé€’å¢æ’åº
 void Test5()
 {
 	int data[] = { 1, 2 };
@@ -120,7 +123,7 @@ void Test5()
 	Test("Test5", data, sizeof(data) / sizeof(int), expected);
 }
 
-// Êı×éÖĞÖ»ÓĞÁ½¸öÊı×Ö£¬µİ¼õÅÅĞò
+// æ•°ç»„ä¸­åªæœ‰ä¸¤ä¸ªæ•°å­—ï¼Œé€’å‡æ’åº
 void Test6()
 {
 	int data[] = { 2, 1 };
@@ -129,7 +132,7 @@ void Test6()
 	Test("Test6", data, sizeof(data) / sizeof(int), expected);
 }
 
-// Êı×éÖĞÓĞÏàµÈµÄÊı×Ö
+// æ•°ç»„ä¸­æœ‰ç›¸ç­‰çš„æ•°å­—
 void Test7()
 {
 	int data[] = { 1, 2, 1, 2, 1 };
