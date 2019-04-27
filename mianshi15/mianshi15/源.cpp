@@ -1,7 +1,10 @@
+// é¢è¯•é¢˜15ï¼šäºŒè¿›åˆ¶ä¸­1çš„ä¸ªæ•°
+// é¢˜ç›®ï¼šè¯·å®žçŽ°ä¸€ä¸ªå‡½æ•°ï¼Œè¾“å…¥ä¸€ä¸ªæ•´æ•°ï¼Œè¾“å‡ºè¯¥æ•°äºŒè¿›åˆ¶è¡¨ç¤ºä¸­1çš„ä¸ªæ•°ã€‚ä¾‹å¦‚
+// æŠŠ9è¡¨ç¤ºæˆäºŒè¿›åˆ¶æ˜¯1001ï¼Œæœ‰2ä½æ˜¯1ã€‚å› æ­¤å¦‚æžœè¾“å…¥9ï¼Œè¯¥å‡½æ•°è¾“å‡º2ã€‚
 #include<cstdio>
 using namespace std;
 
-int NumberOf1_Solution1(int n)//½«nÖ±½ÓÏòÓÒÒÆ¶¯£¬ÈÝÒ×³öÏÖËÀÑ­»·
+int NumberOf1_Solution1(int n)//å°†nç›´æŽ¥å‘å³ç§»åŠ¨ï¼Œå®¹æ˜“å‡ºçŽ°æ­»å¾ªçŽ¯
 {
 	int count = 0;
 	while (n)
@@ -15,7 +18,7 @@ int NumberOf1_Solution1(int n)//½«nÖ±½ÓÏòÓÒÒÆ¶¯£¬ÈÝÒ×³öÏÖËÀÑ­»·
 	return count;
 }
 
-int NumberOf1_Solution2(int n)//½«Ð£ÑéÎ»Ïò×óÒÆ¶¯£¬Ö±ÖÁÒÆ¶¯16´ÎÇåÁã
+int NumberOf1_Solution2(int n)//å°†æ ¡éªŒä½å‘å·¦ç§»åŠ¨ï¼Œç›´è‡³ç§»åŠ¨16æ¬¡æ¸…é›¶
 {
 	int count = 0;
 	unsigned int check = 1;
@@ -31,7 +34,7 @@ int NumberOf1_Solution2(int n)//½«Ð£ÑéÎ»Ïò×óÒÆ¶¯£¬Ö±ÖÁÒÆ¶¯16´ÎÇåÁã
 }
 
 
-int NumberOf1_Solution3(int n)//½ÏÍêÃÀµÄ¼õÒ»ÓëÔËËã£¬Ñ­»·´ÎÊý½ÏÉÙ
+int NumberOf1_Solution3(int n)//è¾ƒå®Œç¾Žçš„å‡ä¸€ä¸Žè¿ç®—ï¼Œå¾ªçŽ¯æ¬¡æ•°è¾ƒå°‘
 {
 	int count = 0;
 	while (n)
@@ -42,7 +45,7 @@ int NumberOf1_Solution3(int n)//½ÏÍêÃÀµÄ¼õÒ»ÓëÔËËã£¬Ñ­»·´ÎÊý½ÏÉÙ
 	return count;
 }
 
-/*int NumberOf1_Solution4(int n)//¶ÔnµÄÕý¸º·Ö¿ª¿¼ÂÇ£¬ÖÁÉÙÓÅÓÚ·½·¨2
+/*int NumberOf1_Solution4(int n)//å¯¹nçš„æ­£è´Ÿåˆ†å¼€è€ƒè™‘ï¼Œè‡³å°‘ä¼˜äºŽæ–¹æ³•2
 {
 	int count = 0;
 	if (n >= 0)
@@ -105,22 +108,22 @@ void Test(int number, unsigned int expected)
 
 int main(int argc, char* argv[])
 {
-	// ÊäÈë0£¬ÆÚ´ýµÄÊä³öÊÇ0
+	// è¾“å…¥0ï¼ŒæœŸå¾…çš„è¾“å‡ºæ˜¯0
 	Test(0, 0);
 
-	// ÊäÈë1£¬ÆÚ´ýµÄÊä³öÊÇ1
+	// è¾“å…¥1ï¼ŒæœŸå¾…çš„è¾“å‡ºæ˜¯1
 	Test(1, 1);
 
-	// ÊäÈë10£¬ÆÚ´ýµÄÊä³öÊÇ2
+	// è¾“å…¥10ï¼ŒæœŸå¾…çš„è¾“å‡ºæ˜¯2
 	Test(10, 2);
 
-	// ÊäÈë0x7FFFFFFF£¬ÆÚ´ýµÄÊä³öÊÇ31
+	// è¾“å…¥0x7FFFFFFFï¼ŒæœŸå¾…çš„è¾“å‡ºæ˜¯31
 	Test(0x7FFFFFFF, 31);
 
-	// ÊäÈë0xFFFFFFFF£¨¸ºÊý£©£¬ÆÚ´ýµÄÊä³öÊÇ32
-	Test(0xFFFFFFFF, 32);//ËäÈ»ÊÇ-1£¬È´ÒªÊä³ö²¹ÂëµÄ1µÄ¸öÊý
+	// è¾“å…¥0xFFFFFFFFï¼ˆè´Ÿæ•°ï¼‰ï¼ŒæœŸå¾…çš„è¾“å‡ºæ˜¯32
+	Test(0xFFFFFFFF, 32);//è™½ç„¶æ˜¯-1ï¼Œå´è¦è¾“å‡ºè¡¥ç çš„1çš„ä¸ªæ•°
 
-	// ÊäÈë0x80000000£¨¸ºÊý£©£¬ÆÚ´ýµÄÊä³öÊÇ1
+	// è¾“å…¥0x80000000ï¼ˆè´Ÿæ•°ï¼‰ï¼ŒæœŸå¾…çš„è¾“å‡ºæ˜¯1
 	Test(0x80000000, 1);
 
 	return 0;
