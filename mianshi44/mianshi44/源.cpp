@@ -1,3 +1,7 @@
+// 面试题44：数字序列中某一位的数字
+// 题目：数字以0123456789101112131415…的格式序列化到一个字符序列中。在这
+// 个序列中，第5位（从0开始计数）是5，第13位是1，第19位是4，等等。请写一
+// 个函数求任意位对应的数字。
 #include<cstdio>
 
 using namespace std;
@@ -20,17 +24,17 @@ int theNumberOfN(int n)
 		++length;
 		Current += 9 * PowerBase10(length - 1)*length;
 	}
-	//����  forward<=n<=Current,����length��֪
+	//现在  forward<=n<=Current,并且length已知
 
-	int aimNum = PowerBase10(length - 1) + (n-forward)/length;//��ǰn��ָ���int��ֵ
-	char* strN = new char[length+1];//������+1��������'\0'������
-	//char strN[50];//�˷ѿռ䣬�������
-	sprintf_s(strN, length+1, "%u", aimNum);//ͬ���������+1����aimNumת��Ϊ�ַ����������ò���һ���
-	char result = *(strN + (n - forward) % length);//�ҵ�n��ָ���0~9�ľ���ֵ
+	int aimNum = PowerBase10(length - 1) + (n-forward)/length;//当前n所指向的int的值
+	char* strN = new char[length+1];//别忘了+1，好留给'\0'！！！
+	//char strN[50];//浪费空间，不用这个
+	sprintf_s(strN, length+1, "%u", aimNum);//同样，别忽略+1；将aimNum转换为字符串，这样好操作一点儿
+	char result = *(strN + (n - forward) % length);//找到n所指向的0~9的具体值
 	int result_Num;
-	sscanf_s(&result, "%u", &result_Num);//����ֵ��charת����int��ע�⣡result��char����Ҫ�������ָ���ַ�����Բ���Ϊ&result
+	sscanf_s(&result, "%u", &result_Num);//将该值从char转换回int；注意！result是char，需要输入的是指针地址，所以参数为&result
 
-	delete[] strN;//������
+	delete[] strN;//别忘了
 	return result_Num;
 }
 
@@ -63,11 +67,11 @@ int main()
 	test("Test2", 1, 1);
 	test("Test3", 9, 9);
 	test("Test4", 10, 1);
-	test("Test5", 189, 9);  // ����99�����һλ��9
-	test("Test6", 190, 1);  // ����100�ĵ�һλ��1
-	test("Test7", 1000, 3); // ����370�ĵ�һλ��3
-	test("Test8", 1001, 7); // ����370�ĵڶ�λ��7
-	test("Test9", 1002, 0); // ����370�ĵ���λ��0
+	test("Test5", 189, 9);  // 数字99的最后一位，9
+	test("Test6", 190, 1);  // 数字100的第一位，1
+	test("Test7", 1000, 3); // 数字370的第一位，3
+	test("Test8", 1001, 7); // 数字370的第二位，7
+	test("Test9", 1002, 0); // 数字370的第三位，0
 
 	return 0;
 }
