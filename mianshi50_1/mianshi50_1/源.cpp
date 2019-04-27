@@ -1,6 +1,9 @@
+// é¢è¯•é¢˜50ï¼ˆä¸€ï¼‰ï¼šå­—ç¬¦ä¸²ä¸­ç¬¬ä¸€ä¸ªåªå‡ºç°ä¸€æ¬¡çš„å­—ç¬¦
+// é¢˜ç›®ï¼šåœ¨å­—ç¬¦ä¸²ä¸­æ‰¾å‡ºç¬¬ä¸€ä¸ªåªå‡ºç°ä¸€æ¬¡çš„å­—ç¬¦ã€‚å¦‚è¾“å…¥"abaccdeff"ï¼Œåˆ™è¾“å‡º
+// 'b'ã€‚
 #include<cstdio>
 
-char FirstShowExistOne(const char* pstring)//Ö¸Ïò³£Á¿Ö¸Õë£¬¼´Ö¸Õë¿ÉÒÔ±ä»¯£¬µ«ÊÇÖ¸ÏòµÄ±äÁ¿²»ÄÜ±ä£¬µ±È»ÁË£¬ÕâÀïµÄconst²¢²»ÊÇ±ØĞëµÄ
+char FirstShowExistOne(const char* pstring)//æŒ‡å‘å¸¸é‡æŒ‡é’ˆï¼Œå³æŒ‡é’ˆå¯ä»¥å˜åŒ–ï¼Œä½†æ˜¯æŒ‡å‘çš„å˜é‡ä¸èƒ½å˜ï¼Œå½“ç„¶äº†ï¼Œè¿™é‡Œçš„constå¹¶ä¸æ˜¯å¿…é¡»çš„
 {
 	if (pstring == nullptr)
 		return '\0';
@@ -12,9 +15,9 @@ char FirstShowExistOne(const char* pstring)//Ö¸Ïò³£Á¿Ö¸Õë£¬¼´Ö¸Õë¿ÉÒÔ±ä»¯£¬µ«ÊÇÖ
 
 	const char* phashkey = pstring;
 	while (*phashkey != '\0')
-		phashlist[*(phashkey++)]++;//¿´ºÃ£¬ÕâÁ½ÖÖµØ·½£¬¶¼ÊÇ¿ÉÒÔÊ¹ÓÃ++µÄ
+		phashlist[*(phashkey++)]++;//çœ‹å¥½ï¼Œè¿™ä¸¤ç§åœ°æ–¹ï¼Œéƒ½æ˜¯å¯ä»¥ä½¿ç”¨++çš„
 
-	//¿ªÊ¼¶ş´ÎÉ¨Ãè¸Ã×Ö·û´®
+	//å¼€å§‹äºŒæ¬¡æ‰«æè¯¥å­—ç¬¦ä¸²
 	phashkey = pstring;
 	while (*phashkey != '\0')
 	{
@@ -31,7 +34,7 @@ void Test(const char* testname, const char* pstring, char expected)
 	if (testname != nullptr)
 		printf("%s begin:\n", testname);
 	char result = FirstShowExistOne(pstring);
-	if (result == expected)//ÕâÀïÁ½¸öchar¿ÉÒÔÊ¹ÓÃ==,±È½ÏµÄÊÇASCIIÖµ
+	if (result == expected)//è¿™é‡Œä¸¤ä¸ªcharå¯ä»¥ä½¿ç”¨==,æ¯”è¾ƒçš„æ˜¯ASCIIå€¼
 		printf("Pass\n");
 	else
 		printf("Fail\n");
