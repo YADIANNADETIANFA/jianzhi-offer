@@ -1,4 +1,7 @@
-#include<cstdio>//printf����ͷ�ļ�
+// 面试题8：二叉树的下一个结点
+// 题目：给定一棵二叉树和其中的一个结点，如何找出中序遍历顺序的下一个结点？
+// 树中的结点除了有两个分别指向左右子结点的指针以外，还有一个指向父结点的指针。
+#include<cstdio>//printf函数头文件
 #include"BinaryTreeNode.h"
 
 BinaryTreeNode* CreateNode(int value)
@@ -64,7 +67,7 @@ void DestroyTree(BinaryTreeNode* pRoot)
 		BinaryTreeNode* pRight = pRoot->p_right;
 		delete pRoot;
 		pRoot = nullptr;
-		DestroyTree(pLeft);//������һ��������������ɾ����������ȷ�ģ��ڴ汻�ջ��ˣ�����ָ�뻹�ǿ����õĿ���
+		DestroyTree(pLeft);//和链表一样，看来这样的删除操作是正确的，内存被收回了，但是指针还是可以用的看来
 		DestroyTree(pRight);
 	}
 }
