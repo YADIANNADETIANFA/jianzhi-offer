@@ -1,7 +1,10 @@
+// é¢è¯•é¢˜5ï¼šæ›¿æ¢ç©ºæ ¼
+// é¢˜ç›®ï¼šè¯·å®ç°ä¸€ä¸ªå‡½æ•°ï¼ŒæŠŠå­—ç¬¦ä¸²ä¸­çš„æ¯ä¸ªç©ºæ ¼æ›¿æ¢æˆ"%20"ã€‚ä¾‹å¦‚è¾“å…¥â€œWe are happy.â€ï¼Œ
+// åˆ™è¾“å‡ºâ€œWe%20are%20happy.â€ã€‚
 #include<cstring>
 #include<cstdio>
 
-void ChangeBlank(char str[], const int& length)//lengthÊÇ¸Ã×Ö·û´®Êı×éµÄ×ÜÈİÁ¿£¡
+void ChangeBlank(char str[], const int& length)//lengthæ˜¯è¯¥å­—ç¬¦ä¸²æ•°ç»„çš„æ€»å®¹é‡ï¼
 {
 	if (str == nullptr || length <= 0)
 	{
@@ -10,7 +13,7 @@ void ChangeBlank(char str[], const int& length)//lengthÊÇ¸Ã×Ö·û´®Êı×éµÄ×ÜÈİÁ¿£¡
 	int TheNumofBlank = 0;
 	int OriginalLen = 0;
 	int NewLen = 0;
-	/*char* ch = str;//Ö¸Õë¶¼ÊÇµØÖ·£¬int*Óëchar*µÄÇø±ğÔÚÓÚËùÖ¸Ïò¿Õ¼äÕ¼ÓÃµÄ´óĞ¡²»Í¬£¬int*Ö¸Ïò¿Õ¼äĞèÒª4¸ö×Ö½Ú£¬char*Ö¸Ïò¿Õ¼äĞèÒª1¸ö×Ö½Ú
+	/*char* ch = str;//æŒ‡é’ˆéƒ½æ˜¯åœ°å€ï¼Œint*ä¸char*çš„åŒºåˆ«åœ¨äºæ‰€æŒ‡å‘ç©ºé—´å ç”¨çš„å¤§å°ä¸åŒï¼Œint*æŒ‡å‘ç©ºé—´éœ€è¦4ä¸ªå­—èŠ‚ï¼Œchar*æŒ‡å‘ç©ºé—´éœ€è¦1ä¸ªå­—èŠ‚
 	while (*ch != '\0')
 	{
 		if (*ch == ' ')
@@ -33,7 +36,7 @@ void ChangeBlank(char str[], const int& length)//lengthÊÇ¸Ã×Ö·û´®Êı×éµÄ×ÜÈİÁ¿£¡
 	{
 		return;
 	}
-	while (OriginalLen >= 0 && NewLen > OriginalLen)//²»ÒªÓÃ±éÀú·¨£¬ÍòÒ»ºÜÔçÇ°Ãæ¾ÍÃ»ÓĞ¿Õ¸ñÁË£¬ÄÇÇ°Ãæ²»ÊÇ°×±éÀúÁËÃ´
+	while (OriginalLen >= 0 && NewLen > OriginalLen)//ä¸è¦ç”¨éå†æ³•ï¼Œä¸‡ä¸€å¾ˆæ—©å‰é¢å°±æ²¡æœ‰ç©ºæ ¼äº†ï¼Œé‚£å‰é¢ä¸æ˜¯ç™½éå†äº†ä¹ˆ
 	{
 		if (str[OriginalLen] != ' ')
 		{
@@ -52,12 +55,12 @@ void ChangeBlank(char str[], const int& length)//lengthÊÇ¸Ã×Ö·û´®Êı×éµÄ×ÜÈİÁ¿£¡
 	return;
 }
 
-void Test1()//¿Õ¸ñÔÚÖĞ¼ä
+void Test1()//ç©ºæ ¼åœ¨ä¸­é—´
 {
 	const int length = 20;
-	char string[length] = "We are happy.";//ÕâÀï²»ÄÜÓÃchar string[]ÕâÖÖÄ¬ÈÏ³¤¶È£¬ÕâÑù×öµÄ»°£¬stringµÄ×ÜÈİÁ¿¾Í¹Ì¶¨Îª14ÁË£¬¶ø²»ÏñÎÒÃÇÏëµÄÄÇÑù¿ÉÒÔÖØĞÂÉè¶¨length
-	ChangeBlank(string,length);//changeÍêÖ®ºó£¬stringÔõÃ´»¹ÊÇchar[14]ÄØ£¿£¡£¡£¡£¡
-	if (strcmp(string, "We%20are%20happy.")==0)//ÏàµÈ·µ»Ø0
+	char string[length] = "We are happy.";//è¿™é‡Œä¸èƒ½ç”¨char string[]è¿™ç§é»˜è®¤é•¿åº¦ï¼Œè¿™æ ·åšçš„è¯ï¼Œstringçš„æ€»å®¹é‡å°±å›ºå®šä¸º14äº†ï¼Œè€Œä¸åƒæˆ‘ä»¬æƒ³çš„é‚£æ ·å¯ä»¥é‡æ–°è®¾å®šlength
+	ChangeBlank(string,length);//changeå®Œä¹‹åï¼Œstringæ€ä¹ˆè¿˜æ˜¯char[14]å‘¢ï¼Ÿï¼ï¼ï¼ï¼
+	if (strcmp(string, "We%20are%20happy.")==0)//ç›¸ç­‰è¿”å›0
 	{
 		printf("Pass!");
 	}
@@ -67,12 +70,12 @@ void Test1()//¿Õ¸ñÔÚÖĞ¼ä
 	}
 }
 
-void Test2()//¿Õ¸ñÔÚÇ°¶Ë
+void Test2()//ç©ºæ ¼åœ¨å‰ç«¯
 {
 	const int length = 24;
-	char string[length] = " We are happy.";//ÕâÀï²»ÄÜÓÃchar string[]ÕâÖÖÄ¬ÈÏ³¤¶È£¬ÕâÑù×öµÄ»°£¬stringµÄ×ÜÈİÁ¿¾Í¹Ì¶¨Îª14ÁË£¬¶ø²»ÏñÎÒÃÇÏëµÄÄÇÑù¿ÉÒÔÖØĞÂÉè¶¨length
-	ChangeBlank(string, length);//changeÍêÖ®ºó£¬stringÔõÃ´»¹ÊÇchar[14]ÄØ£¿£¡£¡£¡£¡
-	if (strcmp(string, "%20We%20are%20happy.") == 0)//ÏàµÈ·µ»Ø0
+	char string[length] = " We are happy.";//è¿™é‡Œä¸èƒ½ç”¨char string[]è¿™ç§é»˜è®¤é•¿åº¦ï¼Œè¿™æ ·åšçš„è¯ï¼Œstringçš„æ€»å®¹é‡å°±å›ºå®šä¸º14äº†ï¼Œè€Œä¸åƒæˆ‘ä»¬æƒ³çš„é‚£æ ·å¯ä»¥é‡æ–°è®¾å®šlength
+	ChangeBlank(string, length);//changeå®Œä¹‹åï¼Œstringæ€ä¹ˆè¿˜æ˜¯char[14]å‘¢ï¼Ÿï¼ï¼ï¼ï¼
+	if (strcmp(string, "%20We%20are%20happy.") == 0)//ç›¸ç­‰è¿”å›0
 	{
 		printf("Pass!");
 	}
@@ -82,12 +85,12 @@ void Test2()//¿Õ¸ñÔÚÇ°¶Ë
 	}
 }
 
-void Test3()//¿Õ¸ñÔÚÄ©Î²
+void Test3()//ç©ºæ ¼åœ¨æœ«å°¾
 {
 	const int length = 24;
-	char string[length] = "We are happy. ";//ÕâÀï²»ÄÜÓÃchar string[]ÕâÖÖÄ¬ÈÏ³¤¶È£¬ÕâÑù×öµÄ»°£¬stringµÄ×ÜÈİÁ¿¾Í¹Ì¶¨Îª14ÁË£¬¶ø²»ÏñÎÒÃÇÏëµÄÄÇÑù¿ÉÒÔÖØĞÂÉè¶¨length
-	ChangeBlank(string, length);//changeÍêÖ®ºó£¬stringÔõÃ´»¹ÊÇchar[14]ÄØ£¿£¡£¡£¡£¡
-	if (strcmp(string, "We%20are%20happy.%20") == 0)//ÏàµÈ·µ»Ø0
+	char string[length] = "We are happy. ";//è¿™é‡Œä¸èƒ½ç”¨char string[]è¿™ç§é»˜è®¤é•¿åº¦ï¼Œè¿™æ ·åšçš„è¯ï¼Œstringçš„æ€»å®¹é‡å°±å›ºå®šä¸º14äº†ï¼Œè€Œä¸åƒæˆ‘ä»¬æƒ³çš„é‚£æ ·å¯ä»¥é‡æ–°è®¾å®šlength
+	ChangeBlank(string, length);//changeå®Œä¹‹åï¼Œstringæ€ä¹ˆè¿˜æ˜¯char[14]å‘¢ï¼Ÿï¼ï¼ï¼ï¼
+	if (strcmp(string, "We%20are%20happy.%20") == 0)//ç›¸ç­‰è¿”å›0
 	{
 		printf("Pass!");
 	}
@@ -97,12 +100,12 @@ void Test3()//¿Õ¸ñÔÚÄ©Î²
 	}
 }
 
-void Test4()//Á¬Ğø¶à¸ö¿Õ¸ñ
+void Test4()//è¿ç»­å¤šä¸ªç©ºæ ¼
 {
 	const int length = 32;
-	char string[length] = "  We are happy. ";//ÕâÀï²»ÄÜÓÃchar string[]ÕâÖÖÄ¬ÈÏ³¤¶È£¬ÕâÑù×öµÄ»°£¬stringµÄ×ÜÈİÁ¿¾Í¹Ì¶¨Îª14ÁË£¬¶ø²»ÏñÎÒÃÇÏëµÄÄÇÑù¿ÉÒÔÖØĞÂÉè¶¨length
-	ChangeBlank(string, length);//changeÍêÖ®ºó£¬stringÔõÃ´»¹ÊÇchar[14]ÄØ£¿£¡£¡£¡£¡
-	if (strcmp(string, "%20%20We%20are%20happy.%20") == 0)//ÏàµÈ·µ»Ø0
+	char string[length] = "  We are happy. ";//è¿™é‡Œä¸èƒ½ç”¨char string[]è¿™ç§é»˜è®¤é•¿åº¦ï¼Œè¿™æ ·åšçš„è¯ï¼Œstringçš„æ€»å®¹é‡å°±å›ºå®šä¸º14äº†ï¼Œè€Œä¸åƒæˆ‘ä»¬æƒ³çš„é‚£æ ·å¯ä»¥é‡æ–°è®¾å®šlength
+	ChangeBlank(string, length);//changeå®Œä¹‹åï¼Œstringæ€ä¹ˆè¿˜æ˜¯char[14]å‘¢ï¼Ÿï¼ï¼ï¼ï¼
+	if (strcmp(string, "%20%20We%20are%20happy.%20") == 0)//ç›¸ç­‰è¿”å›0
 	{
 		printf("Pass!");
 	}
@@ -112,12 +115,12 @@ void Test4()//Á¬Ğø¶à¸ö¿Õ¸ñ
 	}
 }
 
-void Test5()//Ã»ÓĞ¿Õ¸ñ
+void Test5()//æ²¡æœ‰ç©ºæ ¼
 {
 	const int length = 32;
-	char string[length] = "Wearehappy.";//ÕâÀï²»ÄÜÓÃchar string[]ÕâÖÖÄ¬ÈÏ³¤¶È£¬ÕâÑù×öµÄ»°£¬stringµÄ×ÜÈİÁ¿¾Í¹Ì¶¨Îª14ÁË£¬¶ø²»ÏñÎÒÃÇÏëµÄÄÇÑù¿ÉÒÔÖØĞÂÉè¶¨length
-	ChangeBlank(string, length);//changeÍêÖ®ºó£¬stringÔõÃ´»¹ÊÇchar[14]ÄØ£¿£¡£¡£¡£¡
-	if (strcmp(string, "Wearehappy.") == 0)//ÏàµÈ·µ»Ø0
+	char string[length] = "Wearehappy.";//è¿™é‡Œä¸èƒ½ç”¨char string[]è¿™ç§é»˜è®¤é•¿åº¦ï¼Œè¿™æ ·åšçš„è¯ï¼Œstringçš„æ€»å®¹é‡å°±å›ºå®šä¸º14äº†ï¼Œè€Œä¸åƒæˆ‘ä»¬æƒ³çš„é‚£æ ·å¯ä»¥é‡æ–°è®¾å®šlength
+	ChangeBlank(string, length);//changeå®Œä¹‹åï¼Œstringæ€ä¹ˆè¿˜æ˜¯char[14]å‘¢ï¼Ÿï¼ï¼ï¼ï¼
+	if (strcmp(string, "Wearehappy.") == 0)//ç›¸ç­‰è¿”å›0
 	{
 		printf("Pass!");
 	}
@@ -126,20 +129,20 @@ void Test5()//Ã»ÓĞ¿Õ¸ñ
 		printf("Fail!");
 	}
 }
-void Test6()//ÊäÈë¿ÕÖ¸Õë
+void Test6()//è¾“å…¥ç©ºæŒ‡é’ˆ
 {
 	const int length = 0;
-	//char string[] = nullptr;//ÕâÀï²»ÄÜÓÃchar string[]ÕâÖÖÄ¬ÈÏ³¤¶È£¬ÕâÑù×öµÄ»°£¬stringµÄ×ÜÈİÁ¿¾Í¹Ì¶¨Îª14ÁË£¬¶ø²»ÏñÎÒÃÇÏëµÄÄÇÑù¿ÉÒÔÖØĞÂÉè¶¨length
-	ChangeBlank(nullptr, length);//changeÍêÖ®ºó£¬stringÔõÃ´»¹ÊÇchar[14]ÄØ£¿£¡£¡£¡£¡
+	//char string[] = nullptr;//è¿™é‡Œä¸èƒ½ç”¨char string[]è¿™ç§é»˜è®¤é•¿åº¦ï¼Œè¿™æ ·åšçš„è¯ï¼Œstringçš„æ€»å®¹é‡å°±å›ºå®šä¸º14äº†ï¼Œè€Œä¸åƒæˆ‘ä»¬æƒ³çš„é‚£æ ·å¯ä»¥é‡æ–°è®¾å®šlength
+	ChangeBlank(nullptr, length);//changeå®Œä¹‹åï¼Œstringæ€ä¹ˆè¿˜æ˜¯char[14]å‘¢ï¼Ÿï¼ï¼ï¼ï¼
     printf("Pass!");
 }
 
-void Test7()//ÊäÈë¿Õ×Ö·û´®,¼´""
+void Test7()//è¾“å…¥ç©ºå­—ç¬¦ä¸²,å³""
 {
 	const int length = 20;
-	char string[length] = "";//ÕâÀï²»ÄÜÓÃchar string[]ÕâÖÖÄ¬ÈÏ³¤¶È£¬ÕâÑù×öµÄ»°£¬stringµÄ×ÜÈİÁ¿¾Í¹Ì¶¨Îª14ÁË£¬¶ø²»ÏñÎÒÃÇÏëµÄÄÇÑù¿ÉÒÔÖØĞÂÉè¶¨length
-	ChangeBlank(string, length);//changeÍêÖ®ºó£¬stringÔõÃ´»¹ÊÇchar[14]ÄØ£¿£¡£¡£¡£¡
-	if (strcmp(string, "") == 0)//ÏàµÈ·µ»Ø0
+	char string[length] = "";//è¿™é‡Œä¸èƒ½ç”¨char string[]è¿™ç§é»˜è®¤é•¿åº¦ï¼Œè¿™æ ·åšçš„è¯ï¼Œstringçš„æ€»å®¹é‡å°±å›ºå®šä¸º14äº†ï¼Œè€Œä¸åƒæˆ‘ä»¬æƒ³çš„é‚£æ ·å¯ä»¥é‡æ–°è®¾å®šlength
+	ChangeBlank(string, length);//changeå®Œä¹‹åï¼Œstringæ€ä¹ˆè¿˜æ˜¯char[14]å‘¢ï¼Ÿï¼ï¼ï¼ï¼
+	if (strcmp(string, "") == 0)//ç›¸ç­‰è¿”å›0
 	{
 		printf("Pass!");
 	}
@@ -149,12 +152,12 @@ void Test7()//ÊäÈë¿Õ×Ö·û´®,¼´""
 	}
 }
 
-void Test8()//½öÊäÈëÒ»¸ö¿Õ¸ñ
+void Test8()//ä»…è¾“å…¥ä¸€ä¸ªç©ºæ ¼
 {
 	const int length = 20;
-	char string[length] = " ";//ÕâÀï²»ÄÜÓÃchar string[]ÕâÖÖÄ¬ÈÏ³¤¶È£¬ÕâÑù×öµÄ»°£¬stringµÄ×ÜÈİÁ¿¾Í¹Ì¶¨Îª14ÁË£¬¶ø²»ÏñÎÒÃÇÏëµÄÄÇÑù¿ÉÒÔÖØĞÂÉè¶¨length
-	ChangeBlank(string, length);//changeÍêÖ®ºó£¬stringÔõÃ´»¹ÊÇchar[14]ÄØ£¿£¡£¡£¡£¡
-	if (strcmp(string, "%20") == 0)//ÏàµÈ·µ»Ø0
+	char string[length] = " ";//è¿™é‡Œä¸èƒ½ç”¨char string[]è¿™ç§é»˜è®¤é•¿åº¦ï¼Œè¿™æ ·åšçš„è¯ï¼Œstringçš„æ€»å®¹é‡å°±å›ºå®šä¸º14äº†ï¼Œè€Œä¸åƒæˆ‘ä»¬æƒ³çš„é‚£æ ·å¯ä»¥é‡æ–°è®¾å®šlength
+	ChangeBlank(string, length);//changeå®Œä¹‹åï¼Œstringæ€ä¹ˆè¿˜æ˜¯char[14]å‘¢ï¼Ÿï¼ï¼ï¼ï¼
+	if (strcmp(string, "%20") == 0)//ç›¸ç­‰è¿”å›0
 	{
 		printf("Pass!");
 	}
