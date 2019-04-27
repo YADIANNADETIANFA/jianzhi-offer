@@ -1,9 +1,11 @@
+// 面试题54：二叉搜索树的第k个结点
+// 题目：给定一棵二叉搜索树，请找出其中的第k大的结点。
 #include<cstdio>
 #include"BinaryTreeNode.h"
 
 using namespace std;
 
-BinaryTreeNode* MidOrderCore(BinaryTreeNode*, unsigned int, unsigned int&,bool&);//�����&
+BinaryTreeNode* MidOrderCore(BinaryTreeNode*, unsigned int, unsigned int&,bool&);//这里加&
 
 BinaryTreeNode* ConstructNode(int value)
 {
@@ -48,11 +50,11 @@ BinaryTreeNode* MidOrder(BinaryTreeNode* pRoot, unsigned int k)
 	return MidOrderCore(pRoot, k, m,is_continue);
 }
 
-BinaryTreeNode* MidOrderCore(BinaryTreeNode* pRoot, unsigned int k, unsigned int& m,bool& is_continue)//�����&
+BinaryTreeNode* MidOrderCore(BinaryTreeNode* pRoot, unsigned int k, unsigned int& m,bool& is_continue)//这里加&
 {
-	BinaryTreeNode* target = nullptr;//�����ǽ���������������ｨһ��target����������MidOrderCore�ķ��ز���
+	BinaryTreeNode* target = nullptr;//这里是解决方案就是在这里建一个target，用来进行MidOrderCore的返回操作
 	if (pRoot != nullptr)
-	{                                                                                //ѧϰһ�����ϵĽ��˼·
+	{                                                                                //学习一下树上的解决思路
 		if (is_continue)
 		{
 			target = MidOrderCore(pRoot->pLeft, k, m,is_continue);
@@ -64,14 +66,14 @@ BinaryTreeNode* MidOrderCore(BinaryTreeNode* pRoot, unsigned int k, unsigned int
 			return pRoot;
 		}
 			//return pRoot;
-		//else//�����ⲻ�ܼӣ�mҪ����ÿһ�ζ����£���Ȼ��Զ���Ƿ���������ڵ���
-		++m;//�м�㲻�У�ҲҪ++m
-		if (is_continue)//û�����������ƣ�target�ܱ������
+		//else//这玩意不能加，m要保持每一次都更新，不然永远都是返回最初根节点了
+		++m;//中间点不行，也要++m
+		if (is_continue)//没有这玩意限制，target总被下面改
 		{
 			target = MidOrderCore(pRoot->pRight, k, m,is_continue);
 		}
 	}
-	//else//��֤���k���������ܽڵ�������Ȼ��nullptr���Ա�����
+	//else//保证如果k大于树的总节点数，依然有nullptr可以被返回
 		return target;
 }
 
