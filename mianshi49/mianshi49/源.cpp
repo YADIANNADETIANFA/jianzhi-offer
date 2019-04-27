@@ -1,6 +1,10 @@
+// 面试题49：丑数
+// 题目：我们把只包含因子2、3和5的数称作丑数（Ugly Number）。求按从小到
+// 大的顺序的第1500个丑数。例如6、8都是丑数，但14不是，因为它包含因子7。
+// 习惯上我们把1当做第一个丑数。
 #include<cstdio>
 
-int Min(int a, int b, int c)//a��b��c�Ƿ��������ν��ֻҪ�õ���Сֵ����
+int Min(int a, int b, int c)//a，b，c是否相等无所谓，只要得到最小值就行
 {
 	int small = 0;
 	if (a < b)
@@ -31,15 +35,15 @@ int GettheUgly(int index)
 		ptheUglyArray[nextUglyIndex] = min_num;
 
 		if (min_num == *pMultiply2 * 2)
-			++pMultiply2;//ָ��Ҳ��������++
+			++pMultiply2;//指针也可以这样++
 		if (min_num == *pMultiply3 * 3)
 			++pMultiply3;
 		if (min_num == *pMultiply5 * 5)
 			++pMultiply5;
 
 
-		/*if (min_num == *pMultiply2 * 2)//ע�⣬���ﲻ����ʹ��else if����Ϊmin_num == *pMultiply2 * 2 == *pMultiply3 * 3��������Ǵ��ڵģ��������Ļ�++pMultiply2��++pMultiply3����Ҫ��ִ�У�
-			++pMultiply2;                //������ֵ��ȵ������2*3=6,3*2=6.
+		/*if (min_num == *pMultiply2 * 2)//注意，这里不可以使用else if，因为min_num == *pMultiply2 * 2 == *pMultiply3 * 3这种情况是存在的！！这样的话++pMultiply2与++pMultiply3都需要被执行！
+			++pMultiply2;                //即存在值相等的情况，2*3=6,3*2=6.
 		else if (min_num == *pMultiply3 * 3)
 			++pMultiply3;
 		else 
