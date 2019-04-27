@@ -1,5 +1,8 @@
+// 面试题43：从1到n整数中1出现的次数
+// 题目：输入一个整数n，求从1到n这n个整数的十进制表示中1出现的次数。例如
+// 输入12，从1到12这些整数中包含1 的数字有1，10，11和12，1一共出现了5次。
 #include<cstdio>
-#include<cstring>//strlenͷ
+#include<cstring>//strlen头
 
 using namespace std;
 
@@ -12,7 +15,7 @@ int NumberOf1Between1AndN(int n)
 		return 0;
 	char strN[50];
 	//sprintf(strN, "%d", n);
-	sprintf_s(strN, "%d", n);//�°�����ת�ַ���
+	sprintf_s(strN, "%d", n);//新版数字转字符串
 
 	return NumberOf1(strN);
 }
@@ -21,36 +24,36 @@ int NumberOf1(const char* strN)
 {
 	unsigned int length = strlen(strN);
 
-	if (length == 1)//��һλ�ĵ�������
+	if (length == 1)//就一位的单独考虑
 	{
 		if ((*(strN)-'0') >= 1)
 			return 1;
 		else
 			return 0;
 	}
-	//���ȴ������λ
+	//首先处理最高位
 	int Sum = 0;
 	if ((*(strN)-'0') > 1)
 	{
-		Sum+= PowerBase10(length - 1);//���λ����1�����������1����
+		Sum+= PowerBase10(length - 1);//最高位大于1的情况，等于1满贯
 	}
 	else
 	{
 		++Sum;
-		for (int i = 1; i < length; ++i)//���λ����1����������ں������ĸ����ټ�1
-			Sum += (*(strN + i) - '0')*PowerBase10(length - 1 - i);//Ҫ�ǵü�ȥ��0������
+		for (int i = 1; i < length; ++i)//最高位等于1的情况，等于后面数的个数再加1
+			Sum += (*(strN + i) - '0')*PowerBase10(length - 1 - i);//要记得减去‘0’！！
 	}
-	//��������ķ����λ
+	//处理后面的非最高位
 	for (int i = 1; i < length; ++i)
 	{
-		int forward_value = 0;//ĳһ�����λ��ǰ��
-		int back_value = 0;//ĳһ�����λ�ĺ�
+		int forward_value = 0;//某一非最高位的前方
+		int back_value = 0;//某一非最高位的后方
 
 		for (int j = 0; j < i; ++j)
-			forward_value += ((*(strN + j) - '0')*PowerBase10(i - j - 1));//ǰ���ж��ٸ�������λ���ж��ٸ�1������
-		if ((*(strN + i)-'0') > 1)//�����λ�Լ������ʹ���1�����ټ�һ������
+			forward_value += ((*(strN + j) - '0')*PowerBase10(i - j - 1));//前方有多少个数，该位就有多少个1的满贯
+		if ((*(strN + i)-'0') > 1)//如果该位自己本身就大于1，则再加一个满贯
 			++forward_value;
-		else if ((*(strN + i) - '0') == 1)//�����λ�Լ���������1�����ټӺ������ĸ����ټ�1
+		else if ((*(strN + i) - '0') == 1)//如果该位自己本身等于1，则再加后面数的个数再加1
 		{
 			++back_value;
 			for (int k = i+1; k < length; ++k)
