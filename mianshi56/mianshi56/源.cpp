@@ -1,14 +1,17 @@
+// é¢è¯•é¢˜56ï¼ˆä¸€ï¼‰ï¼šæ•°ç»„ä¸­åªå‡ºç°ä¸€æ¬¡çš„ä¸¤ä¸ªæ•°å­—
+// é¢˜ç›®ï¼šä¸€ä¸ªæ•´å‹æ•°ç»„é‡Œé™¤äº†ä¸¤ä¸ªæ•°å­—ä¹‹å¤–ï¼Œå…¶ä»–çš„æ•°å­—éƒ½å‡ºç°äº†ä¸¤æ¬¡ã€‚è¯·å†™ç¨‹åº
+// æ‰¾å‡ºè¿™ä¸¤ä¸ªåªå‡ºç°ä¸€æ¬¡çš„æ•°å­—ã€‚è¦æ±‚æ—¶é—´å¤æ‚åº¦æ˜¯O(n)ï¼Œç©ºé—´å¤æ‚åº¦æ˜¯O(1)ã€‚
 #include<cstdio>
 #include<exception>
 
 using namespace std;
 
-void theDifferentNum(int* data, int length,int& result)//ÒıÓÃ´«Öµ£¬Ê¡×ÅtryÀïÃæ¶«Î÷´«²»³öÀ´
+void theDifferentNum(int* data, int length,int& result)//å¼•ç”¨ä¼ å€¼ï¼Œçœç€tryé‡Œé¢ä¸œè¥¿ä¼ ä¸å‡ºæ¥
 {
 	if (data == nullptr || length <= 0)
 		throw exception("Bad Parameters");
 
-	int bitSum[3] = { 0 };//È«²¿×ö0´¦Àí£¬²¢ÇÒÄ¬ÈÏÊı×éÀïÃæÈ«ÊÇ1~7µÄÊı×Ö
+	int bitSum[3] = { 0 };//å…¨éƒ¨åš0å¤„ç†ï¼Œå¹¶ä¸”é»˜è®¤æ•°ç»„é‡Œé¢å…¨æ˜¯1~7çš„æ•°å­—
 
 	for (int i = 0; i < length; ++i)
 	{
@@ -21,7 +24,7 @@ void theDifferentNum(int* data, int length,int& result)//ÒıÓÃ´«Öµ£¬Ê¡×ÅtryÀïÃæ¶«
 
 	for (int i = 0; i < 3; ++i)
 	{
-		if ((bitSum[i] % 3) != 0)//ÊÇÇóÓà£¬²»ÊÇÕû³ıÔËËã£¡
+		if ((bitSum[i] % 3) != 0)//æ˜¯æ±‚ä½™ï¼Œä¸æ˜¯æ•´é™¤è¿ç®—ï¼
 			result += (1 << i);
 	}
 
@@ -56,7 +59,7 @@ void Test1()
 	Test("Test1", numbers, sizeof(numbers) / sizeof(int), expected);
 }
 
-// ËùÓĞÊı×Ö¶¼ÊÇÕıÊı£¬Î¨Ò»µÄÊı×ÖµÄ´óĞ¡Î»ÓÚÖĞ¼ä
+// æ‰€æœ‰æ•°å­—éƒ½æ˜¯æ­£æ•°ï¼Œå”¯ä¸€çš„æ•°å­—çš„å¤§å°ä½äºä¸­é—´
 void Test2()
 {
 	int numbers[] = { 4, 3, 3, 2, 2, 2, 3 };
@@ -64,7 +67,7 @@ void Test2()
 	Test("Test2", numbers, sizeof(numbers) / sizeof(int), expected);
 }
 
-// ËùÓĞÊı×Ö¶¼ÊÇÕıÊı£¬Î¨Ò»µÄÊı×ÖÊÇ×î´óµÄ
+// æ‰€æœ‰æ•°å­—éƒ½æ˜¯æ­£æ•°ï¼Œå”¯ä¸€çš„æ•°å­—æ˜¯æœ€å¤§çš„
 void Test3()
 {
 	int numbers[] = { 4, 4, 1, 1, 1, 7, 4 };
