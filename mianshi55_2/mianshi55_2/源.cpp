@@ -1,3 +1,6 @@
+// é¢è¯•é¢˜55ï¼ˆäºŒï¼‰ï¼šå¹³è¡¡äºŒå‰æ ‘
+// é¢˜ç›®ï¼šè¾“å…¥ä¸€æ£µäºŒå‰æ ‘çš„æ ¹ç»“ç‚¹ï¼Œåˆ¤æ–­è¯¥æ ‘æ˜¯ä¸æ˜¯å¹³è¡¡äºŒå‰æ ‘ã€‚å¦‚æœæŸäºŒå‰æ ‘ä¸­
+// ä»»æ„ç»“ç‚¹çš„å·¦å³å­æ ‘çš„æ·±åº¦ç›¸å·®ä¸è¶…è¿‡1ï¼Œé‚£ä¹ˆå®ƒå°±æ˜¯ä¸€æ£µå¹³è¡¡äºŒå‰æ ‘ã€‚
 #include<cstdio>
 #include"BinaryTreeNode.h"
 
@@ -36,7 +39,7 @@ void DestroyTree(BinaryTreeNode* pRoot)
 	}
 }
 
-bool IsBalance(BinaryTreeNode* pRoot, int& depth)//ºóĞò·¨À´½â¾ö
+bool IsBalance(BinaryTreeNode* pRoot, int& depth)//ååºæ³•æ¥è§£å†³
 {
 	if (pRoot == nullptr)
 	{
@@ -76,7 +79,7 @@ void Test(const char* testname, BinaryTreeNode* pRoot, bool expected)
 		printf("Fail\n");
 }
 
-// ÍêÈ«¶ş²æÊ÷
+// å®Œå…¨äºŒå‰æ ‘
 //             1
 //         /      \
 //        2        3
@@ -101,7 +104,7 @@ void Test1()
 	DestroyTree(pNode1);
 }
 
-// ²»ÊÇÍêÈ«¶ş²æÊ÷£¬µ«ÊÇÆ½ºâ¶ş²æÊ÷
+// ä¸æ˜¯å®Œå…¨äºŒå‰æ ‘ï¼Œä½†æ˜¯å¹³è¡¡äºŒå‰æ ‘
 //             1
 //         /      \
 //        2        3
@@ -129,7 +132,7 @@ void Test2()
 	DestroyTree(pNode1);
 }
 
-// ²»ÊÇÆ½ºâ¶ş²æÊ÷
+// ä¸æ˜¯å¹³è¡¡äºŒå‰æ ‘
 //             1
 //         /      \
 //        2        3
@@ -210,7 +213,7 @@ void Test5()
 	DestroyTree(pNode1);
 }
 
-// Ê÷ÖĞÖ»ÓĞ1¸ö½áµã
+// æ ‘ä¸­åªæœ‰1ä¸ªç»“ç‚¹
 void Test6()
 {
 	BinaryTreeNode* pNode1 = CreateBinaryTreeNode(1);
@@ -219,7 +222,7 @@ void Test6()
 	DestroyTree(pNode1);
 }
 
-// Ê÷ÖĞÃ»ÓĞ½áµã
+// æ ‘ä¸­æ²¡æœ‰ç»“ç‚¹
 void Test7()
 {
 	Test("Test7", nullptr, true);
