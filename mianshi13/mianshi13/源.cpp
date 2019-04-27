@@ -1,15 +1,20 @@
+// 面试题13：机器人的运动范围
+// 题目：地上有一个m行n列的方格。一个机器人从坐标(0, 0)的格子开始移动，它
+// 每一次可以向左、右、上、下移动一格，但不能进入行坐标和列坐标的数位之和
+// 大于k的格子。例如，当k为18时，机器人能够进入方格(35, 37)，因为3+5+3+7=18。
+// 但它不能进入方格(35, 38)，因为3+5+3+8=19。请问该机器人能够到达多少个格子？
 #include<cstdio>
 
 int numOfBlockCore(int, int, int, int, int, bool*);
 bool check(int, int, int, int, int, bool*);
 int getSum(int);
-int numOfBlock(int rows, int cols, int threshold)//row��ʾ�ڼ��У�0~rows-1����rows��ʾһ���м���
+int numOfBlock(int rows, int cols, int threshold)//row表示第几行（0~rows-1），rows表示一共有几行
 {
 	if (rows <= 0 || cols <= 0 || threshold < 0)
 		return 0;
 	int row = 0;
 	int col = 0;
-	bool* visited = new bool[rows*cols];//������visited�ж��ٸ�Ԫ�أ���Ҫrows*cols-1������Ҫ��һ
+	bool* visited = new bool[rows*cols];//这里是visited有多少个元素，不要rows*cols-1！！不要减一
 	for (int i = 0; i < rows; ++i)
 	{
 		for (int j = 0; j < cols; ++j)
