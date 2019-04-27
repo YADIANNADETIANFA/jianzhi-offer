@@ -1,3 +1,4 @@
+//用两个队列实现一个栈
 #include"Stack.h"
 
 void Test(char actual, CStack<char>& test)
