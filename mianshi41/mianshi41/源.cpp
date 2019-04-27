@@ -1,26 +1,30 @@
+// é¢è¯•é¢˜41ï¼šæ•°æ®æµä¸­çš„ä¸­ä½æ•°
+// é¢˜ç›®ï¼šå¦‚ä½•å¾—åˆ°ä¸€ä¸ªæ•°æ®æµä¸­çš„ä¸­ä½æ•°ï¼Ÿå¦‚æœä»æ•°æ®æµä¸­è¯»å‡ºå¥‡æ•°ä¸ªæ•°å€¼ï¼Œé‚£ä¹ˆ
+// ä¸­ä½æ•°å°±æ˜¯æ‰€æœ‰æ•°å€¼æ’åºä¹‹åä½äºä¸­é—´çš„æ•°å€¼ã€‚å¦‚æœä»æ•°æ®æµä¸­è¯»å‡ºå¶æ•°ä¸ªæ•°å€¼ï¼Œ
+// é‚£ä¹ˆä¸­ä½æ•°å°±æ˜¯æ‰€æœ‰æ•°å€¼æ’åºä¹‹åä¸­é—´ä¸¤ä¸ªæ•°çš„å¹³å‡å€¼ã€‚
 #include<cstdio>
 #include<vector>
 #include<algorithm>
 #include<functional>
 #include<exception>
 
-using namespace std;//exceptionÒ²ÊÇĞèÒªstdµÄ£¬»¹ÓĞvector
-                            //´ó¸ù¶Ñ¡¢×î´ó¶Ñ¾ÍÊÇÒ»¸ö¶«Î÷
+using namespace std;//exceptionä¹Ÿæ˜¯éœ€è¦stdçš„ï¼Œè¿˜æœ‰vector
+                            //å¤§æ ¹å †ã€æœ€å¤§å †å°±æ˜¯ä¸€ä¸ªä¸œè¥¿
 template<typename T> class DynamicArray
 {
 public:
 	void Insert(T num)
 	{
 		int Size = max.size() + min.size();
-		if ((Size & 1) == 0)//==ÓÅÏÈ¼¶ÔÚ&Ö®ÉÏ£¡
+		if ((Size & 1) == 0)//==ä¼˜å…ˆçº§åœ¨&ä¹‹ä¸Šï¼
 		{
 			if (max.size() > 0 && num < max[0])
 			{
-				max.push_back(num);//½«Êı¾İ²åÈë×î´ó¶Ñ,²åÈëµ½Ä©Î²
-				push_heap(max.begin(), max.end(), less<T>());//ÒªÏÈÔÚÈİÆ÷ÖĞ¼ÓÈëÊı¾İ£¬ÔÙµ÷ÓÃpush_heap ()//ÖØĞÂµ÷Õû¶ÑĞò
-				num = max[0];//»ñÈ¡×î´ó¶Ñ¸ù½ÚµãµÄÖµ
-				pop_heap(max.begin(), max.end(), less<T>());//ÒªÏÈµ÷ÓÃpop_heap()ÔÙÔÚÈİÆ÷ÖĞÉ¾³ıÊı¾İ//È¡³ö¶Ñ¶¥ÔªËØ£¬·Åµ½vectorÄ©Î²
-				max.pop_back();//½«Ä©Î²ÔªËØÉ¾³ı
+				max.push_back(num);//å°†æ•°æ®æ’å…¥æœ€å¤§å †,æ’å…¥åˆ°æœ«å°¾
+				push_heap(max.begin(), max.end(), less<T>());//è¦å…ˆåœ¨å®¹å™¨ä¸­åŠ å…¥æ•°æ®ï¼Œå†è°ƒç”¨push_heap ()//é‡æ–°è°ƒæ•´å †åº
+				num = max[0];//è·å–æœ€å¤§å †æ ¹èŠ‚ç‚¹çš„å€¼
+				pop_heap(max.begin(), max.end(), less<T>());//è¦å…ˆè°ƒç”¨pop_heap()å†åœ¨å®¹å™¨ä¸­åˆ é™¤æ•°æ®//å–å‡ºå †é¡¶å…ƒç´ ï¼Œæ”¾åˆ°vectoræœ«å°¾
+				max.pop_back();//å°†æœ«å°¾å…ƒç´ åˆ é™¤
 			}
 			min.push_back(num);
 			push_heap(min.begin(), min.end(), greater<T>());
@@ -49,7 +53,7 @@ public:
 		else
 			return min[0];
 	}
-	//Ê¹ÓÃvectorÄ£Äâ´ó¶¥¶ÑºÍĞ¡¶¥¶Ñ
+	//ä½¿ç”¨vectoræ¨¡æ‹Ÿå¤§é¡¶å †å’Œå°é¡¶å †
 private:
 	vector<T> min;
 	vector<T> max;
@@ -75,7 +79,7 @@ int main()
 	}
 	catch (exception& e)
 	{
-		printf("No numbers are available\n");//catchµ½Òì³£ºóÖ´ĞĞ£¬Ö´ĞĞÍê±Ï¼ÌĞøÖ´ĞĞºóÃæ´úÂë£¬²¢²»µ÷»Ø¿ØÖÆÌ¨
+		printf("No numbers are available\n");//catchåˆ°å¼‚å¸¸åæ‰§è¡Œï¼Œæ‰§è¡Œå®Œæ¯•ç»§ç»­æ‰§è¡Œåé¢ä»£ç ï¼Œå¹¶ä¸è°ƒå›æ§åˆ¶å°
 	}
 
 	numbers.Insert(5);
