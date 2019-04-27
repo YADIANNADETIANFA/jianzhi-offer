@@ -1,10 +1,12 @@
+// é¢è¯•é¢˜27ï¼šäºŒå‰æ ‘çš„é•œåƒ
+// é¢˜ç›®ï¼šè¯·å®Œæˆä¸€ä¸ªå‡½æ•°ï¼Œè¾“å…¥ä¸€ä¸ªäºŒå‰æ ‘ï¼Œè¯¥å‡½æ•°è¾“å‡ºå®ƒçš„é•œåƒã€‚
 #include<cstdio>
 #include<iostream>
 #include<stack>
 #include"Binary_TreeNode.h"
 using namespace std;
 
-void MirrorRecursively(Binary_TreeNode* pRoot)//µİ¹é·½Ê½
+void MirrorRecursively(Binary_TreeNode* pRoot)//é€’å½’æ–¹å¼
 {
 	if (pRoot == nullptr)
 		return;
@@ -27,12 +29,12 @@ Binary_TreeNode* ConstructNode(double value)
 	return pNode;
 }
 
-void MirrorIteratively(Binary_TreeNode* pRoot)//¶ÔÓ¦µÄµü´ú·½Ê½
+void MirrorIteratively(Binary_TreeNode* pRoot)//å¯¹åº”çš„è¿­ä»£æ–¹å¼
 {
 	if (pRoot == nullptr)
 		return;
 
-	stack<Binary_TreeNode*> stackTreeNode;//Í·ÎÄ¼şstack
+	stack<Binary_TreeNode*> stackTreeNode;//å¤´æ–‡ä»¶stack
 	stackTreeNode.push(pRoot);
 
 	while (stackTreeNode.size() > 0)
@@ -65,10 +67,10 @@ void DestroyTree(Binary_TreeNode* pRoot)
 {
 	if (pRoot != nullptr)
 	{
-		Binary_TreeNode* pleft = pRoot->m_pleft;//ºÍÖ®Ç°Ò»Ñù£¬ÔÚÕâÀïpleftºÍprightÒÑ¾­ÊÇÏà¶Ô¶ÀÁ¢µÄ´æÔÚ
+		Binary_TreeNode* pleft = pRoot->m_pleft;//å’Œä¹‹å‰ä¸€æ ·ï¼Œåœ¨è¿™é‡Œpleftå’Œprightå·²ç»æ˜¯ç›¸å¯¹ç‹¬ç«‹çš„å­˜åœ¨
 		Binary_TreeNode* pright = pRoot->m_pright;
 
-		delete pRoot;//¹Ê²»»áÊÜµ½ÕâÀïµÄÓ°Ïì
+		delete pRoot;//æ•…ä¸ä¼šå—åˆ°è¿™é‡Œçš„å½±å“
 		pRoot = nullptr;
 
 		DestroyTree(pleft);
@@ -76,7 +78,7 @@ void DestroyTree(Binary_TreeNode* pRoot)
 	}
 }
 
-void PrintPreorder(Binary_TreeNode* pRoot)//Ç°Ğò»­³ö¶ş²æÊ÷
+void PrintPreorder(Binary_TreeNode* pRoot)//å‰åºç”»å‡ºäºŒå‰æ ‘
 {
 	if (pRoot != nullptr)
 	{
@@ -93,14 +95,14 @@ void Test(const char* testname, Binary_TreeNode* pRoot)
 	if (testname != nullptr)
 		printf("%s begin:\n", testname);
 
-	printf("The original Tree:\n");//ÕıĞò
+	printf("The original Tree:\n");//æ­£åº
 	PrintPreorder(pRoot);
 	cout << endl;
-	printf("After MirrorRecursively:\n");//¾µÏñ
+	printf("After MirrorRecursively:\n");//é•œåƒ
 	MirrorRecursively(pRoot);
 	PrintPreorder(pRoot);
 	cout << endl;
-	printf("After MirrorIteratively:\n");//ÔÙ´Î±»µ÷»ØÎªÕıĞò
+	printf("After MirrorIteratively:\n");//å†æ¬¡è¢«è°ƒå›ä¸ºæ­£åº
 	MirrorRecursively(pRoot);
 	PrintPreorder(pRoot);
 	cout << endl;
