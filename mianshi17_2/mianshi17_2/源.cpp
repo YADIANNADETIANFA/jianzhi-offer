@@ -1,3 +1,6 @@
+// 面试题17：打印1到最大的n位数
+// 题目：输入数字n，按顺序打印出从1最大的n位十进制数。比如输入3，则
+// 打印出1、2、3一直到最大的3位数即999。
 #include<iostream>
 #include<cstdio>
 using namespace std;
@@ -6,8 +9,8 @@ bool Increament(char*, int, int);
 void PrintNumber(char*, int, int);
 
 
-void Solution(int n)//ASCII��128���ַ��п���ʾ�ַ�û��100����һ���ַ���������ʾ��1~99��
-{                       //���������Լ���һ�����Ƶ��ַ���
+void Solution(int n)//ASCII表128个字符中可显示字符没有100个，一个字符做不到显示出1~99啊
+{                       //除非我们自己造一个类似的字符表
 	if (n <= 0)
 		return;
 
