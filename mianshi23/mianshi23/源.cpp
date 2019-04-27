@@ -1,3 +1,6 @@
+// 面试题23：链表中环的入口结点
+// 题目：一个链表中包含环，如何找出环的入口结点？例如，在图3.8的链表中，
+// 环的入口结点是结点3。
 #include"ListNode.h"
 #include<cstdio>
 #include<iostream>
@@ -99,7 +102,7 @@ ListNode* FindEntryOfRoop(ListNode* pHead, ListNode* pNode)
 		++num;
 	}
 
-	ListNode* pNode1 = pHead;//����֪�����нڵ������Ŀ��n-num��������в�ͨ��
+	ListNode* pNode1 = pHead;//并不知道链中节点的总数目，n-num找入口是行不通的
 	ListNode* pNode2 = pHead;
 
 	for (int i = 1; i <= num; ++i)
@@ -153,9 +156,9 @@ void test2()
 
 	Test("test2", pNode1, 1);
 
-	delete pNode1;//�����ı���Ҫ�ֶ�ɾ
+	delete pNode1;//带环的必须要手动删
 	pNode1 = nullptr;
-	//DestroyList(pNode1);//��������ôɾ��ɾ����
+	//DestroyList(pNode1);//带环的这么删可删不了
 }
 
 void test3()
