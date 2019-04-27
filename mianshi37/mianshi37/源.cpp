@@ -1,3 +1,5 @@
+// é¢è¯•é¢˜37ï¼šåºåˆ—åŒ–äºŒå‰æ ‘
+// é¢˜ç›®ï¼šè¯·å®ç°ä¸¤ä¸ªå‡½æ•°ï¼Œåˆ†åˆ«ç”¨æ¥åºåˆ—åŒ–å’Œååºåˆ—åŒ–äºŒå‰æ ‘ã€‚
 #include<cstdio>
 #include<iostream>
 #include<fstream>
@@ -6,35 +8,35 @@ using namespace std;
 
 bool ReadStream(istream& stream, int* number);
 
-void Serialize(const BinaryTreeNode* pRoot, ostream& stream)//°Ñ¶ş²æÊ÷´òÓ¡µ½.txtÎÄ¼ş
+void Serialize(const BinaryTreeNode* pRoot, ostream& stream)//æŠŠäºŒå‰æ ‘æ‰“å°åˆ°.txtæ–‡ä»¶
 {
 	if (pRoot == nullptr)
 	{
 		stream << "$,";
 		return;
 	}
-	stream << pRoot->m_value << ',';//²»ÊÇcout±ê×¼Á÷¶ÔÏó£¬ÊÇ²»»á´òÓ¡µ½´°¿ÚÉÏÈ¥µÄ
+	stream << pRoot->m_value << ',';//ä¸æ˜¯coutæ ‡å‡†æµå¯¹è±¡ï¼Œæ˜¯ä¸ä¼šæ‰“å°åˆ°çª—å£ä¸Šå»çš„
 	Serialize(pRoot->m_pleft, stream);
 	Serialize(pRoot->m_pright, stream);
 }
 
-/*void Deserialize(BinaryTreeNode* pRoot, istream& stream)//Ò»Î¬Ö¸Õë×ö²»µ½
+/*void Deserialize(BinaryTreeNode* pRoot, istream& stream)//ä¸€ç»´æŒ‡é’ˆåšä¸åˆ°
 {
 	int number;
 	if (ReadStream(stream, &number))
 	{
-		pRoot = new BinaryTreeNode();//Ö÷ÒªÈÎÎñ¾ÍÊÇ£¬½«nullptr±äÎªº¬ÓĞÈı¸öÔªËØµÄ¶ş²æÊ÷½Úµã
+		pRoot = new BinaryTreeNode();//ä¸»è¦ä»»åŠ¡å°±æ˜¯ï¼Œå°†nullptrå˜ä¸ºå«æœ‰ä¸‰ä¸ªå…ƒç´ çš„äºŒå‰æ ‘èŠ‚ç‚¹
 		pRoot->m_value = number;
 		pRoot->m_pleft = nullptr;
 		pRoot->m_pright = nullptr;
 
-		Deserialize(pRoot->m_pleft, stream);//pRoot->m_pleftÔÚÏÂÒ»²½ÊÇnullptr£¬¶ønullptr->m_value = number;ÊÇÎŞ·¨ÊµÏÖµÄ
+		Deserialize(pRoot->m_pleft, stream);//pRoot->m_pleftåœ¨ä¸‹ä¸€æ­¥æ˜¯nullptrï¼Œè€Œnullptr->m_value = number;æ˜¯æ— æ³•å®ç°çš„
 		Deserialize(pRoot->m_pright, stream);
 	}
 	
 }*/
 
-void Deserialize(BinaryTreeNode** pRoot, istream& stream)//Àà±ÈÒ»Î¬Ö¸Õë½øĞĞË¼¿¼,    ´ËÊ±pRootÊÇÖ¸Õë£¬*pRootÊÇÄÚÈİ
+void Deserialize(BinaryTreeNode** pRoot, istream& stream)//ç±»æ¯”ä¸€ç»´æŒ‡é’ˆè¿›è¡Œæ€è€ƒ,    æ­¤æ—¶pRootæ˜¯æŒ‡é’ˆï¼Œ*pRootæ˜¯å†…å®¹
 {
 	int number;
 	if (ReadStream(stream, &number))
@@ -56,7 +58,7 @@ bool ReadStream(istream& stream, int* number)
 		return false;
 
 	char buffer[32];
-	buffer[0] = '\0';//²¢²»Çå³şÆä´æÔÚµÄ´óÒâÒå£¬µ¥´¿µÄÎªÁËĞÎÊ½ÉÏµÄ³õÊ¼»¯£¿£¡£¡
+	buffer[0] = '\0';//å¹¶ä¸æ¸…æ¥šå…¶å­˜åœ¨çš„å¤§æ„ä¹‰ï¼Œå•çº¯çš„ä¸ºäº†å½¢å¼ä¸Šçš„åˆå§‹åŒ–ï¼Ÿï¼ï¼
 	char ch;
 	stream >> ch;
 	int i = 0;
@@ -68,8 +70,8 @@ bool ReadStream(istream& stream, int* number)
 	bool isNumberic = false;
 	if (i > 0 && buffer[0] != '$')
 	{
-		*number = atoi(buffer);//ºÎÊ±ÅĞµÄÍ££¿ºÃÏñ»¹ÕæÊÇ¸ù¾İÂÒÂëÅĞÍ£µÄ£¬Ö»ÒªÂÒÂë²»ÊÇÊı×Ö£¬¾Í¸øÅĞÍ£¡£¡£¡£ºÃÎŞÄÎ
-		isNumberic = true;     //Õı³£atoiÊÇÈç¹ûµÚÒ»¸ö·Ç¿Õ¸ñ×Ö·û´æÔÚ£¬ÊÇÊı×Ö»òÕßÕı¸ººÅÔò¿ªÊ¼×öÀàĞÍ×ª»»£¬Ö®ºó¼ì²âµ½·ÇÊı×Ö(°üÀ¨½áÊø·û \0) ×Ö·ûÊ±Í£Ö¹×ª»»£¬·µ»ØÕûĞÍÊı¡£·ñÔò£¬·µ»ØÁã
+		*number = atoi(buffer);//ä½•æ—¶åˆ¤çš„åœï¼Ÿå¥½åƒè¿˜çœŸæ˜¯æ ¹æ®ä¹±ç åˆ¤åœçš„ï¼Œåªè¦ä¹±ç ä¸æ˜¯æ•°å­—ï¼Œå°±ç»™åˆ¤åœã€‚ã€‚ã€‚å¥½æ— å¥ˆ
+		isNumberic = true;     //æ­£å¸¸atoiæ˜¯å¦‚æœç¬¬ä¸€ä¸ªéç©ºæ ¼å­—ç¬¦å­˜åœ¨ï¼Œæ˜¯æ•°å­—æˆ–è€…æ­£è´Ÿå·åˆ™å¼€å§‹åšç±»å‹è½¬æ¢ï¼Œä¹‹åæ£€æµ‹åˆ°éæ•°å­—(åŒ…æ‹¬ç»“æŸç¬¦ \0) å­—ç¬¦æ—¶åœæ­¢è½¬æ¢ï¼Œè¿”å›æ•´å‹æ•°ã€‚å¦åˆ™ï¼Œè¿”å›é›¶
 	}
 	return isNumberic;
 }
@@ -137,14 +139,14 @@ void Test(const char* testname, const BinaryTreeNode* pRoot)
 	cout << endl;
 
 	const char* fileName = "test.txt";
-	ofstream fileOut(fileName);//×Ô¼º´´½¨³öÀ´test.txtÀ´µÄ¡£¡£¡£¡£¡£
+	ofstream fileOut(fileName);//è‡ªå·±åˆ›å»ºå‡ºæ¥test.txtæ¥çš„ã€‚ã€‚ã€‚ã€‚ã€‚
 
 	Serialize(pRoot, fileOut);
 	fileOut.close();
 
-	ifstream fileIn1(fileName);//ĞòÁĞ»¯ºó£¬¼´¶ş²æÊ÷±»´òÓ¡µ½.txtÎÄ¼şºó£¬¶ÁÒ»ÏÂ¸Ã.txtÎÄ¼ş£¬¿´¿´½á¹ûÈçºÎ
+	ifstream fileIn1(fileName);//åºåˆ—åŒ–åï¼Œå³äºŒå‰æ ‘è¢«æ‰“å°åˆ°.txtæ–‡ä»¶åï¼Œè¯»ä¸€ä¸‹è¯¥.txtæ–‡ä»¶ï¼Œçœ‹çœ‹ç»“æœå¦‚ä½•
 	char ch;
-	//while (!fileIn1.eof())//³öÏÖ¶à¶ÁÒ»ĞĞµÄÎÊÌâ£¬Òò¶ø×öÈçÏÂĞŞ¸Ä
+	//while (!fileIn1.eof())//å‡ºç°å¤šè¯»ä¸€è¡Œçš„é—®é¢˜ï¼Œå› è€Œåšå¦‚ä¸‹ä¿®æ”¹
 	while(fileIn1.peek()!=EOF)
 	{
 		fileIn1 >> ch;
@@ -153,9 +155,9 @@ void Test(const char* testname, const BinaryTreeNode* pRoot)
 	fileIn1.close();
 	cout << endl;
 
-	ifstream fileIn2(fileName);//×¼±¸¿ªÊ¼·´ĞòÁĞ»¯£¬°Ñ.txtµÄÄÚÈİ×ª»»Îª¶ş²æÊ÷
+	ifstream fileIn2(fileName);//å‡†å¤‡å¼€å§‹ååºåˆ—åŒ–ï¼ŒæŠŠ.txtçš„å†…å®¹è½¬æ¢ä¸ºäºŒå‰æ ‘
 	BinaryTreeNode* pRootOut = nullptr;
-	Deserialize(&pRootOut, fileIn2);//pRootOutÊÇnullptr£¬Ã»·¨¸ÄÀïÃæµÄÄÚÈİ¡£ÎÒÃÇµÄÄ¿±êÊÇ¸Ä±äpRootOutÖ¸ÕëµÄÖ¸Ïò£¬¶ø²»ÊÇ¸Ä±äpRootOutµÄÄÚÈİ¡£²ÉÈ¡¶şÎ¬Ö¸Õë¡£
+	Deserialize(&pRootOut, fileIn2);//pRootOutæ˜¯nullptrï¼Œæ²¡æ³•æ”¹é‡Œé¢çš„å†…å®¹ã€‚æˆ‘ä»¬çš„ç›®æ ‡æ˜¯æ”¹å˜pRootOutæŒ‡é’ˆçš„æŒ‡å‘ï¼Œè€Œä¸æ˜¯æ”¹å˜pRootOutçš„å†…å®¹ã€‚é‡‡å–äºŒç»´æŒ‡é’ˆã€‚
 	fileIn2.close();
 
 	PrintPreOrder(pRootOut);
@@ -165,7 +167,7 @@ void Test(const char* testname, const BinaryTreeNode* pRoot)
 	else
 		printf("The deserialized tree is NOT same as the original tree.\n");
 
-	DestroyTree(pRootOut);//ÕâÀïÉ¾³ı·´ĞòÁĞ»¯Éú³ÉµÄ¶ş²æÊ÷£¬ÊµÑéÔ­Ê¼¶ş²æÊ÷ÔÚĞ¡testÖĞ½øĞĞÉ¾³ı
+	DestroyTree(pRootOut);//è¿™é‡Œåˆ é™¤ååºåˆ—åŒ–ç”Ÿæˆçš„äºŒå‰æ ‘ï¼Œå®éªŒåŸå§‹äºŒå‰æ ‘åœ¨å°testä¸­è¿›è¡Œåˆ é™¤
 }
 
 void test0()
