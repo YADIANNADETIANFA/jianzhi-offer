@@ -1,3 +1,6 @@
+// 面试题38：字符串的排列
+// 题目：输入一个字符串，打印出该字符串中字符的所有排列。例如输入字符串abc，
+// 则打印出由字符a、b、c所能排列出来的所有字符串abc、acb、bac、bca、cab和cba。
 #include<cstdio>
 #include<iostream>
 
@@ -6,14 +9,14 @@ using namespace std;
 void Combination(char* pBegin1, char* pBegin2, char* temp);
 
 
-void Combination(char* pstr, int length)//�Լ�д�ģ��Ը�����
+void Combination(char* pstr, int length)//自己写的，对付看吧
 {
 	if (pstr == nullptr || length < 1)
 		return;
 
 	for (int getlength = 1; getlength <= length; ++getlength)
 	{
-		char* temp = new char[getlength + 1];//�������飬ʵΪָ��
+		char* temp = new char[getlength + 1];//名义数组，实为指针
 		temp[getlength] = '\0';
 		Combination(pstr, temp, temp);
 		delete[] temp;
@@ -26,10 +29,10 @@ void Combination(char* pBegin1, char* pBegin2, char* temp)
 		printf("%s\n", temp);
 	else if (*pBegin1 != '\0')
 	{
-		*pBegin2 = *pBegin1;//�׸��ַ�ѹ��temp
-		Combination(pBegin1 + 1, pBegin2 + 1, temp);//�����ַ�
+		*pBegin2 = *pBegin1;//首个字符压进temp
+		Combination(pBegin1 + 1, pBegin2 + 1, temp);//后续字符
 
-		Combination(pBegin1 + 1, pBegin2, temp);//�׸��ַ�����ѹ��temp
+		Combination(pBegin1 + 1, pBegin2, temp);//首个字符并不压进temp
 	}
 }
 
