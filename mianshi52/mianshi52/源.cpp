@@ -1,3 +1,5 @@
+// é¢è¯•é¢˜52ï¼šä¸¤ä¸ªé“¾è¡¨çš„ç¬¬ä¸€ä¸ªå…¬å…±ç»“ç‚¹
+// é¢˜ç›®ï¼šè¾“å…¥ä¸¤ä¸ªé“¾è¡¨ï¼Œæ‰¾å‡ºå®ƒä»¬çš„ç¬¬ä¸€ä¸ªå…¬å…±ç»“ç‚¹ã€‚
 #include<cstdio>
 #include<stack>
 #include"ListNode.h"
@@ -33,17 +35,17 @@ void DestroyList(ListNode* pHead)
 	return;
 }
 
-void DestroyNode(ListNode* pNode)//µ±Á´±íÓĞÖØ¸´½ÚµãµÄÊ±ºò£¬Ö»ÄÜÒ»¸öµãÒ»¸öµãÕâÑùÉ¾£¡£¡£¡
+void DestroyNode(ListNode* pNode)//å½“é“¾è¡¨æœ‰é‡å¤èŠ‚ç‚¹çš„æ—¶å€™ï¼Œåªèƒ½ä¸€ä¸ªç‚¹ä¸€ä¸ªç‚¹è¿™æ ·åˆ ï¼ï¼ï¼
 {
 	if (pNode == nullptr)
 		return;
 	delete pNode;
 	pNode = nullptr;
 }
-ListNode* FindtheFirstSame1(ListNode* pHead1, ListNode* pHead2)//ÓÃÁ½¸ö¶ÑÕ»À´Íê³É
+ListNode* FindtheFirstSame1(ListNode* pHead1, ListNode* pHead2)//ç”¨ä¸¤ä¸ªå †æ ˆæ¥å®Œæˆ
 {
 	if (pHead1 == nullptr || pHead2 == nullptr)
-		return nullptr;         //¿ÉÒÔ·µ»Ønullptr£¡
+		return nullptr;         //å¯ä»¥è¿”å›nullptrï¼
 
 	ListNode* pNode1 = pHead1;
 	stack<ListNode*> st1;
@@ -67,7 +69,7 @@ ListNode* FindtheFirstSame1(ListNode* pHead1, ListNode* pHead2)//ÓÃÁ½¸ö¶ÑÕ»À´Íê³
 		st2.pop();
 	}
 
-	if (st1.empty() && st2.empty())//´Ó×î¿ªÊ¼¾ÍÊÇÏàÍ¬½Úµã
+	if (st1.empty() && st2.empty())//ä»æœ€å¼€å§‹å°±æ˜¯ç›¸åŒèŠ‚ç‚¹
 		return pHead1;
 	else if (st1.empty() || st2.empty())
 		return nullptr;
@@ -78,7 +80,7 @@ ListNode* FindtheFirstSame1(ListNode* pHead1, ListNode* pHead2)//ÓÃÁ½¸ö¶ÑÕ»À´Íê³
 	}
 }
 
-ListNode* FindtheFirstSame2(ListNode* pHead1, ListNode* pHead2)//ÀûÓÃ³¤¶ÈÀ´½â¾öÎÊÌâ
+ListNode* FindtheFirstSame2(ListNode* pHead1, ListNode* pHead2)//åˆ©ç”¨é•¿åº¦æ¥è§£å†³é—®é¢˜
 {
 	if (pHead1 == nullptr || pHead2 == nullptr)
 		return nullptr;
