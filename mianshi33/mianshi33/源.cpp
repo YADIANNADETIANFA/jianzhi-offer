@@ -1,3 +1,6 @@
+// 面试题33：二叉搜索树的后序遍历序列
+// 题目：输入一个整数数组，判断该数组是不是某二叉搜索树的后序遍历的结果。
+// 如果是则返回true，否则返回false。假设输入的数组的任意两个数字都互不相同。
 #include<cstdio>
 #include"BinaryTreeNode.h"
 #include<iostream>
@@ -5,12 +8,12 @@ using namespace std;
 
 bool VerifySequenceOfBST(int sequence[], int length)
 {
-	if (length < 0)//�����Ƿ�
+	if (length < 0)//参数非法
 		return false;
-	if (sequence == nullptr || length == 0)//�������Ϊ�գ�����true
+	if (sequence == nullptr || length == 0)//如果子树为空，返回true
 		return true;
 
-	if (sequence != nullptr && length == 1)//���������һ��������������µݹ��ˣ�����true
+	if (sequence != nullptr && length == 1)//如果子树就一个点就无需再向下递归了，返回true
 		return true;
 
 	int Root = sequence[length - 1];
