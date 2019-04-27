@@ -1,13 +1,15 @@
+// é¢è¯•é¢˜6ï¼šä»å°¾åˆ°å¤´æ‰“å°é“¾è¡¨
+// é¢˜ç›®ï¼šè¾“å…¥ä¸€ä¸ªé“¾è¡¨çš„å¤´ç»“ç‚¹ï¼Œä»å°¾åˆ°å¤´åè¿‡æ¥æ‰“å°å‡ºæ¯ä¸ªç»“ç‚¹çš„å€¼ã€‚
 #include<iostream>
 #include<stack>
-#include "Lish.h"//×Ô¼ºĞ´Í·ÎÄ¼ş£¬¼´Á´±íµÄ½á¹¹ÌåĞÎÊ½
-//using std::stack;//C++Primer74Ò³
+#include "Lish.h"//è‡ªå·±å†™å¤´æ–‡ä»¶ï¼Œå³é“¾è¡¨çš„ç»“æ„ä½“å½¢å¼
+//using std::stack;//C++Primer74é¡µ
 using namespace std;
 
 void PrintListReversingly_Iteratively(ListNode* pHead)
 {
 	cout << "PrintListReversingly_Iteratively start:" << endl;
-	stack<ListNode*> nodes;//´´½¨Ò»¸öÕ»
+	stack<ListNode*> nodes;//åˆ›å»ºä¸€ä¸ªæ ˆ
 	ListNode*pNode = pHead;
 	while (pNode != nullptr)
 	{
@@ -29,12 +31,12 @@ void PrintListReversingly_Recursively(ListNode* pHead)
 	if (pHead != nullptr)
 	{
 		PrintListReversingly_Recursively(pHead->m_pNext);
-		printf("%d\t", pHead->m_nKey);//ÎÒ¸Ğ¾õÕâÀï²»ÓÃÏñ´ğ°¸ÄÇÑù£¬Ò²¿ÉÒÔÕı³£ÔËĞĞ
+		printf("%d\t", pHead->m_nKey);//æˆ‘æ„Ÿè§‰è¿™é‡Œä¸ç”¨åƒç­”æ¡ˆé‚£æ ·ï¼Œä¹Ÿå¯ä»¥æ­£å¸¸è¿è¡Œ
 	}
 	//cout << "PrintListReversingly_Recursively end." << endl;
 }
 
-void PrintList(ListNode* pHead)//ÕıĞò´òÓ¡Á´±í
+void PrintList(ListNode* pHead)//æ­£åºæ‰“å°é“¾è¡¨
 {
 	cout << "PrintList start:" << endl;
 	ListNode* pNode = pHead;
@@ -46,7 +48,7 @@ void PrintList(ListNode* pHead)//ÕıĞò´òÓ¡Á´±í
 	cout << "PrintList end." << endl;
 }
 
-ListNode* CreatListNode(int value)//´´½¨Á´±í½Úµã
+ListNode* CreatListNode(int value)//åˆ›å»ºé“¾è¡¨èŠ‚ç‚¹
 {
 	ListNode* pNode = new ListNode();
 	pNode->m_nKey = value;
@@ -55,12 +57,12 @@ ListNode* CreatListNode(int value)//´´½¨Á´±í½Úµã
 	
 }
 
-void ConnectListNodes(ListNode* p1, ListNode* p2)//Á´½ÓÁ½¸öÁ´±í½Úµã
+void ConnectListNodes(ListNode* p1, ListNode* p2)//é“¾æ¥ä¸¤ä¸ªé“¾è¡¨èŠ‚ç‚¹
 {
 	if (p1 == nullptr)
 	{
 		cout << "Error to connect two nodes." << endl;
-		exit(1);//±íÊ¾½ø³ÌµÄ·ÇÕı³£ÍË³ö
+		exit(1);//è¡¨ç¤ºè¿›ç¨‹çš„éæ­£å¸¸é€€å‡º
 	}
 	p1->m_pNext = p2;
 }
@@ -71,7 +73,7 @@ void DestroyList(ListNode* pHead)
 	while (pNode != nullptr)
 	{
 		pHead = pHead->m_pNext;
-		delete pNode;//ÊäÈëµÄ²ÎÊıÊÇÖ¸Õë£¬¹Ê¶ÔÆä½øĞĞµÄÉ¾³ı²Ù×÷£¬³öÁË¸Ãº¯ÊıÖ®ºó£¬É¾³ıÒ²ÊÇ³ÉÁ¢µÄ¡£¡£¡£ÕâÑùµÄ»°£¬»¹±ØĞëÒª½èÓÃpNodeÀ´µİ½øÄØ£¬Ö±½ÓpHead×Ô¼ºÊÇ¸ã²»À´µÄ
+		delete pNode;//è¾“å…¥çš„å‚æ•°æ˜¯æŒ‡é’ˆï¼Œæ•…å¯¹å…¶è¿›è¡Œçš„åˆ é™¤æ“ä½œï¼Œå‡ºäº†è¯¥å‡½æ•°ä¹‹åï¼Œåˆ é™¤ä¹Ÿæ˜¯æˆç«‹çš„ã€‚ã€‚ã€‚è¿™æ ·çš„è¯ï¼Œè¿˜å¿…é¡»è¦å€Ÿç”¨pNodeæ¥é€’è¿›å‘¢ï¼Œç›´æ¥pHeadè‡ªå·±æ˜¯æä¸æ¥çš„
 		pNode = pHead;
 	}
 }
@@ -109,7 +111,7 @@ void Test2()//1
 	DestroyList(p1);
 }
 
-void Test3()//¿ÕÁ´±í
+void Test3()//ç©ºé“¾è¡¨
 {
 	printf("Test3 start:\n");
 	Test(nullptr);
