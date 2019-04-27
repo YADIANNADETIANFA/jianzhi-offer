@@ -1,12 +1,15 @@
+// é¢è¯•é¢˜57ï¼ˆä¸€ï¼‰ï¼šå’Œä¸ºsçš„ä¸¤ä¸ªæ•°å­—
+// é¢˜ç›®ï¼šè¾“å…¥ä¸€ä¸ªé€’å¢æ’åºçš„æ•°ç»„å’Œä¸€ä¸ªæ•°å­—sï¼Œåœ¨æ•°ç»„ä¸­æŸ¥æ‰¾ä¸¤ä¸ªæ•°ï¼Œä½¿å¾—å®ƒä»¬
+// çš„å’Œæ­£å¥½æ˜¯sã€‚å¦‚æœæœ‰å¤šå¯¹æ•°å­—çš„å’Œç­‰äºsï¼Œè¾“å‡ºä»»æ„ä¸€å¯¹å³å¯ã€‚
 #include<cstdio>
 #include<exception>
 
 using namespace std;
 
-void theNumPair(int* data, int length, int s,int& num1,int& num2)//ÓëÆäÈÃstartºÍendÁ½¸öÖ¸Õë´«³öÀ´£¬²»ÈçÔÚº¯ÊıÄÚ²¿ÉèÁ¢Ö¸Õë£¬¶øÖ±½Ó°Ñnum1ºÍnum2´«³öÀ´£¬ÕâÑù¸ü¼òµ¥²»Ò×³ö´í£¡£¡£¡
+void theNumPair(int* data, int length, int s,int& num1,int& num2)//ä¸å…¶è®©startå’Œendä¸¤ä¸ªæŒ‡é’ˆä¼ å‡ºæ¥ï¼Œä¸å¦‚åœ¨å‡½æ•°å†…éƒ¨è®¾ç«‹æŒ‡é’ˆï¼Œè€Œç›´æ¥æŠŠnum1å’Œnum2ä¼ å‡ºæ¥ï¼Œè¿™æ ·æ›´ç®€å•ä¸æ˜“å‡ºé”™ï¼ï¼ï¼
 {
 	if (data == nullptr || length < 2)
-		throw exception("Bad Parameter");//ÕâÀïÊÇ²»ÓÃreturnµÄ£¡£¡£¡
+		throw exception("Bad Parameter");//è¿™é‡Œæ˜¯ä¸ç”¨returnçš„ï¼ï¼ï¼
 
 	int i = 0;
 	int j = length - 1;
@@ -51,28 +54,28 @@ void Test(const char* testname, int* data, int length, int s)
 	printf("%d,%d\n", num1, num2);
 }
 
-// ´æÔÚºÍÎªsµÄÁ½¸öÊı×Ö£¬ÕâÁ½¸öÊı×ÖÎ»ÓÚÊı×éµÄÖĞ¼ä
+// å­˜åœ¨å’Œä¸ºsçš„ä¸¤ä¸ªæ•°å­—ï¼Œè¿™ä¸¤ä¸ªæ•°å­—ä½äºæ•°ç»„çš„ä¸­é—´
 void Test1()
 {
 	int data[] = { 1, 2, 4, 7, 11, 15 };
 	Test("Test1", data, sizeof(data) / sizeof(int), 15 );
 }
 
-// ´æÔÚºÍÎªsµÄÁ½¸öÊı×Ö£¬ÕâÁ½¸öÊı×ÖÎ»ÓÚÊı×éµÄÁ½¶Î
+// å­˜åœ¨å’Œä¸ºsçš„ä¸¤ä¸ªæ•°å­—ï¼Œè¿™ä¸¤ä¸ªæ•°å­—ä½äºæ•°ç»„çš„ä¸¤æ®µ
 void Test2()
 {
 	int data[] = { 1, 2, 4, 7, 11, 16 };
 	Test("Test2", data, sizeof(data) / sizeof(int), 17 );
 }
 
-// ²»´æÔÚºÍÎªsµÄÁ½¸öÊı×Ö
+// ä¸å­˜åœ¨å’Œä¸ºsçš„ä¸¤ä¸ªæ•°å­—
 void Test3()
 {
 	int data[] = { 1, 2, 4, 7, 11, 16 };
 	Test("Test3", data, sizeof(data) / sizeof(int), 10 );
 }
 
-// Â³°ôĞÔ²âÊÔ
+// é²æ£’æ€§æµ‹è¯•
 void Test4()
 {
 	Test("Test4", nullptr, 0, 0 );
