@@ -1,32 +1,34 @@
+// é¢è¯•é¢˜29ï¼šé¡ºæ—¶é’ˆæ‰“å°çŸ©é˜µ
+// é¢˜ç›®ï¼šè¾“å…¥ä¸€ä¸ªçŸ©é˜µï¼ŒæŒ‰ç…§ä»å¤–å‘é‡Œä»¥é¡ºæ—¶é’ˆçš„é¡ºåºä¾æ¬¡æ‰“å°å‡ºæ¯ä¸€ä¸ªæ•°å­—ã€‚
 #include<iostream>
 #include<cstdio>
 using namespace std;
 
-void PrintClock(int** num, int m, int n)//mÎª×ÜĞĞÊı£¬nÎª×ÜÁĞÊı
+void PrintClock(int** num, int m, int n)//mä¸ºæ€»è¡Œæ•°ï¼Œnä¸ºæ€»åˆ—æ•°
 {
 	if (num == nullptr || m <= 0 || n <= 0)
 		return;
 
-	if (m == 1)//½öÒ»ĞĞ
+	if (m == 1)//ä»…ä¸€è¡Œ
 	{
 		for (int i = 0; i <= n - 1; ++i)
 			cout << num[0][i]<<" ";
 		return;
 	}
-	if (n == 1)//½öÒ»ÁĞ
+	if (n == 1)//ä»…ä¸€åˆ—
 	{
 		for (int i = 0; i <= m - 1; ++i)
 			cout << num[i][0] << " ";
 		return;
 	}
 
-	int Kmax = 0;//×ÜÈ¦Êı
+	int Kmax = 0;//æ€»åœˆæ•°
 	if ((m >> 1) > (n >> 1))
 		Kmax = (n >> 1);
 	else
 		Kmax = (m >> 1);
 
-	for (int k = 0; k < Kmax; ++k)//·Ö±ğ´òÓ¡Ò»È¦µÄËÄÖÜ
+	for (int k = 0; k < Kmax; ++k)//åˆ†åˆ«æ‰“å°ä¸€åœˆçš„å››å‘¨
 	{
 		for (int i = k; i <= n - 1 - k; ++i)
 			cout << num[k][i] << " ";
@@ -39,14 +41,14 @@ void PrintClock(int** num, int m, int n)//mÎª×ÜĞĞÊı£¬nÎª×ÜÁĞÊı
 
 	}
 
-	if ((m & 1) == 1 && m < n)//ĞĞÊÇÆæÊı£¬ÄÇ¾Í²îÖĞ¼äÒ»ĞĞÃ»ÓĞ´ò
+	if ((m & 1) == 1 && m < n)//è¡Œæ˜¯å¥‡æ•°ï¼Œé‚£å°±å·®ä¸­é—´ä¸€è¡Œæ²¡æœ‰æ‰“
 	{
 		for (int i = 0 + Kmax; i <= n - 1 - Kmax; ++i)
 			cout << num[(m >> 1) + 0][i] << " ";
 		return;
 	}
 
-	if ((n & 1) == 1 && n < m)//ÁĞÊÇÆæÊı£¬ÄÇ¾Í²îÖĞ¼äÒ»ÁĞÃ»ÓĞ´ò
+	if ((n & 1) == 1 && n < m)//åˆ—æ˜¯å¥‡æ•°ï¼Œé‚£å°±å·®ä¸­é—´ä¸€åˆ—æ²¡æœ‰æ‰“
 	{
 		for (int i = 0 + Kmax; i <= m - 1 - Kmax; ++i)
 			cout << num[i][(n >> 1) + 0] << " ";
