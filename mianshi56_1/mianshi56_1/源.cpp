@@ -1,16 +1,19 @@
+// é¢è¯•é¢˜56ï¼ˆäºŒï¼‰ï¼šæ•°ç»„ä¸­å”¯ä¸€åªå‡ºç°ä¸€æ¬¡çš„æ•°å­—
+// é¢˜ç›®ï¼šåœ¨ä¸€ä¸ªæ•°ç»„ä¸­é™¤äº†ä¸€ä¸ªæ•°å­—åªå‡ºç°ä¸€æ¬¡ä¹‹å¤–ï¼Œå…¶ä»–æ•°å­—éƒ½å‡ºç°äº†ä¸‰æ¬¡ã€‚è¯·
+// æ‰¾å‡ºé‚£ä¸ªåƒå‡ºç°ä¸€æ¬¡çš„æ•°å­—ã€‚
 #include<cstdio>
 #include<exception>
 
-using namespace std;//ÒıÓÃ´ó·¨ºÃ
+using namespace std;//å¼•ç”¨å¤§æ³•å¥½
 
-int theFirstDifferentBit(int* data, int length)//ÎÒÃÇÖ»¿¼ÂÇÁË0ºÍÕıÕûÊı£¬Ã»ÓĞ¿¼ÂÇ¸ºÊıµÄÇé¿ö
+int theFirstDifferentBit(int* data, int length)//æˆ‘ä»¬åªè€ƒè™‘äº†0å’Œæ­£æ•´æ•°ï¼Œæ²¡æœ‰è€ƒè™‘è´Ÿæ•°çš„æƒ…å†µ
 {
 	if (data == nullptr || length <= 1)
 		return -1;
 	int resultXORAll = 0;
 	for (int i = 0; i < length; ++i)
 		resultXORAll ^= data[i];
-	if (resultXORAll == 0)//¼´Ã»ÓĞ²»Í¬Êı×Ö£¬Êı×éÄÚÊı×ÖÈ«ÏàÍ¬
+	if (resultXORAll == 0)//å³æ²¡æœ‰ä¸åŒæ•°å­—ï¼Œæ•°ç»„å†…æ•°å­—å…¨ç›¸åŒ
 		return -1;
 	else
 	{
@@ -24,14 +27,14 @@ int theFirstDifferentBit(int* data, int length)//ÎÒÃÇÖ»¿¼ÂÇÁË0ºÍÕıÕûÊı£¬Ã»ÓĞ¿¼ÂÇ
 	}
 }
 
-void theDifferentNum(int* data, int length, int k, int& num1, int& num2)//·µ»ØÁ½¸öÖµµÄ£¬¾ÍÓÃÒıÓÃÀ´Íê³É
+void theDifferentNum(int* data, int length, int k, int& num1, int& num2)//è¿”å›ä¸¤ä¸ªå€¼çš„ï¼Œå°±ç”¨å¼•ç”¨æ¥å®Œæˆ
 {
 	if (k == -1)
 		throw exception("Error Parameter");
 
 	for (int i = 0; i < length; ++i)
 	{
-		if ((data[i] >> (k - 1)) & 1 == 1)//Ä¬ÈÏÓĞÇÒÒ»¶¨ÓĞÁ½¸ö²»Í¬µÄÊı×Ö£¬²»»á³öÏÖÖ»ÓĞÒ»¸ö²»Í¬Êı×Ö£¬»òÕß³öÏÖ3¸ö¼°ÒÔÉÏ²»Í¬Êı×ÖµÄÇé¿ö
+		if ((data[i] >> (k - 1)) & 1 == 1)//é»˜è®¤æœ‰ä¸”ä¸€å®šæœ‰ä¸¤ä¸ªä¸åŒçš„æ•°å­—ï¼Œä¸ä¼šå‡ºç°åªæœ‰ä¸€ä¸ªä¸åŒæ•°å­—ï¼Œæˆ–è€…å‡ºç°3ä¸ªåŠä»¥ä¸Šä¸åŒæ•°å­—çš„æƒ…å†µ
 			num1 ^= data[i];
 		else
 			num2 ^= data[i];
@@ -53,7 +56,7 @@ void Test(const char* testname, int* data, int length,int expected1,int expected
 	catch(exception& e)
 	{
 		printf("Error Parameter\n");
-		return;//catchÖ®ºó»¹ÊÇ»á¼ÌĞøÖ´ĞĞºóÃæµÄifÓï¾äµÄ£¬ËùÒÔÔÚÕâÀïÎÒÃÇ¼Óreturn
+		return;//catchä¹‹åè¿˜æ˜¯ä¼šç»§ç»­æ‰§è¡Œåé¢çš„ifè¯­å¥çš„ï¼Œæ‰€ä»¥åœ¨è¿™é‡Œæˆ‘ä»¬åŠ return
 	}
 	if ((num1 == expected1 && num2 == expected2) || (num1 == expected2 && num2 == expected1))
 		printf("Pass\n");
@@ -75,7 +78,7 @@ void test2()
 
 void test3()
 {
-	int data[] = { 4,6,1,1,1,1 };//{ 4,6,1,1,1,1 }¿ÉÒÔ£¬µ«ÊÇ{ 4,6,1,1,1 }²»¿ÉÒÔ£¬ÒòÎª3¸ö1Ïà»¥Òì»òºó½á¹ûÊÇ1£¬²»ÊÇ0£¡£¡¼´ÏàÍ¬µÄÊı×Ö±ØĞë³É¶Ô³öÏÖ¸Ã³ÌĞò²ÅÊÊÓÃ
+	int data[] = { 4,6,1,1,1,1 };//{ 4,6,1,1,1,1 }å¯ä»¥ï¼Œä½†æ˜¯{ 4,6,1,1,1 }ä¸å¯ä»¥ï¼Œå› ä¸º3ä¸ª1ç›¸äº’å¼‚æˆ–åç»“æœæ˜¯1ï¼Œä¸æ˜¯0ï¼ï¼å³ç›¸åŒçš„æ•°å­—å¿…é¡»æˆå¯¹å‡ºç°è¯¥ç¨‹åºæ‰é€‚ç”¨
 	Test("test3", data, sizeof(data) / sizeof(int), 4, 6);
 }
 
