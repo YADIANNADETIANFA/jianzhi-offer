@@ -1,3 +1,6 @@
+// é¢è¯•é¢˜28ï¼šå¯¹ç§°çš„äºŒå‰æ ‘
+// é¢˜ç›®ï¼šè¯·å®ç°ä¸€ä¸ªå‡½æ•°ï¼Œç”¨æ¥åˆ¤æ–­ä¸€æ£µäºŒå‰æ ‘æ˜¯ä¸æ˜¯å¯¹ç§°çš„ã€‚å¦‚æœä¸€æ£µäºŒå‰æ ‘å’Œ
+// å®ƒçš„é•œåƒä¸€æ ·ï¼Œé‚£ä¹ˆå®ƒæ˜¯å¯¹ç§°çš„ã€‚
 #include<cstdio>
 #include<iostream>
 #include<stack>
@@ -38,7 +41,7 @@ void DestroyTree(Binary_TreeNode* pRoot)
 	}
 }
 
-bool isSymmetrical_Recursively(Binary_TreeNode*, Binary_TreeNode*);//ÊéÉÏ·½·¨1£¬µİ¹éËã·¨
+bool isSymmetrical_Recursively(Binary_TreeNode*, Binary_TreeNode*);//ä¹¦ä¸Šæ–¹æ³•1ï¼Œé€’å½’ç®—æ³•
 
 bool isSymmetrical_Recursively(Binary_TreeNode* pRoot)
 {
@@ -56,7 +59,7 @@ bool isSymmetrical_Recursively(Binary_TreeNode* pRoot1, Binary_TreeNode* pRoot2)
 		return isSymmetrical_Recursively(pRoot1->m_pleft, pRoot2->m_pright) && isSymmetrical_Recursively(pRoot1->m_pright, pRoot2->m_pleft);
 }
 
-bool isSymmetrical_Iteratively(Binary_TreeNode* pRoot)//ÓÉÉÏ×Ô¼ºÍÆµ¼³öµÄµü´úËã·¨
+bool isSymmetrical_Iteratively(Binary_TreeNode* pRoot)//ç”±ä¸Šè‡ªå·±æ¨å¯¼å‡ºçš„è¿­ä»£ç®—æ³•
 {
 	stack<Binary_TreeNode*> stackNode;
 
@@ -89,9 +92,9 @@ bool isSymmetrical_Iteratively(Binary_TreeNode* pRoot)//ÓÉÉÏ×Ô¼ºÍÆµ¼³öµÄµü´úËã·¨
 	}
 	return true;
 }
-                                                           //×îÔ­Ê¼µÄ·½·¨£¬¾ÍÊÇÀûÓÃÈİÆ÷´ò³öÀ´°¤¸ö±È½Ï£¬¾ÍÖªµÀ¶Ô²»¶Ô³ÆÁË
-void PrintPreorder(Binary_TreeNode* pRoot,vector<int>& v1)//°Ñvector¸ø·µ»Ø³öÀ´£¬ÊÇºÜÔã¸âµÄÏë·¨
-{                                                         //Õı³£ÈË¶ÔÓÚ¸´ÔÓµÄ½á¹û£¬¶¼ÊÇÓÃ²ÎÊıÒıÓÃÀ´´¦ÀíµÄ
+                                                           //æœ€åŸå§‹çš„æ–¹æ³•ï¼Œå°±æ˜¯åˆ©ç”¨å®¹å™¨æ‰“å‡ºæ¥æŒ¨ä¸ªæ¯”è¾ƒï¼Œå°±çŸ¥é“å¯¹ä¸å¯¹ç§°äº†
+void PrintPreorder(Binary_TreeNode* pRoot,vector<int>& v1)//æŠŠvectorç»™è¿”å›å‡ºæ¥ï¼Œæ˜¯å¾ˆç³Ÿç³•çš„æƒ³æ³•
+{                                                         //æ­£å¸¸äººå¯¹äºå¤æ‚çš„ç»“æœï¼Œéƒ½æ˜¯ç”¨å‚æ•°å¼•ç”¨æ¥å¤„ç†çš„
 	vector<int> PreorderList;
 	if (pRoot != nullptr)
 	{
@@ -147,7 +150,7 @@ void Test(const char* testname, Binary_TreeNode* pRoot, bool expected)
 
 	printf("Print method:\n");
 
-	vector<int> PreorderList;//ÒıÓÃ´«µİ²ÎÊı£¬´úÌævector×÷Îª·µ»ØÖµÕâÒ»Ó×ÖÉÂé·³µÄ²Ù×÷£¡£¡£¡
+	vector<int> PreorderList;//å¼•ç”¨ä¼ é€’å‚æ•°ï¼Œä»£æ›¿vectorä½œä¸ºè¿”å›å€¼è¿™ä¸€å¹¼ç¨šéº»çƒ¦çš„æ“ä½œï¼ï¼ï¼
 	vector<int> Pri_SymmetricList;
 	PrintPreorder(pRoot, PreorderList);
 	cout << endl;
@@ -168,8 +171,8 @@ void Test(const char* testname, Binary_TreeNode* pRoot, bool expected)
 		printf("Fail\n");
 
 	PreorderList.clear();
-	Pri_SymmetricList.clear();//É¾³ıÄÚÈİ
-	vector <int>().swap(PreorderList);//»ØÊÕ¿Õ¼ä
+	Pri_SymmetricList.clear();//åˆ é™¤å†…å®¹
+	vector <int>().swap(PreorderList);//å›æ”¶ç©ºé—´
 	vector <int>().swap(Pri_SymmetricList);
 
 }
