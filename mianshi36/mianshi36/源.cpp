@@ -1,3 +1,6 @@
+// 面试题36：二叉搜索树与双向链表
+// 题目：输入一棵二叉搜索树，将该二叉搜索树转换成一个排序的双向链表。要求
+// 不能创建任何新的结点，只能调整树中结点指针的指向。
 #include<cstdio>
 #include<iostream>
 #include"BinaryTreeNode.h"
@@ -34,12 +37,12 @@ void PriMidOrder(BinaryTreeNode* pRoot)
 	PriMidOrder(pRoot->m_right);
 }
 
-void DestroyList(BinaryTreeNode* pRoot)//���Ľṹ�ѱ��ı䣬Ҫɾ�����������Ľṹ
+void DestroyList(BinaryTreeNode* pRoot)//树的结构已被改变，要删除的是链表的结构
 {
 	if (!pRoot)
 		return;
-	                       //���õ���pRoot��pNode��pNext�������������治����
-	BinaryTreeNode* pNode = pRoot->m_right;//������Ƶ�������֮ǰ�ģ�����֮���
+	                       //作用的有pRoot，pNode，pNext三个量，两个玩不来的
+	BinaryTreeNode* pNode = pRoot->m_right;//我们设计的是左连之前的，右连之后的
 	delete pRoot;
 	pRoot = nullptr;
 	while (pNode)
@@ -55,7 +58,7 @@ BinaryTreeNode* Convert(BinaryTreeNode* pRoot)
 	BinaryTreeNode* pLastNodeInList = nullptr;
 	ConvertNode(pRoot, &pLastNodeInList);
 
-	BinaryTreeNode* pHeadOfList = pLastNodeInList;//�õ�������β�ͣ��������������ҵ�ͷ��
+	BinaryTreeNode* pHeadOfList = pLastNodeInList;//得到的是最尾巴，我们逆流而上找到头部
 	while (pHeadOfList != nullptr && pHeadOfList->m_pleft != nullptr)
 		pHeadOfList = pHeadOfList->m_pleft;
 	return pHeadOfList;
@@ -67,15 +70,15 @@ void ConvertNode(BinaryTreeNode* pRoot, BinaryTreeNode** pLastNodeInList)
 		return;
 	BinaryTreeNode* pCurrent = pRoot;
 
-	if (pCurrent->m_pleft != nullptr)//1����
+	if (pCurrent->m_pleft != nullptr)//1部分
 		ConvertNode(pCurrent->m_pleft, pLastNodeInList);
 
-	pCurrent->m_pleft = *pLastNodeInList;//2����
+	pCurrent->m_pleft = *pLastNodeInList;//2部分
 	if (*pLastNodeInList != nullptr)
 		(*pLastNodeInList)->m_right = pCurrent;
 	*pLastNodeInList = pCurrent;
 
-	if (pCurrent->m_right != nullptr)//3����
+	if (pCurrent->m_right != nullptr)//3部分
 		ConvertNode(pCurrent->m_right, pLastNodeInList);
 }
 
@@ -86,14 +89,14 @@ void PrintDoubleLinkedList(BinaryTreeNode* pRoot)
 	while (pNode)
 	{
 		printf("%d\t", pNode->m_value);
-		if (pNode->m_right == nullptr)//�ܾ��Ϊ�˺���pNode��ʹ�ã���ֹpNode�ܵ�nullptr��λ��!!!
+		if (pNode->m_right == nullptr)//很精妙，为了后续pNode的使用，防止pNode跑到nullptr的位置!!!
 			break;
 		pNode = pNode->m_right;
 	}
 	cout << endl;
 
 	printf("The nodes from right to left are:\n");
-	while (pNode)//ֱ��ʹ��ǰ���pNode!!!
+	while (pNode)//直接使用前面的pNode!!!
 	{
 		printf("%d\t", pNode->m_value);
 		if (pNode->m_pleft == nullptr)
