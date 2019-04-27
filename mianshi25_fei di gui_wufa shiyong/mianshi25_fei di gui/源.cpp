@@ -1,3 +1,7 @@
+// é¢è¯•é¢˜25ï¼šåˆå¹¶ä¸¤ä¸ªæ’åºçš„é“¾è¡¨
+// é¢˜ç›®ï¼šè¾“å…¥ä¸¤ä¸ªé€’å¢æ’åºçš„é“¾è¡¨ï¼Œåˆå¹¶è¿™ä¸¤ä¸ªé“¾è¡¨å¹¶ä½¿æ–°é“¾è¡¨ä¸­çš„ç»“ç‚¹ä»ç„¶æ˜¯æŒ‰
+// ç…§é€’å¢æ’åºçš„ã€‚ä¾‹å¦‚è¾“å…¥å›¾3.11ä¸­çš„é“¾è¡¨1å’Œé“¾è¡¨2ï¼Œåˆ™åˆå¹¶ä¹‹åçš„å‡åºé“¾è¡¨å¦‚é“¾
+// è¡¨3æ‰€ç¤ºã€‚
 #include"ListNode.h"
 #include<cstdio>
 #include<iostream>
@@ -83,8 +87,8 @@ ListNode* Merge(ListNode* pHead1, ListNode* pHead2)
 	{
 		if (select1->m_value > select2->m_value)
 		{
-			smallHead->m_pNext = select2;//smallHeadÔÚÕâÀïÀ´»Ø´ÓÍ·¿ªÊ¼±à¼­¡£¡£¡£´íÎóÔ­Òò
-			select2 = select2->m_pNext;//ÏëÁËºÃ¾Ã¶¼Ã»ÓĞ½â¾ö°ì·¨£¬¿´À´Ö»ÄÜÓÃµİ¹éÁË£¬µü´ú×ß²»Í¨¡£whileÑ­»·¿ÉÒÔºÜºÃµØÒÆ¶¯Î»ÖÃÖ¸Õë£¬µ«ÊÇ¶ÔÍ·½áµãµÄ¹Ì¶¨²»±ä£¬²¢²»ÓÑºÃ
+			smallHead->m_pNext = select2;//smallHeadåœ¨è¿™é‡Œæ¥å›ä»å¤´å¼€å§‹ç¼–è¾‘ã€‚ã€‚ã€‚é”™è¯¯åŸå› 
+			select2 = select2->m_pNext;//æƒ³äº†å¥½ä¹…éƒ½æ²¡æœ‰è§£å†³åŠæ³•ï¼Œçœ‹æ¥åªèƒ½ç”¨é€’å½’äº†ï¼Œè¿­ä»£èµ°ä¸é€šã€‚whileå¾ªç¯å¯ä»¥å¾ˆå¥½åœ°ç§»åŠ¨ä½ç½®æŒ‡é’ˆï¼Œä½†æ˜¯å¯¹å¤´ç»“ç‚¹çš„å›ºå®šä¸å˜ï¼Œå¹¶ä¸å‹å¥½
 		}
 		else
 		{
@@ -93,7 +97,7 @@ ListNode* Merge(ListNode* pHead1, ListNode* pHead2)
 		}
 	}
 
-	if (select1 == nullptr)//select1ºÍ2²»»áÍ¬Ê±Îª¿ÕµÄ£¬ÒòÎªÒ»´ÎÖ»È¡Ò»¸öµãÂï
+	if (select1 == nullptr)//select1å’Œ2ä¸ä¼šåŒæ—¶ä¸ºç©ºçš„ï¼Œå› ä¸ºä¸€æ¬¡åªå–ä¸€ä¸ªç‚¹å˜›
 	{
 		smallHead->m_pNext = select2;
 	}
@@ -104,7 +108,7 @@ ListNode* Merge(ListNode* pHead1, ListNode* pHead2)
 	return smallHead;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 ListNode* Test(const char* testName, ListNode* pHead1, ListNode* pHead2)
 {
 	if (testName != nullptr)
@@ -120,7 +124,7 @@ ListNode* Test(const char* testName, ListNode* pHead1, ListNode* pHead2)
 	ListNode* pMergedHead = Merge(pHead1, pHead2);
 	PrintList(pMergedHead);
 
-	/*printf("Original first list:\n");//¹ûÈ»²»³öËùÁÏ£¬Ô­Á´±íÖ¸ÕëÒÑ·¢Éú¸Ä±ä£¡Ò²¾ÍÊÇËµ£¬´Ë´ğ°¸²¢Î´Õ¼ÓÃ¶îÍâ¿Õ¼ä
+	/*printf("Original first list:\n");//æœç„¶ä¸å‡ºæ‰€æ–™ï¼ŒåŸé“¾è¡¨æŒ‡é’ˆå·²å‘ç”Ÿæ”¹å˜ï¼ä¹Ÿå°±æ˜¯è¯´ï¼Œæ­¤ç­”æ¡ˆå¹¶æœªå ç”¨é¢å¤–ç©ºé—´
 	PrintList(pHead1);
 
 	printf("Original second list:\n");
@@ -154,7 +158,7 @@ void Test1()
 	DestroyList(pMergedHead);
 }
 
-// Á½¸öÁ´±íÖĞÓĞÖØ¸´µÄÊı×Ö
+// ä¸¤ä¸ªé“¾è¡¨ä¸­æœ‰é‡å¤çš„æ•°å­—
 // list1: 1->3->5
 // list2: 1->3->5
 void Test2()
@@ -178,7 +182,7 @@ void Test2()
 	DestroyList(pMergedHead);
 }
 
-// Á½¸öÁ´±í¶¼Ö»ÓĞÒ»¸öÊı×Ö
+// ä¸¤ä¸ªé“¾è¡¨éƒ½åªæœ‰ä¸€ä¸ªæ•°å­—
 // list1: 1
 // list2: 2
 void Test3()
@@ -191,9 +195,9 @@ void Test3()
 	DestroyList(pMergedHead);
 }
 
-// Ò»¸öÁ´±íÎª¿ÕÁ´±í
+// ä¸€ä¸ªé“¾è¡¨ä¸ºç©ºé“¾è¡¨
 // list1: 1->3->5
-// list2: ¿ÕÁ´±í
+// list2: ç©ºé“¾è¡¨
 void Test4()
 {
 	ListNode* pNode1 = CreateNode(1);
@@ -208,9 +212,9 @@ void Test4()
 	DestroyList(pMergedHead);
 }
 
-// Á½¸öÁ´±í¶¼Îª¿ÕÁ´±í
-// list1: ¿ÕÁ´±í
-// list2: ¿ÕÁ´±í
+// ä¸¤ä¸ªé“¾è¡¨éƒ½ä¸ºç©ºé“¾è¡¨
+// list1: ç©ºé“¾è¡¨
+// list2: ç©ºé“¾è¡¨
 void Test5()
 {
 	ListNode* pMergedHead = Test("Test5", nullptr, nullptr);
