@@ -1,3 +1,6 @@
+// é¢è¯•é¢˜53ï¼ˆä¸€ï¼‰ï¼šæ•°å­—åœ¨æ’åºæ•°ç»„ä¸­å‡ºç°çš„æ¬¡æ•°
+// é¢˜ç›®ï¼šç»Ÿè®¡ä¸€ä¸ªæ•°å­—åœ¨æ’åºæ•°ç»„ä¸­å‡ºç°çš„æ¬¡æ•°ã€‚ä¾‹å¦‚è¾“å…¥æ’åºæ•°ç»„{1, 2, 3, 3,
+// 3, 3, 4, 5}å’Œæ•°å­—3ï¼Œç”±äº3åœ¨è¿™ä¸ªæ•°ç»„ä¸­å‡ºç°äº†4æ¬¡ï¼Œå› æ­¤è¾“å‡º4ã€‚
 #include<cstdio>
 
 int FirstIndexCore(int*, int, int, int, int);
@@ -11,7 +14,7 @@ int FirstIndex(int* data, int length, int k)
 }
 int FirstIndexCore(int* data, int length, int start, int end, int k)
 {
-	if (start == end && data[start] == k)//Ö»Ê£Ò»µã£¬ÆäËûµã¾ù²»ĞĞ£¬ÄÇ¾ÍÖ»Ğè¿¼ÂÇ¸Ãµã¼´¿É£¬²»±Ø¿¼ÂÇÆäËûµãÁË
+	if (start == end && data[start] == k)//åªå‰©ä¸€ç‚¹ï¼Œå…¶ä»–ç‚¹å‡ä¸è¡Œï¼Œé‚£å°±åªéœ€è€ƒè™‘è¯¥ç‚¹å³å¯ï¼Œä¸å¿…è€ƒè™‘å…¶ä»–ç‚¹äº†
 		return start;
 	else if(start==end)
 		return -1;
@@ -19,7 +22,7 @@ int FirstIndexCore(int* data, int length, int start, int end, int k)
 	int middle = start + (end - start) / 2;
 	if (data[middle] == k)
 	{
-		if (middle == 0)//middleÊÇÓĞ»ú»áÈ¡µ½Á½±ß¼«ÏŞÖµµÄ
+		if (middle == 0)//middleæ˜¯æœ‰æœºä¼šå–åˆ°ä¸¤è¾¹æé™å€¼çš„
 			return middle;
 		else if (data[middle - 1] < k)
 			return middle;
@@ -64,7 +67,7 @@ int LastIndexCore(int* data, int length, int start, int end, int k)
 
 int GetNum(int* data, int length, int k)
 {
-	if (data == nullptr || length <= 0 || k<data[0] || k>data[length - 1])//±£Ö¤kÔÚÊı×é·¶Î§Ö®ÄÚ£¬k¿ÉÒÔ²»ÔÚÊı×éÖĞ£¬µ«ÊÇk±ØĞëÔÚÊı×é´óĞ¡·¶Î§Ö®ÄÚ
+	if (data == nullptr || length <= 0 || k<data[0] || k>data[length - 1])//ä¿è¯kåœ¨æ•°ç»„èŒƒå›´ä¹‹å†…ï¼Œkå¯ä»¥ä¸åœ¨æ•°ç»„ä¸­ï¼Œä½†æ˜¯kå¿…é¡»åœ¨æ•°ç»„å¤§å°èŒƒå›´ä¹‹å†…
 		return 0;
 
 	int startIndex = FirstIndex(data, length, k);
