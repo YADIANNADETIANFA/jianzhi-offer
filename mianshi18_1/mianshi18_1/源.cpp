@@ -1,3 +1,6 @@
+// é¢è¯•é¢˜18ï¼ˆä¸€ï¼‰ï¼šåœ¨O(1)æ—¶é—´åˆ é™¤é“¾è¡¨ç»“ç‚¹
+// é¢˜ç›®ï¼šç»™å®šå•å‘é“¾è¡¨çš„å¤´æŒ‡é’ˆå’Œä¸€ä¸ªç»“ç‚¹æŒ‡é’ˆï¼Œå®šä¹‰ä¸€ä¸ªå‡½æ•°åœ¨O(1)æ—¶é—´åˆ é™¤è¯¥
+// ç»“ç‚¹ã€‚
 #include <cstdio>
 #include "ListNode.h"
 #include<iostream>
@@ -8,7 +11,7 @@ void DeleteNode(ListNode** pListHead, ListNode* pToBeDeleted)
 	if (!pListHead || !pToBeDeleted)
 		return;
 
-	// ÒªÉ¾³ıµÄ½áµã²»ÊÇÎ²½áµã
+	// è¦åˆ é™¤çš„ç»“ç‚¹ä¸æ˜¯å°¾ç»“ç‚¹
 	if (pToBeDeleted->m_pNext != nullptr)
 	{
 		ListNode* pNext = pToBeDeleted->m_pNext;
@@ -18,14 +21,14 @@ void DeleteNode(ListNode** pListHead, ListNode* pToBeDeleted)
 		delete pNext;
 		pNext = nullptr;
 	}
-	// Á´±íÖ»ÓĞÒ»¸ö½áµã£¬É¾³ıÍ·½áµã£¨Ò²ÊÇÎ²½áµã£©
+	// é“¾è¡¨åªæœ‰ä¸€ä¸ªç»“ç‚¹ï¼Œåˆ é™¤å¤´ç»“ç‚¹ï¼ˆä¹Ÿæ˜¯å°¾ç»“ç‚¹ï¼‰
 	else if (*pListHead == pToBeDeleted)
 	{
 		delete pToBeDeleted;
 		pToBeDeleted = nullptr;
 		*pListHead = nullptr;
 	}
-	// Á´±íÖĞÓĞ¶à¸ö½áµã£¬É¾³ıÎ²½áµã
+	// é“¾è¡¨ä¸­æœ‰å¤šä¸ªç»“ç‚¹ï¼Œåˆ é™¤å°¾ç»“ç‚¹
 	else
 	{
 		ListNode* pNode = *pListHead;
@@ -40,7 +43,7 @@ void DeleteNode(ListNode** pListHead, ListNode* pToBeDeleted)
 	}
 }
 
-void PrintList(ListNode* pHead)//ÕıĞò´òÓ¡Á´±í
+void PrintList(ListNode* pHead)//æ­£åºæ‰“å°é“¾è¡¨
 {
 	cout << "PrintList start:" << endl;
 	ListNode* pNode = pHead;
@@ -52,7 +55,7 @@ void PrintList(ListNode* pHead)//ÕıĞò´òÓ¡Á´±í
 	cout << "PrintList end." << endl;
 }
 
-ListNode* CreateListNode(int value)//´´½¨Á´±í½Úµã
+ListNode* CreateListNode(int value)//åˆ›å»ºé“¾è¡¨èŠ‚ç‚¹
 {
 	ListNode* pNode = new ListNode();
 	pNode->m_nValue = value;
@@ -61,12 +64,12 @@ ListNode* CreateListNode(int value)//´´½¨Á´±í½Úµã
 
 }
 
-void ConnectListNodes(ListNode* p1, ListNode* p2)//Á´½ÓÁ½¸öÁ´±í½Úµã
+void ConnectListNodes(ListNode* p1, ListNode* p2)//é“¾æ¥ä¸¤ä¸ªé“¾è¡¨èŠ‚ç‚¹
 {
 	if (p1 == nullptr)
 	{
 		cout << "Error to connect two nodes." << endl;
-		exit(1);//±íÊ¾½ø³ÌµÄ·ÇÕı³£ÍË³ö
+		exit(1);//è¡¨ç¤ºè¿›ç¨‹çš„éæ­£å¸¸é€€å‡º
 	}
 	p1->m_pNext = p2;
 }
@@ -77,7 +80,7 @@ void DestroyList(ListNode* pHead)
 	while (pNode != nullptr)
 	{
 		pHead = pHead->m_pNext;
-		delete pNode;//ÊäÈëµÄ²ÎÊıÊÇÖ¸Õë£¬¹Ê¶ÔÆä½øĞĞµÄÉ¾³ı²Ù×÷£¬³öÁË¸Ãº¯ÊıÖ®ºó£¬É¾³ıÒ²ÊÇ³ÉÁ¢µÄ¡£¡£¡£ÕâÑùµÄ»°£¬»¹±ØĞëÒª½èÓÃpNodeÀ´µİ½øÄØ£¬Ö±½ÓpHead×Ô¼ºÊÇ¸ã²»À´µÄ
+		delete pNode;//è¾“å…¥çš„å‚æ•°æ˜¯æŒ‡é’ˆï¼Œæ•…å¯¹å…¶è¿›è¡Œçš„åˆ é™¤æ“ä½œï¼Œå‡ºäº†è¯¥å‡½æ•°ä¹‹åï¼Œåˆ é™¤ä¹Ÿæ˜¯æˆç«‹çš„ã€‚ã€‚ã€‚è¿™æ ·çš„è¯ï¼Œè¿˜å¿…é¡»è¦å€Ÿç”¨pNodeæ¥é€’è¿›å‘¢ï¼Œç›´æ¥pHeadè‡ªå·±æ˜¯æä¸æ¥çš„
 		pNode = pHead;
 	}
 }
@@ -87,7 +90,7 @@ void PrintListNode(ListNode* pNode)
 		cout << pNode->m_nValue << endl;
 }
 
-// ====================²âÊÔ´úÂë====================
+// ====================æµ‹è¯•ä»£ç ====================
 void Test(ListNode* pListHead, ListNode* pNode)
 {
 	printf("The original list is: \n");
@@ -102,7 +105,7 @@ void Test(ListNode* pListHead, ListNode* pNode)
 	PrintList(pListHead);
 }
 
-// Á´±íÖĞÓĞ¶à¸ö½áµã£¬É¾³ıÖĞ¼äµÄ½áµã
+// é“¾è¡¨ä¸­æœ‰å¤šä¸ªç»“ç‚¹ï¼Œåˆ é™¤ä¸­é—´çš„ç»“ç‚¹
 void Test1()
 {
 	ListNode* pNode1 = CreateListNode(1);
@@ -121,7 +124,7 @@ void Test1()
 	DestroyList(pNode1);
 }
 
-// Á´±íÖĞÓĞ¶à¸ö½áµã£¬É¾³ıÎ²½áµã
+// é“¾è¡¨ä¸­æœ‰å¤šä¸ªç»“ç‚¹ï¼Œåˆ é™¤å°¾ç»“ç‚¹
 void Test2()
 {
 	ListNode* pNode1 = CreateListNode(1);
@@ -140,7 +143,7 @@ void Test2()
 	DestroyList(pNode1);
 }
 
-// Á´±íÖĞÓĞ¶à¸ö½áµã£¬É¾³ıÍ·½áµã
+// é“¾è¡¨ä¸­æœ‰å¤šä¸ªç»“ç‚¹ï¼Œåˆ é™¤å¤´ç»“ç‚¹
 void Test3()
 {
 	ListNode* pNode1 = CreateListNode(1);
@@ -159,19 +162,19 @@ void Test3()
 	DestroyList(pNode1);
 }
 
-// Á´±íÖĞÖ»ÓĞÒ»¸ö½áµã£¬É¾³ıÍ·½áµã
+// é“¾è¡¨ä¸­åªæœ‰ä¸€ä¸ªç»“ç‚¹ï¼Œåˆ é™¤å¤´ç»“ç‚¹
 void Test4()
 {
 	ListNode* pNode1 = CreateListNode(1);
 
-	Test(pNode1, pNode1);//×¢Òâ£¡£¡Test4¡¢5ÊÇÃ»ÓĞÊÖ¶¯µ÷ÓÃDestroyListµÄ£¡£¡£¡
+	Test(pNode1, pNode1);//æ³¨æ„ï¼ï¼Test4ã€5æ˜¯æ²¡æœ‰æ‰‹åŠ¨è°ƒç”¨DestroyListçš„ï¼ï¼ï¼
 	DestroyList(pNode1);
 }
 
-// Á´±íÎª¿Õ
+// é“¾è¡¨ä¸ºç©º
 void Test5()
 {
-	Test(nullptr, nullptr);//×¢Òâ£¡£¡Test4¡¢5ÊÇÃ»ÓĞÊÖ¶¯µ÷ÓÃDestroyListµÄ£¡£¡£¡
+	Test(nullptr, nullptr);//æ³¨æ„ï¼ï¼Test4ã€5æ˜¯æ²¡æœ‰æ‰‹åŠ¨è°ƒç”¨DestroyListçš„ï¼ï¼ï¼
 }
 
 int main(int argc, char* argv[])
