@@ -1,21 +1,24 @@
+// é¢è¯•é¢˜42ï¼šè¿ç»­å­æ•°ç»„çš„æœ€å¤§å’Œ
+// é¢˜ç›®ï¼šè¾“å…¥ä¸€ä¸ªæ•´å‹æ•°ç»„ï¼Œæ•°ç»„é‡Œæœ‰æ­£æ•°ä¹Ÿæœ‰è´Ÿæ•°ã€‚æ•°ç»„ä¸­ä¸€ä¸ªæˆ–è¿ç»­çš„å¤šä¸ªæ•´
+// æ•°ç»„æˆä¸€ä¸ªå­æ•°ç»„ã€‚æ±‚æ‰€æœ‰å­æ•°ç»„çš„å’Œçš„æœ€å¤§å€¼ã€‚è¦æ±‚æ—¶é—´å¤æ‚åº¦ä¸ºO(n)ã€‚
 #include<cstdio>
 #include<vector>
 
 using namespace std;
-//ÎÒÃÇÓÃvectorÈİÆ÷£¬¿ÉÒÔ¸üºÃµØÔö¼õÊı¾İ£»
-//ÎÒÃÇ»¹×öÁËÒ»Ğ©ĞŞ¸Ä£¬½«×î´óÊı×é´òÓ¡ÁË³öÀ´£»
-int FindGreatestSumOfSubArray(const vector<int>& numbers, vector<int>::const_iterator& ihead, vector<int>::const_iterator& itail)//×¢ÒâÒ»ÏÂ£¬µü´úÆ÷Ò²ÊÇ¿ÉÒÔÒıÓÃµÄ
-{                                                                       //iheadºÍitail·Ö±ğÊÇ×î´óÊı×éµÄÇ°ºóÁ½µü´úÆ÷Ö¸Õë      
+//æˆ‘ä»¬ç”¨vectorå®¹å™¨ï¼Œå¯ä»¥æ›´å¥½åœ°å¢å‡æ•°æ®ï¼›
+//æˆ‘ä»¬è¿˜åšäº†ä¸€äº›ä¿®æ”¹ï¼Œå°†æœ€å¤§æ•°ç»„æ‰“å°äº†å‡ºæ¥ï¼›
+int FindGreatestSumOfSubArray(const vector<int>& numbers, vector<int>::const_iterator& ihead, vector<int>::const_iterator& itail)//æ³¨æ„ä¸€ä¸‹ï¼Œè¿­ä»£å™¨ä¹Ÿæ˜¯å¯ä»¥å¼•ç”¨çš„
+{                                                                       //iheadå’Œitailåˆ†åˆ«æ˜¯æœ€å¤§æ•°ç»„çš„å‰åä¸¤è¿­ä»£å™¨æŒ‡é’ˆ      
 	if (numbers.size() <= 0)
 		throw exception("Invalid Input\n");
 
-	int CurSum = 0;//µ±Ç°¼ÓºÍ
-	int CurMax = 0;//µ±Ç°×î´óÖµ
+	int CurSum = 0;//å½“å‰åŠ å’Œ
+	int CurMax = 0;//å½“å‰æœ€å¤§å€¼
 	vector<int>::const_iterator iter = numbers.begin();
 
 	for (; iter != numbers.end(); ++iter)
 	{
-		if ((*iter + CurSum) < (*iter) && (CurMax < *iter))//ÒÔÒ»ÖµÖ®Á¦´óÓÚÇ°ÃæÒ»´ó×éÖµµÄºÍ£¬ÔòĞŞÕıCurSumÓëCurMax£¬iheadÓëitail£¬²¢·ÅÆúÇ°ÃæµÄÄÇÒ»´ó×éÖµ
+		if ((*iter + CurSum) < (*iter) && (CurMax < *iter))//ä»¥ä¸€å€¼ä¹‹åŠ›å¤§äºå‰é¢ä¸€å¤§ç»„å€¼çš„å’Œï¼Œåˆ™ä¿®æ­£CurSumä¸CurMaxï¼Œiheadä¸itailï¼Œå¹¶æ”¾å¼ƒå‰é¢çš„é‚£ä¸€å¤§ç»„å€¼
 		{
 			CurSum = *iter;
 			CurMax = *iter;
@@ -28,12 +31,12 @@ int FindGreatestSumOfSubArray(const vector<int>& numbers, vector<int>::const_ite
 		if (CurSum > CurMax)
 		{
 			CurMax = CurSum;
-			(itail-1) = iter;//Õı³£µÄÈ¥¶¨Î»itail
+			(itail-1) = iter;//æ­£å¸¸çš„å»å®šä½itail
 		}
 	}
 
-	if (CurMax == 0)//ÕâÀïËµÃ÷Ò»ÏÂ£¬FindGreatestSumOfSubArrayÎ´¶ÔiheadºÍitail½øĞĞ¸³ÖµÖ»ÓĞÁ½ÖÖÇé¿ö£¬Ò»¸öÊÇÊäÈëÊı×éÎª¿Õ£¬Õâ¸ö²»ÓÃ¹Ü£¬Ö±½Óthrow³öÈ¥ÁË£¬Ã»ÓĞºóĞøµÄÖ´ĞĞ£»ÁíÒ»¸ö¾ÍÊÇÊäÈëÊı×éÎªÈ«¸º£¬
-		ihead = numbers.end();//ÔÚµÚ¶şÖÖÇé¿ö£¬¼ÈÈ»ÒÑÖªÁËÊı×éÈ«¸º£¬ÄÇÖ±½Ó¾Í°Ñihead = numbers.end()£¬¼´ÌØÊâ¿¼ÂÇÕâ¸öÇé¿ö¼´¿É
+	if (CurMax == 0)//è¿™é‡Œè¯´æ˜ä¸€ä¸‹ï¼ŒFindGreatestSumOfSubArrayæœªå¯¹iheadå’Œitailè¿›è¡Œèµ‹å€¼åªæœ‰ä¸¤ç§æƒ…å†µï¼Œä¸€ä¸ªæ˜¯è¾“å…¥æ•°ç»„ä¸ºç©ºï¼Œè¿™ä¸ªä¸ç”¨ç®¡ï¼Œç›´æ¥throwå‡ºå»äº†ï¼Œæ²¡æœ‰åç»­çš„æ‰§è¡Œï¼›å¦ä¸€ä¸ªå°±æ˜¯è¾“å…¥æ•°ç»„ä¸ºå…¨è´Ÿï¼Œ
+		ihead = numbers.end();//åœ¨ç¬¬äºŒç§æƒ…å†µï¼Œæ—¢ç„¶å·²çŸ¥äº†æ•°ç»„å…¨è´Ÿï¼Œé‚£ç›´æ¥å°±æŠŠihead = numbers.end()ï¼Œå³ç‰¹æ®Šè€ƒè™‘è¿™ä¸ªæƒ…å†µå³å¯
 
 	return CurMax;
 }
@@ -45,11 +48,11 @@ void Test(const char* testname, const vector<int> numbers, int expected)
 
 	try
 	{
-		vector<int>::const_iterator ihead = numbers.begin();//Èç¹ûFindGreatestSumOfSubArrayÎ´¶ÔÕâÁ½¸öµü´úÆ÷½øĞĞ³É¹¦¸³Öµ£¬ÄÇÃ´ËûÁ©×ÜÒªÓĞ¸ö³õÊ¼µÄÖ¸Ïò
+		vector<int>::const_iterator ihead = numbers.begin();//å¦‚æœFindGreatestSumOfSubArrayæœªå¯¹è¿™ä¸¤ä¸ªè¿­ä»£å™¨è¿›è¡ŒæˆåŠŸèµ‹å€¼ï¼Œé‚£ä¹ˆä»–ä¿©æ€»è¦æœ‰ä¸ªåˆå§‹çš„æŒ‡å‘
 		vector<int>::const_iterator itail = numbers.end();
 
-		int result = FindGreatestSumOfSubArray(numbers,ihead,itail);//²¢ÇÒÕâÀïÃæµü´úÆ÷Ò²±ØĞëÒªÒıÓÃ£¬·ñÔò³öÁËÕâ¸öº¯ÊıÒÔºó£¬iheadºÍitailÒÀ¾ÉÊÇ×î³õµÄ¸³Öµ×´Ì¬
-		printf("The Max_value is:%d\n", result);                    //×î¼òµ¥µÄC++¹æÔò£¬ÒòÎª·ÇÒıÓÃ²Ù×÷µÄÊÇiheadºÍitailµÄ¿½±´£¬³öÁËº¯ÊıÌå¸Ã¿½±´±»¶ªÆú£¬ËùÒÔ±ØÓÃÒıÓÃ
+		int result = FindGreatestSumOfSubArray(numbers,ihead,itail);//å¹¶ä¸”è¿™é‡Œé¢è¿­ä»£å™¨ä¹Ÿå¿…é¡»è¦å¼•ç”¨ï¼Œå¦åˆ™å‡ºäº†è¿™ä¸ªå‡½æ•°ä»¥åï¼Œiheadå’Œitailä¾æ—§æ˜¯æœ€åˆçš„èµ‹å€¼çŠ¶æ€
+		printf("The Max_value is:%d\n", result);                    //æœ€ç®€å•çš„C++è§„åˆ™ï¼Œå› ä¸ºéå¼•ç”¨æ“ä½œçš„æ˜¯iheadå’Œitailçš„æ‹·è´ï¼Œå‡ºäº†å‡½æ•°ä½“è¯¥æ‹·è´è¢«ä¸¢å¼ƒï¼Œæ‰€ä»¥å¿…ç”¨å¼•ç”¨
 		printf("The Max Array is:\n");
 		vector<int>::const_iterator iter2 = ihead;
 		for (; iter2 != itail ; ++iter2)
