@@ -1,3 +1,6 @@
+// é¢è¯•é¢˜18ï¼ˆäºŒï¼‰ï¼šåˆ é™¤é“¾è¡¨ä¸­é‡å¤çš„ç»“ç‚¹
+// é¢˜ç›®ï¼šåœ¨ä¸€ä¸ªæ’åºçš„é“¾è¡¨ä¸­ï¼Œå¦‚ä½•åˆ é™¤é‡å¤çš„ç»“ç‚¹ï¼Ÿä¾‹å¦‚ï¼Œåœ¨å›¾3.4ï¼ˆaï¼‰ä¸­é‡å¤
+// ç»“ç‚¹è¢«åˆ é™¤ä¹‹åï¼Œé“¾è¡¨å¦‚å›¾3.4ï¼ˆbï¼‰æ‰€ç¤ºã€‚
 #include"ListNode.h"
 #include<iostream>
 #include<cstdio>
@@ -27,7 +30,7 @@ void DeleteDuplication(ListNode** pHead)
 		else
 		{
 			int value = pNode->m_value;
-			while (pNext->m_pNext != nullptr && pNext->m_value == value)//ÓĞÖØ¸´µÄ¾Í¿ªÉ¾
+			while (pNext->m_pNext != nullptr && pNext->m_value == value)//æœ‰é‡å¤çš„å°±å¼€åˆ 
 			{
 				delete pNode;
 				pNode = nullptr;
@@ -35,32 +38,32 @@ void DeleteDuplication(ListNode** pHead)
 				pNext = pNext->m_pNext;
 			}
 
-			if (pNode->m_value != pNext->m_value)//Ìø³öwhileÑ­»·µÄ¿ÉÄÜÖ®Ò»
+			if (pNode->m_value != pNext->m_value)//è·³å‡ºwhileå¾ªç¯çš„å¯èƒ½ä¹‹ä¸€
 			{
 				delete pNode;
 				pNode = nullptr;
 				pNode = pNext;
-				if (pPreNode != nullptr)//Ç°Ãæ»¹ÊÇÓĞÃ»É¾µÄÔªËØµÄ
+				if (pPreNode != nullptr)//å‰é¢è¿˜æ˜¯æœ‰æ²¡åˆ çš„å…ƒç´ çš„
 				{
 					pPreNode->m_pNext = pNode;
 				}
-				else//´ÓÍ·Ò»Ö±É¾µ½ÁËÕâÀï£¬Ç°ÃæÉ¶¶¼Ã»Áô
+				else//ä»å¤´ä¸€ç›´åˆ åˆ°äº†è¿™é‡Œï¼Œå‰é¢å•¥éƒ½æ²¡ç•™
 				{
 					*pHead = pNode;
 				}
 			}
-			else//Ìø³öÑ­»·¿ÉÄÜÖ®¶ş£¬×îÄ©Î²ÊÇÁ½¸öÒ»ÑùµÄ£¬È«¸øÉ¾µô
+			else//è·³å‡ºå¾ªç¯å¯èƒ½ä¹‹äºŒï¼Œæœ€æœ«å°¾æ˜¯ä¸¤ä¸ªä¸€æ ·çš„ï¼Œå…¨ç»™åˆ æ‰
 			{
 				delete pNode;
 				pNode = nullptr;
 				delete pNext;
-				pNext = nullptr;//while (pNode->m_pNext != nullptr)ÔÙÖ´ĞĞ¾Í»á±¨´í£¬¹ÊÏÂÃæ·ÅÁ½¸öreturn
-				if (pPreNode != nullptr)//Ç°Ãæ»¹ÊÇÓĞÃ»É¾µÄÔªËØµÄ
+				pNext = nullptr;//while (pNode->m_pNext != nullptr)å†æ‰§è¡Œå°±ä¼šæŠ¥é”™ï¼Œæ•…ä¸‹é¢æ”¾ä¸¤ä¸ªreturn
+				if (pPreNode != nullptr)//å‰é¢è¿˜æ˜¯æœ‰æ²¡åˆ çš„å…ƒç´ çš„
 				{
 					pPreNode->m_pNext = nullptr;
 					return;
 				}
-				else//´ÓÍ·Ò»Ö±É¾,É¶¶¼Ã»Áô
+				else//ä»å¤´ä¸€ç›´åˆ ,å•¥éƒ½æ²¡ç•™
 				{
 					*pHead = nullptr;
 					return;
@@ -138,7 +141,7 @@ void test1()
 	ConnectNodes(pNode5, pNode6);
 	ConnectNodes(pNode6, pNode7);
 
-	Test("test1", &pNode1);//ÕâÀï²ÎÊıÎª&
+	Test("test1", &pNode1);//è¿™é‡Œå‚æ•°ä¸º&
 	DestroyedList(pNode1);
 }
 
@@ -159,7 +162,7 @@ void test2()
 	ConnectNodes(pNode5, pNode6);
 	ConnectNodes(pNode6, pNode7);
 
-	Test("test2", &pNode1);//ÕâÀï²ÎÊıÎª&
+	Test("test2", &pNode1);//è¿™é‡Œå‚æ•°ä¸º&
 	DestroyedList(pNode1);
 }
 
@@ -180,7 +183,7 @@ void test3()
 	ConnectNodes(pNode5, pNode6);
 	ConnectNodes(pNode6, pNode7);
 
-	Test("test3", &pNode1);//ÕâÀï²ÎÊıÎª&
+	Test("test3", &pNode1);//è¿™é‡Œå‚æ•°ä¸º&
 	DestroyedList(pNode1);
 }
 
@@ -201,7 +204,7 @@ void test4()
 	ConnectNodes(pNode5, pNode6);
 	ConnectNodes(pNode6, pNode7);
 
-	Test("test4", &pNode1);//ÕâÀï²ÎÊıÎª&
+	Test("test4", &pNode1);//è¿™é‡Œå‚æ•°ä¸º&
 	DestroyedList(pNode1);
 }
 
@@ -212,7 +215,7 @@ void test5()
 
 	ConnectNodes(pNode1, pNode2);
 
-	Test("test5", &pNode1);//ÕâÀï²ÎÊıÎª&
+	Test("test5", &pNode1);//è¿™é‡Œå‚æ•°ä¸º&
 	DestroyedList(pNode1);
 }
 
@@ -221,7 +224,7 @@ void test6()
 	ListNode* pNode1 = CreatNode(1);
 
 
-	Test("test6", &pNode1);//ÕâÀï²ÎÊıÎª&
+	Test("test6", &pNode1);//è¿™é‡Œå‚æ•°ä¸º&
 	DestroyedList(pNode1);
 }
 
@@ -232,16 +235,16 @@ void test7()
 
 	ConnectNodes(pNode1, pNode2);
 
-	Test("test7", &pNode1);//ÕâÀï²ÎÊıÎª&
+	Test("test7", &pNode1);//è¿™é‡Œå‚æ•°ä¸º&
 	DestroyedList(pNode1);
 }
 
 void test8()
 {
 	ListNode* pNode1 = nullptr;
-	Test("test8", &pNode1);//ÕâÀï²ÎÊıÎª&
-	//Test("test8", nullptr);//ÏÂÃæÕâÁ½¸ö¶¼²»¶Ô
-	//Test("test8", &nullptr);//³£Á¿Ã»·¨&  £¡£¡   ÕâÀïÏàµ±ÓÚ½èÖúListNode* pNode1Íê³ÉµÄnullptrµÄ´¦Àí¹¤×÷
+	Test("test8", &pNode1);//è¿™é‡Œå‚æ•°ä¸º&
+	//Test("test8", nullptr);//ä¸‹é¢è¿™ä¸¤ä¸ªéƒ½ä¸å¯¹
+	//Test("test8", &nullptr);//å¸¸é‡æ²¡æ³•&  ï¼ï¼   è¿™é‡Œç›¸å½“äºå€ŸåŠ©ListNode* pNode1å®Œæˆçš„nullptrçš„å¤„ç†å·¥ä½œ
 }
 
 int main()
