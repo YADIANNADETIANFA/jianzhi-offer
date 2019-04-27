@@ -1,3 +1,5 @@
+// é¢è¯•é¢˜32ï¼ˆä¸€ï¼‰ï¼šä¸åˆ†è¡Œä»ä¸Šå¾€ä¸‹æ‰“å°äºŒå‰æ ‘
+// é¢˜ç›®ï¼šä»ä¸Šå¾€ä¸‹æ‰“å°å‡ºäºŒå‰æ ‘çš„æ¯ä¸ªç»“ç‚¹ï¼ŒåŒä¸€å±‚çš„ç»“ç‚¹æŒ‰ç…§ä»å·¦åˆ°å³çš„é¡ºåºæ‰“å°ã€‚
 #include<cstdio>
 #include"BinaryTreeNode.h"
 #include<deque>
@@ -104,17 +106,17 @@ void Print_row_snake(BinaryTreeNode* pRoot)
 	stack<BinaryTreeNode*> stackNodes1;
 	stack<BinaryTreeNode*> stackNodes2;
 
-	bool snake = false;//false£º´òÓ¡1Õ»£¬²¢Ïò2Õ»Ñ¹Èë
-	                   //true£º´òÓ¡2Õ»£¬²¢Ïò1Õ»Ñ¹Èë
-	printf("%d\t", pRoot->m_value);//°ÑÍ·½áµãÏÈ×Ô¼º´ò³öÀ´
+	bool snake = false;//falseï¼šæ‰“å°1æ ˆï¼Œå¹¶å‘2æ ˆå‹å…¥
+	                   //trueï¼šæ‰“å°2æ ˆï¼Œå¹¶å‘1æ ˆå‹å…¥
+	printf("%d\t", pRoot->m_value);//æŠŠå¤´ç»“ç‚¹å…ˆè‡ªå·±æ‰“å‡ºæ¥
 	cout << endl;
 
-	if (pRoot->p_right)//±£Ö¤´«½øÕ»ÀïÃæµÄ£¬²»»áº¬ÓĞ¿ÕÖ¸Õë
+	if (pRoot->p_right)//ä¿è¯ä¼ è¿›æ ˆé‡Œé¢çš„ï¼Œä¸ä¼šå«æœ‰ç©ºæŒ‡é’ˆ
 		stackNodes1.push(pRoot->p_right);
 	if (pRoot->p_left)
 		stackNodes1.push(pRoot->p_left);
 
-	while (stackNodes1.size() || stackNodes2.size())//Ê²Ã´Ê±ºòÁ½¸öÕ»È«¿ÕÁË£¬ÄÇ¾ÍÊÇ´òÍêÁË
+	while (stackNodes1.size() || stackNodes2.size())//ä»€ä¹ˆæ—¶å€™ä¸¤ä¸ªæ ˆå…¨ç©ºäº†ï¼Œé‚£å°±æ˜¯æ‰“å®Œäº†
 	{
 		if (!snake)
 		{
@@ -136,12 +138,12 @@ void Print_row_snake(BinaryTreeNode* pRoot)
 			if (pNode->p_left)
 				stackNodes1.push(pNode->p_left);
 		}
-		if (stackNodes1.empty() && snake == false)//´òÍêÒ»ĞĞÁË
+		if (stackNodes1.empty() && snake == false)//æ‰“å®Œä¸€è¡Œäº†
 		{
 			snake = true;
 			cout << endl;
 		}
-		if (stackNodes2.empty() && snake == true)//Í¬ÉÏ
+		if (stackNodes2.empty() && snake == true)//åŒä¸Š
 		{
 			snake = false;
 			cout << endl;
@@ -243,7 +245,7 @@ void test4()
 	cout << endl;
 }
 
-int main()//×Ü»áÍü¼ÇmainÈ»ºó¼ì²â³ö²»¿ÉÖª´íÎó
+int main()//æ€»ä¼šå¿˜è®°mainç„¶åæ£€æµ‹å‡ºä¸å¯çŸ¥é”™è¯¯
 {
 	test1();
 	test2();
