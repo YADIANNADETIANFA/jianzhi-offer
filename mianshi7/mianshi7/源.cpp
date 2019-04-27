@@ -1,7 +1,12 @@
+// 面试题7：重建二叉树
+// 题目：输入某二叉树的前序遍历和中序遍历的结果，请重建出该二叉树。假设输
+// 入的前序遍历和中序遍历的结果中都不含重复的数字。例如输入前序遍历序列{1,
+// 2, 4, 7, 3, 5, 6, 8}和中序遍历序列{4, 7, 2, 1, 5, 3, 8, 6}，则重建出
+// 图2.6所示的二叉树并输出它的头结点。
 #include"BinaryTreeNode.h"
 #include<exception>
 #include<iostream>
-#include<cstdio>//cstdio�еĺ������Ƕ�����һ�����ֿռ�std����ģ����Ҫ����������ֿռ�ĺ���������ü�std::�������ļ�������use namespace std
+#include<cstdio>//cstdio中的函数都是定义在一个名字空间std里面的，如果要调用这个名字空间的函数，必须得加std::或者在文件中声明use namespace std
 using namespace std;
 
 BinaryTreeNode* ConstructCore(int* startPreorder, int* endPreorder, int* startInorder, int* endInorder);
@@ -20,7 +25,7 @@ BinaryTreeNode* ConstructCore(int* startPreorder, int* endPreorder, int* startIn
 	int rootValue = startPreorder[0];
 	BinaryTreeNode* root = new BinaryTreeNode();
 	root->m_nvalue = rootValue;
-	root->m_pleft = root->m_pright = nullptr;//��һ������ȷ��������������ͬ����Ҫ����BinaryTreeNode�ĸ���ز���
+	root->m_pleft = root->m_pright = nullptr;//下一步就是确定这两个参数，同样需要集齐BinaryTreeNode四个相关参数
 
 	if (startPreorder == endPreorder)
 	{
@@ -30,7 +35,7 @@ BinaryTreeNode* ConstructCore(int* startPreorder, int* endPreorder, int* startIn
 		}
 		else
 		{
-			throw exception();//exception��һ����,��Ҫ�����쳣��ͷ�ļ�exception
+			throw exception();//exception是一个类,需要处理异常的头文件exception
 		}
 	}
 
@@ -45,11 +50,11 @@ BinaryTreeNode* ConstructCore(int* startPreorder, int* endPreorder, int* startIn
 	}
 	int length = rootInorder - startInorder;
 	int* leftPreorderEnd = startPreorder + length;
-	if (length > 0)//֤������������
+	if (length > 0)//证明左子树存在
 	{
 		root->m_pleft = ConstructCore(startPreorder + 1, leftPreorderEnd, startInorder, rootInorder - 1);
 	}
-	if ((endInorder - rootInorder) > 0)//���������ڣ�����Ҳ���ж�
+	if ((endInorder - rootInorder) > 0)//右子树存在，这样也可判断
 	{
 		root->m_pright = ConstructCore(leftPreorderEnd + 1, endPreorder, rootInorder + 1, endInorder);
 	}
@@ -79,9 +84,9 @@ void DestroyTree(BinaryTreeNode* t)
 		//delete t;
 		DestroyTree(t->m_pleft);
 		DestroyTree(t->m_pright);
-		delete t;//delete��freeֻ�����ָ����ָ����ڴ��ͷŵ��ˣ���û�а�ָ�뱾���ɵ�����free��delete֮��
-		         //����Ҫ��ָ�������ڴ��ָ����Ϊ�գ���p=NULL������ָ��ָ����ڴ�ռ���Ȼ�ͷ��ˣ�����ָ��p��ֵ���Ǽ�¼���ǿ��ַ���õ�ַ��Ӧ���ڴ���������p�ͳ��ˡ�Ұָ�롱��
-		t = nullptr;//���Ǳ����Ҫ���ɵ�ϰ�ߣ���
+		delete t;//delete和free只负责把指针所指向的内存释放掉了，并没有把指针本身干掉。在free和delete之后，
+		         //都需要把指向清理内存的指针置为空，即p=NULL，否则指针指向的内存空间虽然释放了，但是指针p的值还是记录的那块地址，该地址对应的内存是垃圾，p就成了“野指针”。
+		t = nullptr;//这是必须的要养成的习惯！！
 	}
 }
 
@@ -109,14 +114,14 @@ void Test(const char* testname, int*preorder, int* inorder, int length)
 		printPreorder(root);
 		DestroyTree(root);
 	}
-	catch (exception& e)//exception���࣬e��һ��ʵ��
+	catch (exception& e)//exception是类，e是一个实例
 	{
-		printf("Invalid Input.\n");//����I����i������������ĸ���������������Ǵ�дI
+		printf("Invalid Input.\n");//看看I还是i，看到底输出哪个。。。。输出的是大写I
 	}
 
 }
 
-void Test1()//��ͨ������
+void Test1()//普通二叉树
 {
 	const int length = 8;
 	int preorder[length] = { 1,2,4,7,3,5,6,8 };
@@ -125,7 +130,7 @@ void Test1()//��ͨ������
 	cout << endl;
 }
 
-void Test2()//���нڵ㶼û���ҽڵ�
+void Test2()//所有节点都没有右节点
 {
 	const int length = 5;
 	int preorder[length] = {1,2,3,4,5};
@@ -134,7 +139,7 @@ void Test2()//���нڵ㶼û���ҽڵ�
 	cout << endl;
 }
 
-void Test3()//���нڵ㶼û����ڵ�
+void Test3()//所有节点都没有左节点
 {
 	const int length = 5;
 	int preorder[length] = {1,2,3,4,5};
@@ -143,7 +148,7 @@ void Test3()//���нڵ㶼û����ڵ�
 	cout << endl;
 }
 
-void Test4()//ֻ��һ���ڵ�
+void Test4()//只有一个节点
 {
 	const int length = 1;
 	int preorder[length] = {1};
@@ -152,7 +157,7 @@ void Test4()//ֻ��һ���ڵ�
 	cout << endl;
 }
 
-void Test5()//��ȫ������
+void Test5()//完全二叉树
 {
 	const int length = 7;
 	int preorder[length] = {1,2,4,5,3,6,7};
@@ -161,7 +166,7 @@ void Test5()//��ȫ������
 	cout << endl;
 }
 
-void Test6()//��ָ��
+void Test6()//空指针
 {
 	//const int length = 8;
 	//int preorder[length] = { 1,2,4,7,3,5,6,8 };
@@ -170,7 +175,7 @@ void Test6()//��ָ��
 	cout << endl;
 }
 
-void Test7()//�����в�ƥ��
+void Test7()//两序列不匹配
 {
 	const int length = 7;
 	int preorder[length] = {1,2,4,5,3,6,7};
