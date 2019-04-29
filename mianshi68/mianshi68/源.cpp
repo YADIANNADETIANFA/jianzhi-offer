@@ -1,3 +1,5 @@
+// é¢è¯•é¢˜68ï¼šæ ‘ä¸­ä¸¤ä¸ªç»“ç‚¹çš„æœ€ä½å…¬å…±ç¥–å…ˆ
+// é¢˜ç›®ï¼šè¾“å…¥ä¸¤ä¸ªæ ‘ç»“ç‚¹ï¼Œæ±‚å®ƒä»¬çš„æœ€ä½å…¬å…±ç¥–å…ˆã€‚
 #include"BinaryTreeNode.h"
 #include<cstdio>
 #include<iostream>
@@ -35,7 +37,7 @@ void DestroyTree(BinaryTreeNode* pRoot)
 	pRoot = nullptr;
 }
 
-bool GetNodePath(BinaryTreeNode* pRoot, BinaryTreeNode* pNode, list<BinaryTreeNode*>& path)//¶ş²æÊ÷ÖĞ£¬ÕÒµ½Ä³Ò»½ÚµãµÄÂ·¾¶
+bool GetNodePath(BinaryTreeNode* pRoot, BinaryTreeNode* pNode, list<BinaryTreeNode*>& path)//äºŒå‰æ ‘ä¸­ï¼Œæ‰¾åˆ°æŸä¸€èŠ‚ç‚¹çš„è·¯å¾„
 {
 	if (pRoot == pNode)
 	{
@@ -44,7 +46,7 @@ bool GetNodePath(BinaryTreeNode* pRoot, BinaryTreeNode* pNode, list<BinaryTreeNo
 	}
 	
 	path.push_back(pRoot);
-	/*                  ÓÃÓÚ·Ç¶ş²æÊ÷µÄÇé¿ö
+	/*                  ç”¨äºéäºŒå‰æ ‘çš„æƒ…å†µ
 	bool found =false;
 	vector<TreeNode*>::iterator iter=pRoot->m_vChildren.begin();
 	While(!found && iter!=pRoot->m_vChildren.end())
@@ -68,7 +70,7 @@ bool GetNodePath(BinaryTreeNode* pRoot, BinaryTreeNode* pNode, list<BinaryTreeNo
 	return true;
 }
 
-BinaryTreeNode* GetLastParent(list<BinaryTreeNode*> path1, list<BinaryTreeNode*> path2)//Á½¸öÁ´±íÕÒ×îºóÏàÍ¬µÄ½Úµã
+BinaryTreeNode* GetLastParent(list<BinaryTreeNode*> path1, list<BinaryTreeNode*> path2)//ä¸¤ä¸ªé“¾è¡¨æ‰¾æœ€åç›¸åŒçš„èŠ‚ç‚¹
 {
 	BinaryTreeNode* pLastParent = nullptr;
 	list<BinaryTreeNode*>::iterator iter1 = path1.begin();
@@ -88,7 +90,7 @@ BinaryTreeNode* GetLastParent(list<BinaryTreeNode*> path1, list<BinaryTreeNode*>
 	return pLastParent;
 }
 
-BinaryTreeNode* GetLastCommonNode(BinaryTreeNode* pRoot, BinaryTreeNode* pNode1, BinaryTreeNode* pNode2)//Ö÷º¯Êı
+BinaryTreeNode* GetLastCommonNode(BinaryTreeNode* pRoot, BinaryTreeNode* pNode1, BinaryTreeNode* pNode2)//ä¸»å‡½æ•°
 {
 	if (pRoot == nullptr || pNode1 == nullptr || pNode2 == nullptr)
 		return nullptr;
