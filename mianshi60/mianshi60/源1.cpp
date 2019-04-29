@@ -1,9 +1,12 @@
+// 面试题60：n个骰子的点数
+// 题目：把n个骰子扔在地上，所有骰子朝上一面的点数之和为s。输入n，打印出s
+// 的所有可能的值出现的概率。
 #include<cstdio>
 #include<iostream>
 #include<vector>
 using namespace std;
 
-void FindPro(int up_side, vector<double>& the_pro_res, int num_of_square, int n, int last_sum=0, double last_pro=1)//num_of_square��1��ʼ,last_sum��0��ʼ��last_pro��1��ʼ
+void FindPro(int up_side, vector<double>& the_pro_res, int num_of_square, int n, int last_sum=0, double last_pro=1)//num_of_square从1开始,last_sum从0开始，last_pro从1开始
 {
 	if (num_of_square == n+1)
 	{
@@ -12,7 +15,7 @@ void FindPro(int up_side, vector<double>& the_pro_res, int num_of_square, int n,
 	}
 	for (int i = 1; i <= 6; ++i)
 	{
-		if (last_sum + i <= up_side)//�������ҶԳƵĹ��ɣ���ʡһ�������
+		if (last_sum + i <= up_side)//根据左右对称的规律，节省一半计算量
 		{
 			FindPro(up_side, the_pro_res, num_of_square + 1, n, last_sum + i, last_pro / 6);
 		}
@@ -61,4 +64,4 @@ int main()
 	return 0;
 }
 
-//Ҳ���Դ�1+3=4   2+2=4  3+1=4�Ĺ�������
+//也可以从1+3=4   2+2=4  3+1=4的规律想想
