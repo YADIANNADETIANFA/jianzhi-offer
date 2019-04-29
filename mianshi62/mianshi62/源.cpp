@@ -1,3 +1,6 @@
+// 面试题62：圆圈中最后剩下的数字
+// 题目：0, 1, …, n-1这n个数字排成一个圆圈，从数字0开始每次从这个圆圈里
+// 删除第m个数字。求出这个圆圈里剩下的最后一个数字。
 #include"ListNode.h"
 #include<cstdio>
 #include<iostream>
@@ -37,19 +40,19 @@ int main()
 	int m, n;
 	while (cin >> m >> n)
 	{
-		vector<ListNode*> List;//iostream��������ֵ����֪����ô���ܰ�������������for�������������ȶ���������Ȼ��������
+		vector<ListNode*> List;//iostream输入链表值，不知道怎么才能把链表连起来，for不出来。所以先都存起来，然后慢慢连
 		for (int i = 0; i < n; ++i)
 		{
 			ListNode* pNode = ConstructNode(i);
 			List.push_back(pNode);
 		}
 		ListNode* pHead = List[0];
-		for (int i = 0; i < n-1; ++i)//��������
+		for (int i = 0; i < n-1; ++i)//链表连好
 		{
 			List[i]->m_pNext = List[i + 1];
 		}
 
-		List[n - 1]->m_pNext = pHead;//����ѭ��
+		List[n - 1]->m_pNext = pHead;//链表循环
 
 		int num = n;
 		ListNode* pNode=pHead;
