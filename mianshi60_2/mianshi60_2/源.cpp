@@ -1,3 +1,6 @@
+// é¢è¯•é¢˜60ï¼šnä¸ªéª°å­çš„ç‚¹æ•°
+// é¢˜ç›®ï¼šæŠŠnä¸ªéª°å­æ‰”åœ¨åœ°ä¸Šï¼Œæ‰€æœ‰éª°å­æœä¸Šä¸€é¢çš„ç‚¹æ•°ä¹‹å’Œä¸ºsã€‚è¾“å…¥nï¼Œæ‰“å°å‡ºs
+// çš„æ‰€æœ‰å¯èƒ½çš„å€¼å‡ºç°çš„æ¦‚ç‡ã€‚
 #include<iostream>
 #include<cstdio>
 #include<vector>
@@ -11,13 +14,13 @@ int main()
 	while (cin >> n)
 	{
 		vector<vector<double>>A(2, vector<double>(6 * n + 1, 0));
-		int flag = 0;//´ËÖÖflagÌæ»»
+		int flag = 0;//æ­¤ç§flagæ›¿æ¢
 
 		for (int i = 1; i <= 6; ++i)
 		{
 			A[flag][i] = 1;
 		}
-		for (int i = 2; i <= n; ++i)//µÚ¶ş¸ö¼°Ö®ºó÷»×Ó
+		for (int i = 2; i <= n; ++i)//ç¬¬äºŒä¸ªåŠä¹‹åéª°å­
 		{
 			for (int j = 0; j <= i - 1; ++j)
 				A[1 - flag][j] = 0;
@@ -28,15 +31,15 @@ int main()
 				int Start = i;
 				for (int j = i * 6; j >= End; --j)
 				{
-					A[1 - flag][j] = 0;//ÒªÓĞÒ»¸ö¹éÁã´¦Àí
+					A[1 - flag][j] = 0;//è¦æœ‰ä¸€ä¸ªå½’é›¶å¤„ç†
 
 					for (int k = j - 1; (k >= j - 6) && (k >= 1); k--)
 					{
 						A[1 - flag][j] += A[flag][k];
 					}
-					A[1 - flag][Start++] = A[1 - flag][j];//¸ù¾İ×óÓÒ¶Ô³Æ£¬Ê¹¼ÆËãÁ¿ÉÙÒ»°ë
+					A[1 - flag][Start++] = A[1 - flag][j];//æ ¹æ®å·¦å³å¯¹ç§°ï¼Œä½¿è®¡ç®—é‡å°‘ä¸€åŠ
 				}
-				flag = 1 - flag;//´ËÖÖflagÌæ»»
+				flag = 1 - flag;//æ­¤ç§flagæ›¿æ¢
 			}
 			else
 			{
@@ -44,15 +47,15 @@ int main()
 				int Start = i;
 				for (int j = i * 6; j >= End; --j)
 				{
-					A[1 - flag][j] = 0;//ÒªÓĞÒ»¸ö¹éÁã´¦Àí
+					A[1 - flag][j] = 0;//è¦æœ‰ä¸€ä¸ªå½’é›¶å¤„ç†
 
 					for (int k = j - 1; (k >= j - 6) && (k >= 1); k--)
 					{
 						A[1 - flag][j] += A[flag][k];
 					}
-					A[1 - flag][Start++] = A[1 - flag][j];//¸ù¾İ×óÓÒ¶Ô³Æ£¬Ê¹¼ÆËãÁ¿ÉÙÒ»°ë
+					A[1 - flag][Start++] = A[1 - flag][j];//æ ¹æ®å·¦å³å¯¹ç§°ï¼Œä½¿è®¡ç®—é‡å°‘ä¸€åŠ
 				}
-				flag = 1 - flag;//´ËÖÖflagÌæ»»
+				flag = 1 - flag;//æ­¤ç§flagæ›¿æ¢
 			}
 		}
 		double MAX = pow(6, n);
