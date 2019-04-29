@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.421
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "mianshi60_2", "mianshi60_2\mianshi60_2.vcxproj", "{379D52A2-0E65-4689-88C2-4BBF14F004F1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{379D52A2-0E65-4689-88C2-4BBF14F004F1}.Debug|x64.ActiveCfg = Debug|x64
+		{379D52A2-0E65-4689-88C2-4BBF14F004F1}.Debug|x64.Build.0 = Debug|x64
+		{379D52A2-0E65-4689-88C2-4BBF14F004F1}.Debug|x86.ActiveCfg = Debug|Win32
+		{379D52A2-0E65-4689-88C2-4BBF14F004F1}.Debug|x86.Build.0 = Debug|Win32
+		{379D52A2-0E65-4689-88C2-4BBF14F004F1}.Release|x64.ActiveCfg = Release|x64
+		{379D52A2-0E65-4689-88C2-4BBF14F004F1}.Release|x64.Build.0 = Release|x64
+		{379D52A2-0E65-4689-88C2-4BBF14F004F1}.Release|x86.ActiveCfg = Release|Win32
+		{379D52A2-0E65-4689-88C2-4BBF14F004F1}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9C97795B-E2E9-4313-B3C4-A7199D4EFD79}
+	EndGlobalSection
+EndGlobal

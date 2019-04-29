@@ -1,0 +1,4 @@
+﻿  源.cpp
+c:\users\德玛西亚\desktop\mianshi60_2\mianshi60_2\源.cpp(25): warning C4554: “&”: 检查运算符优先级是否存在的可能的错误；使用括号阐明优先级
+c:\users\德玛西亚\desktop\mianshi60_2\mianshi60_2\源.cpp(59): warning C4554: “&”: 检查运算符优先级是否存在的可能的错误；使用括号阐明优先级
+  mianshi60_2.vcxproj -> C:\Users\德玛西亚\Desktop\mianshi60_2\Debug\mianshi60_2.exe
